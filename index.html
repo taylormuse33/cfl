@@ -1,0 +1,1764 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#070d06">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <title>CFL — Wednesday Night Football · Week 10: The Big Game</title>
+  <style>
+    :root{
+      color-scheme:dark;
+      --ink:#f6faf1;
+      --muted:#aebfa9;
+      --faint:#7e9079;
+      --paper:#0b130a;
+      --panel:#101a0e;
+      --panel-2:#0d150c;
+      --line:rgba(246,250,241,.14);
+      --line-soft:rgba(246,250,241,.08);
+      --green:#b8ff3f;
+      --green-deep:#79bd27;
+      --gold:#ffd34e;
+      --orange:#ff692e;
+      --blue:#70ccff;
+      --radius:18px;
+      --radius-sm:12px;
+      --shadow:0 24px 60px rgba(0,0,0,.52);
+      --glass:linear-gradient(165deg,rgba(16,32,17,.92),rgba(5,12,6,.96));
+      --glass-strong:linear-gradient(165deg,rgba(13,27,14,.95),rgba(4,10,5,.97));
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-width:320px;min-height:100vh;overflow-x:hidden;background:#070d06;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    ::selection{background:var(--green);color:#0a1703}
+    body::before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(4,10,4,.55),rgba(4,10,4,.72) 46%,rgba(3,8,3,.94)),url("assets/night-field.jpg") center 58%/cover no-repeat;filter:brightness(1.02) saturate(1.05)}
+    body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 50% -8%,rgba(255,244,200,.12),transparent 46%),linear-gradient(180deg,transparent 60%,rgba(2,6,2,.5))}
+    button{font:inherit}
+    :focus-visible{outline:3px solid var(--green);outline-offset:2px}
+    .page{width:min(1180px,calc(100% - 28px));margin:auto;padding:max(14px,env(safe-area-inset-top)) 0 max(30px,env(safe-area-inset-bottom))}
+    .glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .mono{font-family:"IBM Plex Mono",monospace}
+
+    /* ============ SCOREBUG BAR ============ */
+    .scorebug{position:sticky;top:10px;z-index:40;display:grid;grid-template-columns:auto auto;justify-content:space-between;align-items:stretch;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:rgba(5,11,5,.94);box-shadow:0 16px 40px rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    .bug-brand{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--green);color:#0c1c02}
+    .bug-brand strong{font:400 30px/0.9 "Bebas Neue",sans-serif;letter-spacing:.06em}
+    .bug-brand span{font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;line-height:1.35}
+    .bug-score{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,26px);padding:8px 12px;min-width:0}
+    .bug-side{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+    .bug-side .bug-name{font:400 clamp(19px,3vw,27px)/1 "Bebas Neue",sans-serif;letter-spacing:.05em}
+    .bug-side .bug-num{font:400 clamp(26px,4vw,38px)/0.9 "Bebas Neue",sans-serif}
+    .bug-side.taylor .bug-num{color:var(--green)}
+    .bug-side.lazer .bug-num{color:var(--gold)}
+    .bug-mid{text-align:center}
+    .bug-mid span{display:block;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .bug-mid strong{display:block;margin-top:2px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+    .bug-link{display:grid;place-items:center;padding:0 18px;border-left:1px solid var(--line);color:var(--green);font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:background .18s ease,color .18s ease}
+    .bug-link:hover,.bug-link:focus-visible{background:var(--green);color:#0c1c02}
+
+    main{display:grid;gap:18px;padding-top:18px}
+
+    /* ============ MAIN EVENT POSTER ============ */
+    .poster{position:relative;overflow:hidden;border:1px solid rgba(184,255,63,.4);border-radius:22px;background:linear-gradient(180deg,rgba(10,22,9,.82),rgba(5,11,5,.94) 78%);box-shadow:0 34px 80px rgba(0,0,0,.6)}
+    .poster::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.035) 79px 80px);pointer-events:none}
+    .poster-brand{position:relative;text-align:center;padding:clamp(20px,4vw,34px) 20px 2px}
+    .poster-brand span{display:block;font:400 clamp(84px,18vw,168px)/0.78 "Bebas Neue",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--green);text-shadow:0 0 44px rgba(184,255,63,.45),0 6px 0 rgba(0,0,0,.35),0 22px 60px rgba(0,0,0,.7)}
+    .poster-top{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:16px 22px;border-bottom:1px dashed rgba(246,250,241,.25)}
+    .poster-kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 13px;background:var(--orange);color:#220b00;border-radius:6px;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 22px rgba(255,105,46,.35)}
+    .poster-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#220b00}
+    .poster-when{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#eaf3e4}
+    .poster-when em{font-style:normal;color:var(--gold)}
+    .poster-lights{flex:1 1 100%;margin-top:2px;text-align:center;font:400 clamp(34px,7.5vw,56px)/1 "Bebas Neue",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 0 6px rgba(255,255,255,.95),0 0 18px rgba(255,255,255,.85),0 0 42px rgba(255,255,255,.6),0 0 90px rgba(255,255,255,.45)}
+    .poster-head{position:relative;padding:clamp(22px,4.5vw,44px) clamp(18px,4vw,40px) 6px;text-align:center}
+    .poster-eyebrow{margin:0;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.3em;text-transform:uppercase}
+    .poster-title{margin:8px 0 0;font:400 clamp(64px,13vw,148px)/0.82 "Bebas Neue",sans-serif;letter-spacing:.01em;text-transform:uppercase;text-shadow:0 6px 0 rgba(0,0,0,.35),0 22px 60px rgba(0,0,0,.7)}
+    .poster-title .must{color:var(--green);text-shadow:0 0 44px rgba(184,255,63,.45),0 6px 0 rgba(0,0,0,.35)}
+    .poster-sub{max-width:640px;margin:16px auto 0;color:#e6efe1;font-size:clamp(13px,1.8vw,16px);font-weight:550;line-height:1.55;text-wrap:balance}
+    .poster-sub strong{color:#fff}
+    .faceoff{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;margin:clamp(20px,4vw,36px) clamp(14px,3vw,34px) 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:rgba(3,8,3,.55)}
+    .fighter{padding:clamp(16px,3vw,28px);min-width:0}
+    .fighter.taylor{background:linear-gradient(150deg,rgba(184,255,63,.14),transparent 70%)}
+    .fighter.lazer{background:linear-gradient(210deg,rgba(255,211,78,.14),transparent 70%);text-align:right}
+    .fighter .f-role{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .fighter .f-name{display:block;margin-top:6px;font:400 clamp(38px,6.5vw,64px)/0.88 "Bebas Neue",sans-serif;letter-spacing:.02em;text-transform:uppercase}
+    .fighter.taylor .f-name{color:#fff}
+    .fighter.lazer .f-name{color:#fff}
+    .fighter .f-record{display:flex;align-items:baseline;gap:10px;margin-top:10px}
+    .fighter.lazer .f-record{justify-content:flex-end}
+    .fighter .f-num{font:400 clamp(56px,8vw,84px)/0.8 "Bebas Neue",sans-serif}
+    .fighter.taylor .f-num{color:var(--green);text-shadow:0 0 34px rgba(184,255,63,.4)}
+    .fighter.lazer .f-num{color:var(--gold);text-shadow:0 0 34px rgba(255,211,78,.4)}
+    .fighter .f-wins{color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .form{display:flex;align-items:center;gap:5px;margin-top:14px}
+    .fighter.lazer .form{justify-content:flex-end}
+    .form .form-label{margin-right:4px;color:var(--faint);font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .form i{display:grid;place-items:center;width:21px;height:21px;border-radius:6px;font-size:9px;font-style:normal;font-weight:900}
+    .form i.w{background:var(--green);color:#0c1c02}
+    .form i.l{background:rgba(255,105,46,.9);color:#220b00}
+    .form i.t{background:rgba(255,255,255,.35);color:#0b130a}
+    .faceoff-mid{display:grid;place-items:center;padding:0 6px}
+    .faceoff-mid span{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#fff;color:#0a1408;font:800 13px/1 "IBM Plex Sans",sans-serif;box-shadow:0 0 0 6px rgba(255,255,255,.13),0 12px 28px rgba(0,0,0,.5)}
+    .stakes{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:0 clamp(14px,3vw,34px);border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;overflow:hidden;background:rgba(3,8,3,.4)}
+    .stake{padding:16px 20px}
+    .stake+.stake{border-left:1px dashed rgba(246,250,241,.22)}
+    .stake span{display:block;font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .stake.win span{color:var(--green)}
+    .stake.lose span{color:var(--orange)}
+    .stake p{margin:7px 0 0;color:#e9f1e4;font-size:12.5px;font-weight:550;line-height:1.5}
+    .poster-foot{position:relative;display:grid;gap:0;margin-top:clamp(18px,3vw,28px);border-top:1px dashed rgba(246,250,241,.25);background:rgba(3,8,3,.5)}
+    .foot-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px}
+    .foot-block+.foot-block{border-top:1px dashed rgba(246,250,241,.22)}
+    .tgiving{display:flex;align-items:center;gap:14px;min-width:0}
+    .tgiving .tg-badge{flex:0 0 auto;padding:8px 12px;border:1px solid rgba(255,211,78,.55);border-radius:8px;color:var(--gold);font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+    .tgiving .tg-badge.tg-badge-now{border-color:rgba(184,255,63,.6);color:var(--green)}
+    .tgiving p{margin:0;color:#e9f1e4;font-size:12px;font-weight:600;line-height:1.45}
+    .tgiving p strong{color:#fff}
+    .count-chip{flex:0 0 auto;text-align:right}
+    .count-chip strong{display:block;color:var(--green);font:400 34px/0.9 "Bebas Neue",sans-serif;letter-spacing:.04em}
+    .count-chip span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+
+    /* ============ WEEK NINE HIGHLIGHTS — NEON QUICK ACCESS ============ */
+    .neon-w9{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:12px 14px 12px 12px;border-radius:999px;border:2px solid #4dd8ff;background:linear-gradient(180deg,rgba(6,32,52,.96),rgba(3,14,28,.98));color:#eaf9ff;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent;box-shadow:0 0 0 1px rgba(125,230,255,.35),0 0 18px rgba(56,198,255,.65),0 0 44px rgba(0,166,255,.38),inset 0 0 18px rgba(56,198,255,.22),0 18px 36px rgba(0,0,0,.45);transition:box-shadow .18s ease,transform .18s ease,background .18s ease}
+    .neon-w9:hover,.neon-w9:focus-visible{box-shadow:0 0 0 1px rgba(160,240,255,.7),0 0 24px rgba(56,198,255,.9),0 0 58px rgba(0,166,255,.55),inset 0 0 22px rgba(56,198,255,.32),0 18px 36px rgba(0,0,0,.45);background:linear-gradient(180deg,rgba(8,44,72,.98),rgba(3,18,36,.98))}
+    .neon-w9:active{transform:scale(.99)}
+    .neon-w9:focus-visible{outline:3px solid #b8efff;outline-offset:3px}
+    .neon-w9-play{flex:0 0 auto;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;border:2px solid #7ee6ff;background:rgba(0,140,255,.18);color:#aeeaff;box-shadow:0 0 14px rgba(56,198,255,.85),inset 0 0 12px rgba(56,198,255,.45)}
+    .neon-w9-play svg{width:20px;height:20px;margin-left:2px;fill:currentColor;filter:drop-shadow(0 0 6px rgba(125,230,255,.9))}
+    .neon-w9-main{flex:1 1 auto;min-width:0}
+    .neon-w9-title{display:block;font:400 clamp(28px,5.4vw,40px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#8be9ff;text-shadow:0 0 6px rgba(125,230,255,.95),0 0 18px rgba(56,198,255,.85),0 0 38px rgba(0,166,255,.65);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .neon-w9-sub{display:block;margin-top:3px;color:#c8efff;font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;text-shadow:0 0 10px rgba(56,198,255,.5)}
+    .neon-w9-arrow{flex:0 0 auto;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid rgba(125,230,255,.65);color:#aeeaff;font-size:22px;line-height:1;box-shadow:0 0 12px rgba(56,198,255,.45)}
+    #game-film{scroll-margin-top:90px}
+    @media(prefers-reduced-motion:no-preference){
+      .neon-w9{animation:neon-pulse 2.6s ease-in-out infinite}
+      @keyframes neon-pulse{0%,100%{box-shadow:0 0 0 1px rgba(125,230,255,.35),0 0 18px rgba(56,198,255,.65),0 0 44px rgba(0,166,255,.38),inset 0 0 18px rgba(56,198,255,.22),0 18px 36px rgba(0,0,0,.45)}50%{box-shadow:0 0 0 1px rgba(125,230,255,.55),0 0 26px rgba(56,198,255,.85),0 0 60px rgba(0,166,255,.5),inset 0 0 22px rgba(56,198,255,.3),0 18px 36px rgba(0,0,0,.45)}}
+    }
+    @media(max-width:640px){
+      .neon-w9{min-height:62px;gap:11px;padding:9px 10px 9px 9px}
+      .neon-w9-play{width:42px;height:42px}
+      .neon-w9-title{font-size:25px;letter-spacing:.04em}
+      .neon-w9-sub{font-size:8.5px;letter-spacing:.11em}
+      .neon-w9-arrow{width:34px;height:34px;font-size:20px}
+    }
+
+    /* ============ SECTION HEADS ============ */
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 19px;border-bottom:1px solid var(--line-soft)}
+    .section-head h2{display:flex;align-items:center;gap:11px}
+    .section-head h2::before{content:"";flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:var(--green);box-shadow:0 0 12px rgba(184,255,63,.65);transform:rotate(45deg)}
+    .section-head p{margin:0;color:var(--muted);font-size:11px;text-align:right}
+    h2{margin:0;font:400 clamp(28px,3.6vw,42px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
+    .eyebrow{color:var(--green);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+
+    /* ============ SEASON RACE TRACK ============ */
+    .race{overflow:hidden}
+    .race-track{display:grid;grid-template-columns:repeat(4,1fr)}
+    .race-week{position:relative;padding:16px 17px 15px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);min-width:0}
+    .race-week:nth-child(4n){border-right:0}
+    .race-week:nth-child(n+13){border-bottom:0}
+    .race-week .rw-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .race-week .rw-wk{font:400 21px/1 "Bebas Neue",sans-serif;letter-spacing:.06em}
+    .race-week .rw-date{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase}
+    .race-week .rw-result{margin-top:9px;font:400 26px/0.95 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase}
+    .race-week .rw-note{margin:6px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
+    .race-week.w-taylor{background:linear-gradient(155deg,rgba(184,255,63,.13),transparent 72%)}
+    .race-week.w-taylor .rw-result{color:var(--green)}
+    .race-week.w-lazer{background:linear-gradient(155deg,rgba(255,211,78,.11),transparent 72%)}
+    .race-week.w-lazer .rw-result{color:var(--gold)}
+    .race-week.w-tie .rw-result{color:#fff}
+    .race-week.is-next{outline:2px solid var(--orange);outline-offset:-2px;background:linear-gradient(155deg,rgba(255,105,46,.16),transparent 75%)}
+    .race-week.is-next .rw-result{color:var(--orange)}
+    .race-week.is-tgiving{background:linear-gradient(155deg,rgba(255,211,78,.16),transparent 75%)}
+    .race-week.is-tgiving .rw-result{color:var(--gold)}
+    .race-tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:999px;font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .race-week.is-next .race-tag{background:var(--orange);color:#220b00}
+    .race-week.is-tgiving .race-tag{border:1px solid rgba(255,211,78,.6);color:var(--gold)}
+    .race-week .race-tag{border:1px solid var(--line);color:var(--muted)}
+    .race-week.is-next .race-tag{border:0}
+    .race-legend{display:flex;flex-wrap:wrap;gap:16px;padding:13px 19px;border-top:1px solid var(--line-soft);background:rgba(0,0,0,.25)}
+    .race-legend span{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .race-legend i{width:10px;height:10px;border-radius:3px}
+    .race-legend .lg-t{background:var(--green)}
+    .race-legend .lg-l{background:var(--gold)}
+    .race-legend .lg-tie{background:rgba(255,255,255,.5)}
+    .race-legend .lg-next{background:var(--orange)}
+
+    /* ============ TOP PLAYERS — DAMAGE REPORT ============ */
+    .damage-grid{display:grid;grid-template-columns:repeat(6,1fr)}
+    .damage-card{padding:19px 20px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);min-width:0}
+    .damage-card.c1,.damage-card.c2,.damage-card.c3{grid-column:span 2}
+    .damage-card.c4,.damage-card.c5{grid-column:span 3}
+    .damage-card.c3,.damage-card.c5{border-right:0}
+    .damage-card.c1{background:linear-gradient(155deg,rgba(184,255,63,.16),transparent 72%)}
+    .damage-card.c5{background:linear-gradient(155deg,rgba(255,105,46,.13),transparent 72%)}
+    .damage-rank{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .damage-rank .d-num{font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;color:var(--green)}
+    .damage-card.c5 .d-num{color:var(--orange)}
+    .damage-tag{padding:4px 8px;border-radius:999px;border:1px solid rgba(184,255,63,.55);color:var(--green);font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+    .damage-card.c5 .damage-tag{border-color:rgba(255,105,46,.6);color:var(--orange)}
+    .damage-name{margin:9px 0 0;font:400 clamp(30px,4vw,42px)/0.92 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase}
+    .damage-card p{margin:7px 0 0;color:#e9f1e4;font-size:12.5px;line-height:1.55}
+    .damage-card p strong{color:#fff}
+    .duo-banner{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:17px 20px;border-bottom:1px solid var(--line-soft);background:linear-gradient(105deg,rgba(112,204,255,.13),transparent 70%)}
+    .duo-banner .duo-badge{flex:0 0 auto;padding:8px 12px;border:1px solid rgba(112,204,255,.6);border-radius:8px;color:var(--blue);font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+    .duo-banner p{margin:0;flex:1 1 320px;color:#e9f1e4;font-size:12.5px;font-weight:600;line-height:1.55}
+    .duo-banner p strong{color:#fff}
+    .verdict-bar{display:grid;grid-template-columns:1fr 1fr}
+    .verdict{padding:16px 20px}
+    .verdict+.verdict{border-left:1px dashed rgba(246,250,241,.22)}
+    .verdict span{display:block;font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .verdict.lazer span{color:var(--gold)}
+    .verdict.taylor span{color:var(--orange)}
+    .verdict p{margin:7px 0 0;color:#e9f1e4;font-size:12.5px;font-weight:550;line-height:1.55}
+    .verdict p strong{color:#fff}
+    @media(max-width:900px){
+      .damage-card.c1,.damage-card.c2,.damage-card.c3,.damage-card.c4,.damage-card.c5,.damage-card.c6,.damage-card.c7,.damage-card.c8,.damage-card.c9{grid-column:span 3}
+      .damage-card.c3{border-right:1px solid var(--line-soft)}
+      .damage-card.c2,.damage-card.c4,.damage-card.c6{border-right:0}
+      .damage-card.c7{grid-column:span 6;border-right:0}
+      .damage-card.c9{border-right:0}
+    }
+    @media(max-width:640px){
+      .damage-grid{grid-template-columns:1fr}
+      .damage-card.c1,.damage-card.c2,.damage-card.c3,.damage-card.c4,.damage-card.c5,.damage-card.c6,.damage-card.c7,.damage-card.c8,.damage-card.c9{grid-column:auto;border-right:0}
+      .damage-card{padding:14px}
+      .damage-name{font-size:28px}
+      .duo-banner{padding:13px 14px}
+      .verdict-bar{grid-template-columns:1fr}
+      .verdict{padding:13px 14px}
+      .verdict+.verdict{border-left:0;border-top:1px dashed rgba(246,250,241,.22)}
+    }
+
+    /* ============ SEASON LINE + SPEED KINGS ============ */
+    .season-line{padding:15px 20px;border-bottom:1px solid var(--line-soft);background:linear-gradient(105deg,rgba(184,255,63,.1),transparent 72%)}
+    .season-line p{margin:0;color:#e9f1e4;font-size:13px;font-weight:600;line-height:1.55}
+    .season-line p strong{color:#fff}
+    .season-line .sl-tag{display:inline-block;margin-right:10px;padding:5px 9px;border-radius:6px;background:var(--green);color:#0c1c02;font-size:8px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;vertical-align:2px}
+    .damage-card.c6,.damage-card.c7{grid-column:span 3}
+    .damage-card.c7{border-right:0}
+    .damage-card.c6{background:linear-gradient(155deg,rgba(112,204,255,.16),transparent 72%)}
+    .damage-card.c7{background:linear-gradient(155deg,rgba(112,204,255,.07),rgba(184,255,63,.1) 75%)}
+    .damage-card.c6 .d-num,.damage-card.c7 .d-num{color:var(--blue)}
+    .damage-card.c6 .damage-tag,.damage-card.c7 .damage-tag{border-color:rgba(112,204,255,.6);color:var(--blue)}
+    .damage-card.c8,.damage-card.c9{grid-column:span 3}
+    .damage-card.c9{border-right:0}
+    .damage-card.c8{background:linear-gradient(155deg,rgba(255,211,78,.15),transparent 72%)}
+    .damage-card.c8 .d-num{color:var(--gold)}
+    .damage-card.c8 .damage-tag{border-color:rgba(255,211,78,.6);color:var(--gold)}
+    .damage-card.c9{background:linear-gradient(155deg,rgba(184,255,63,.12),transparent 72%)}
+    .speed-banner{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:17px 20px;border-bottom:1px solid var(--line-soft);background:linear-gradient(105deg,rgba(255,211,78,.13),transparent 70%)}
+    .speed-banner .sp-badge{flex:0 0 auto;padding:8px 12px;border:1px solid rgba(255,211,78,.6);border-radius:8px;color:var(--gold);font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+    .speed-banner p{margin:0;flex:1 1 320px;color:#e9f1e4;font-size:12.5px;font-weight:600;line-height:1.55}
+    .speed-banner p strong{color:#fff}
+
+    /* ============ WEEK 9 FILM STRIP ============ */
+    .w9-block{padding:18px 20px 4px;border-bottom:1px solid var(--line-soft)}
+    .w9-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:8px 14px}
+    .w9-head h3{margin:5px 0 0;font:400 clamp(26px,3.4vw,36px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase}
+    .w9-head .w9-sub{margin:0;color:var(--muted);font-size:11px;font-weight:650;line-height:1.5}
+    .w9-scroll{display:flex;gap:12px;margin:14px -20px 0;padding:2px 20px 16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:thin}
+    .w9-card{flex:0 0 auto;width:min(216px,62vw);scroll-snap-align:start}
+    .w9-video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#000;border:1px solid var(--line);border-radius:14px}
+    .w9-wrap{position:relative}
+    .w9-wrap .w9-video{cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .w9-wrap .w9-video:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+    .w9-sound{position:absolute;right:9px;bottom:9px;z-index:3;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.34);background:rgba(2,9,4,.72);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.3);cursor:pointer}
+    .w9-sound svg{width:20px;height:20px;fill:currentColor}
+    .w9-sound.is-muted::after{content:"";position:absolute;width:24px;height:2px;background:var(--orange);transform:rotate(-45deg);box-shadow:0 1px 2px rgba(0,0,0,.5)}
+    .w9-sound:hover,.w9-sound:focus-visible{border-color:var(--green);background:rgba(14,37,12,.92);outline:2px solid var(--green);outline-offset:2px}
+    .w9-full{position:absolute;right:9px;top:9px;z-index:3;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.34);background:rgba(2,9,4,.72);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.3);cursor:pointer}
+    .w9-full svg{width:20px;height:20px;fill:currentColor}
+    .w9-full:hover,.w9-full:focus-visible{border-color:var(--green);background:rgba(14,37,12,.92);outline:2px solid var(--green);outline-offset:2px}
+    .w9-state{position:absolute;left:9px;bottom:9px;z-index:3;padding:5px 9px;border-radius:999px;background:rgba(2,9,4,.72);color:#fff;font-size:9px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;pointer-events:none}
+    .w9-meta{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:8px}
+    .w9-meta strong{font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+    .w9-meta span{color:var(--gold);font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700}
+    .w9-card--top .w9-video{border-color:rgba(255,211,78,.85);box-shadow:0 0 0 1px rgba(255,211,78,.55),0 0 26px rgba(255,211,78,.32)}
+    .w9-badge{position:absolute;left:9px;top:9px;z-index:4;padding:6px 10px;border-radius:999px;background:var(--gold);color:#241a00;font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;box-shadow:0 6px 18px rgba(0,0,0,.45);pointer-events:none}
+    .w9-meta--top strong{color:var(--gold)}
+    .w9-meta--top span{color:var(--ink)}
+    @media(max-width:640px){
+      .season-line,.speed-banner{padding:13px 14px}
+      .w9-block{padding:13px 14px 2px}
+      .w9-scroll{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px}
+    }
+
+    /* ============ FRONT PAGE (WEEK 9) ============ */
+    .frontpage{overflow:hidden}
+    .fp-grid{display:grid;grid-template-columns:1.25fr 1fr}
+    .fp-lead{padding:22px 24px;border-right:1px solid var(--line-soft);background:linear-gradient(150deg,rgba(255,211,78,.12),transparent 70%)}
+    .fp-lead .fp-kicker{color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .fp-lead h3{margin:9px 0 0;font:400 clamp(38px,5.4vw,58px)/0.9 "Bebas Neue",sans-serif;letter-spacing:.02em;text-transform:uppercase}
+    .fp-lead p{margin:11px 0 0;color:#e9f1e4;font-size:13px;line-height:1.55;max-width:460px}
+    .fp-side{display:grid}
+    .fp-item{padding:16px 19px;border-bottom:1px solid var(--line-soft)}
+    .fp-item:last-child{border-bottom:0}
+    .fp-item .fp-num{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;color:var(--orange)}
+    .fp-item h3{margin:5px 0 0;font:400 26px/1 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
+    .fp-item p{margin:5px 0 0;color:var(--muted);font-size:11.5px;line-height:1.45}
+    .breaking-bar{display:flex;align-items:center;gap:12px;padding:12px 19px;border-top:1px solid var(--line-soft);background:rgba(255,105,46,.1)}
+    .breaking-bar .bb-tag{flex:0 0 auto;padding:5px 10px;background:var(--orange);color:#220b00;border-radius:5px;font:400 17px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+    .breaking-bar p{margin:0;font-size:12px;font-weight:650}
+    .breaking-bar p strong{color:var(--gold);text-transform:uppercase}
+
+    /* ============ ARCHIVE ============ */
+    .archive{overflow:hidden}
+    .archive-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .archive-card{position:relative;display:block;width:100%;padding:18px;text-align:left;border:0;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s ease}
+    .archive-card:nth-child(3n){border-right:0}
+    .archive-card:nth-child(n+7){border-bottom:0}
+    .archive-card:hover,.archive-card:focus-visible{background:rgba(184,255,63,.07)}
+    .archive-card .ac-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+    .archive-card .ac-wk{font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+    .archive-card .ac-date{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase}
+    .archive-card .ac-result{display:block;margin-top:9px;font:400 22px/1 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase}
+    .archive-card .ac-result.t{color:var(--green)}
+    .archive-card .ac-result.l{color:var(--gold)}
+    .archive-card .ac-result.tie{color:#fff}
+    .archive-card .ac-note{display:block;margin-top:6px;color:var(--muted);font-size:11px;line-height:1.45}
+    .archive-card .ac-open{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    .archive-card .ac-open::after{content:"›";font-size:15px;line-height:1;transition:transform .18s ease}
+    .archive-card:hover .ac-open::after{transform:translateX(3px)}
+
+    /* ============ ROSTER ============ */
+    .roster{overflow:hidden;scroll-margin-top:84px}
+    .roster summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 19px;cursor:pointer;list-style:none;transition:background .2s ease}
+    .roster summary:hover{background:rgba(184,255,63,.05)}
+    .roster summary::-webkit-details-marker{display:none}
+    .roster summary h2{margin:0}
+    .roster summary span{color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .roster summary span::after{content:" +"}
+    .roster[open] summary{border-bottom:1px solid var(--line-soft)}
+    .roster[open] summary span::after{content:" −"}
+    .roster-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;scrollbar-width:thin}
+    .roster-table{width:100%;min-width:900px;border-collapse:collapse;table-layout:fixed}
+    .roster-table col:nth-child(1){width:122px}
+    .roster-table th:first-child,.roster-table td:first-child{position:sticky;left:0;z-index:2;box-shadow:7px 0 12px -7px rgba(0,0,0,.7)}
+    .roster-table th:first-child{background:#22380f}
+    .roster-table td:first-child{background:#0c1a09}
+    .roster-table th,.roster-table td{padding:11px 13px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:middle}
+    .roster-table th:last-child,.roster-table td:last-child{border-right:0}.roster-table tbody tr:last-child td{border-bottom:0}
+    .roster-table th{background:rgba(184,255,63,.12);color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .roster-table td{color:#edf3e9;font-size:11px;font-weight:600;line-height:1.35}
+    .roster-table tbody tr{transition:background .15s ease}
+    .roster-table tbody tr:nth-child(even){background:rgba(255,255,255,.022)}
+    .roster-table tbody tr:hover{background:rgba(184,255,63,.055)}
+    .roster-table td:first-child{color:#fff;font:400 20px/1 "Bebas Neue",sans-serif;letter-spacing:.035em}
+    footer{display:flex;justify-content:space-between;gap:14px;padding:18px 2px 0;color:#d9e1d6;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 2px 12px #000}
+
+
+    /* ============ COLLAPSIBLE PILLS ============ */
+    .pill{overflow:hidden;scroll-margin-top:84px}
+    .pill>summary.pill-summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer;list-style:none;transition:background .2s ease}
+    .pill>summary.pill-summary:hover{background:rgba(184,255,63,.05)}
+    .pill>summary::-webkit-details-marker{display:none}
+    .pill>summary h2{margin:0}
+    .pill-hint{flex:0 1 auto;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:right}
+    .pill-hint::after{content:" +"}
+    .pill[open]>summary.pill-summary{border-bottom:1px solid var(--line-soft)}
+    .pill[open] .pill-hint::after{content:" \2212"}
+    .pill-body{min-width:0}
+    .pill-tag{display:inline-block;margin-left:10px;padding:4px 8px;border-radius:999px;background:var(--orange);color:#220b00;font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;vertical-align:middle}
+    /* ============ TOP PLAYERS PILL — NEON GREEN GLOW ============ */
+    .pill.damage{border:2px solid #39ff14;box-shadow:0 0 0 1px rgba(57,255,20,.35),0 0 18px rgba(57,255,20,.55),0 0 44px rgba(57,255,20,.3),inset 0 0 18px rgba(57,255,20,.14),0 24px 60px rgba(0,0,0,.52)}
+    .pill.damage>summary.pill-summary h2{color:#e4ffd9;text-shadow:0 0 8px rgba(57,255,20,.85),0 0 22px rgba(57,255,20,.55)}
+    .pill.damage .pill-hint{color:#39ff14;text-shadow:0 0 10px rgba(57,255,20,.65)}
+    .pill.damage>summary.pill-summary:hover{background:rgba(57,255,20,.07)}
+    @media(prefers-reduced-motion:no-preference){
+      .pill.damage{animation:tp-glow-pulse 2.2s ease-in-out infinite}
+      @keyframes tp-glow-pulse{0%,100%{box-shadow:0 0 0 1px rgba(57,255,20,.35),0 0 18px rgba(57,255,20,.55),0 0 44px rgba(57,255,20,.3),inset 0 0 18px rgba(57,255,20,.14),0 24px 60px rgba(0,0,0,.52)}50%{box-shadow:0 0 0 1px rgba(57,255,20,.65),0 0 30px rgba(57,255,20,.9),0 0 68px rgba(57,255,20,.48),inset 0 0 26px rgba(57,255,20,.24),0 24px 60px rgba(0,0,0,.52)}}
+    }
+    /* ============ 2026 SEASON — MERGED SECTIONS ============ */
+    .season-body{display:block}
+    .season-section{min-width:0}
+    .season-section+.season-section{border-top:1px solid var(--line)}
+    .season-subhead{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 19px 13px;border-bottom:1px solid var(--line-soft)}
+    .season-subhead h3{margin:0;display:flex;align-items:center;gap:11px;font:400 clamp(24px,3vw,34px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
+    .season-subhead h3::before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:2px;background:var(--green);box-shadow:0 0 10px rgba(184,255,63,.6);transform:rotate(45deg)}
+    .season-subnote{flex:0 1 auto;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:right}
+    .season-section.roster{scroll-margin-top:84px}
+    @media(max-width:640px){.season-subhead{padding:11px 12px}.season-subhead h3{font-size:22px}.season-subnote{font-size:8px}}
+    /* ============ GAME FILM ============ */
+    .film-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:22px;padding:20px;align-items:start}
+    .film-item{min-width:0}
+    .film-item h3{margin:10px 0 0;font:400 27px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+    .film-item p{margin:6px 0 0;color:var(--muted);font-size:11.5px;line-height:1.5}
+    .film-item .film-tag{color:var(--green);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .reel-video{display:block;width:min(100%,320px);aspect-ratio:9/16;object-fit:contain;background:#000;border:1px solid var(--line);border-radius:14px}
+    .potw-video{display:block;width:100%;max-height:480px;object-fit:contain;background:#000;border:1px solid var(--line);border-radius:14px}
+    .film-note{padding:0 20px 18px;color:var(--muted);font-size:11px;line-height:1.5}
+    .film-note strong{color:var(--gold)}
+    @media(max-width:640px){
+      .pill>summary.pill-summary{padding:13px 12px}
+      .pill-hint{font-size:8px}
+      .film-grid{grid-template-columns:1fr;gap:16px;padding:14px}
+      .reel-video{margin:0 auto}
+      .film-note{padding:0 14px 14px}
+    }
+    /* ============ WEEK SHEETS (shared components, kept) ============ */
+    .broadcast-strip{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;min-height:44px;background:rgba(2,9,4,.88);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:var(--radius-sm);overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+    .breaking{align-self:stretch;display:grid;place-items:center;padding:0 14px;background:linear-gradient(160deg,#ff7d47,var(--orange));color:#1c0801;font-family:"Bebas Neue",sans-serif;font-size:19px;letter-spacing:.08em}
+    .ticker-copy{min-width:0;padding:8px 14px;font-size:12px;font-weight:650;line-height:1.35}
+    .ticker-copy strong{color:var(--gold);text-transform:uppercase}
+    .ticker-meta{padding:0 14px;border-left:1px solid var(--line);color:var(--green);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+    .week-talk{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:stretch;overflow:hidden;border-color:rgba(184,255,63,.5)}
+    .talk-title{display:grid;place-items:center;padding:12px 18px;background:linear-gradient(160deg,#c9ff70,var(--green));color:#102000;font:400 24px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+    .comment-list{list-style:none;margin:0;padding:6px}
+    .comment-card{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:15px;min-height:54px;padding:10px 13px;border-radius:10px}
+    .comment-card:nth-child(odd){background:rgba(255,255,255,.035)}
+    .comment-name{color:var(--green);font:400 25px/1 "Bebas Neue",sans-serif;letter-spacing:.045em;text-transform:uppercase}
+    .comment-card blockquote{margin:0;padding-left:15px;border-left:2px solid rgba(184,255,63,.5);color:#fff;font-size:12px;font-weight:650;line-height:1.4}
+    .carlos-spotlight{display:grid;grid-template-columns:minmax(230px,.48fr) minmax(0,1fr);overflow:hidden;border-color:rgba(184,255,63,.45);background:linear-gradient(105deg,rgba(3,11,5,.88),rgba(184,255,63,.13))}
+    .week3-spotlight,.week4-spotlight,.week5-spotlight{grid-template-columns:1fr;background:linear-gradient(105deg,rgba(184,255,63,.17),rgba(3,11,5,.88) 68%)}
+    .carlos-photo{position:relative;min-height:190px;background:#061108}
+    .carlos-photo img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 76%}
+    .carlos-copy{display:grid;align-content:center;gap:8px;padding:22px 26px}
+    .carlos-copy p{max-width:610px;margin:0;color:#e9f0e5;font-size:13px;line-height:1.55}
+    .fact-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+    .fact{padding:6px 9px;border:1px solid rgba(184,255,63,.45);border-radius:999px;background:rgba(184,255,63,.07);color:#f8fbf3;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+    .preview{overflow:hidden}
+    .story-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+    .story{position:relative;min-width:0;padding:19px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);transition:background .25s ease}
+    .story:nth-child(3n){border-right:0}.story:nth-child(n+4){border-bottom:0}
+    .story:hover{background:rgba(255,255,255,.035)}
+    .story-number{display:inline-block;margin-bottom:9px;padding:3px 8px;border-radius:6px;background:rgba(255,105,46,.16);color:var(--orange);font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.06em}
+    .story h3{margin:0;font:400 25px/1.02 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
+    .story p{margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.5}
+    .story--green{background:linear-gradient(145deg,rgba(184,255,63,.1),transparent 65%)}
+    .story--green .story-number{background:rgba(184,255,63,.15);color:var(--green)}
+    .story--gold{background:linear-gradient(145deg,rgba(255,211,78,.09),transparent 65%)}
+    .story--gold .story-number{background:rgba(255,211,78,.15);color:var(--gold)}
+    .story--orange{background:linear-gradient(145deg,rgba(255,105,46,.1),transparent 65%)}
+    .story.story--wide{grid-column:1/-1;display:grid;grid-template-columns:auto auto minmax(0,1fr);align-items:center;gap:16px;border-right:0;border-bottom:1px solid var(--line-soft)}
+    .story--wide .story-number{margin-bottom:0}
+    .story--wide p{margin:0}
+    .story--smack{grid-column:1/-1;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:18px;border-right:0!important;border-bottom:0!important;background:linear-gradient(105deg,rgba(255,105,46,.17),rgba(255,211,78,.08),transparent)}
+    .story--smack .eyebrow{color:var(--orange);white-space:nowrap}
+    .story--smack p{margin:0;color:#fff;font-size:13px;font-weight:650}
+    .stats{overflow:hidden}
+    .score-summary{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line-soft);background:rgba(0,0,0,.22)}
+    .score-summary.week4-summary{grid-template-columns:repeat(2,1fr)}
+    .score-summary div{min-width:0;padding:13px 14px;border-right:1px solid var(--line-soft);text-align:center}
+    .score-summary div:last-child{border-right:0}
+    .score-summary span{display:block;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .score-summary strong{display:block;margin-top:5px;color:#fff;font:400 23px/1 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
+    .score-summary div:last-child strong{color:var(--green)}
+    .teams{display:grid;grid-template-columns:1fr 1fr}
+    .team{min-width:0}.team+.team{border-left:1px solid var(--line-soft)}
+    .team-title{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:62px;margin:0;padding:14px 19px;border-bottom:1px solid var(--line-soft);background:linear-gradient(90deg,rgba(184,255,63,.1),transparent 75%)}
+    .team:nth-child(2) .team-title{background:linear-gradient(90deg,rgba(255,211,78,.1),transparent 75%)}
+    .team-title h3{margin:0;font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+    .team-title span{flex:0 0 auto;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .stat-list{display:grid}
+    .stat{display:grid;grid-template-columns:minmax(104px,.65fr) minmax(0,1.35fr);align-items:center;gap:18px;min-height:64px;padding:13px 19px;border-bottom:1px solid var(--line-soft);background:rgba(3,11,5,.55);transition:background .2s ease}
+    .stat:last-child{border-bottom:0}
+    .stat:hover{background:rgba(184,255,63,.05)}
+    .stat-name{font:400 23px/1 "Bebas Neue",sans-serif;letter-spacing:.045em}
+    .stat-copy{color:#edf3e9;font-size:11.5px;font-weight:650;line-height:1.45;text-align:left}
+    .stat-copy strong{color:var(--gold)}
+    .interview{padding:22px;background:linear-gradient(140deg,rgba(255,211,78,.13),transparent 68%)}
+    .interview h2{margin-top:7px}.interview p{margin:10px 0 0;color:#edf3e9;font-size:12.5px;line-height:1.55}
+    .final-score{display:flex;align-items:baseline;gap:8px;margin-top:15px;padding-top:13px;border-top:1px solid var(--line-soft)}
+    .final-score strong{color:var(--green);font:400 38px/1 "Bebas Neue",sans-serif;text-shadow:0 0 22px rgba(184,255,63,.35)}.final-score span{color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .highlights{position:relative;padding:12px 0 4px;overflow:hidden;background:transparent}
+    .highlights-head{display:flex;align-items:end;justify-content:space-between;gap:16px;padding:0 8px 10px}
+    .highlights-head h2{color:#fff;text-shadow:0 3px 18px #000}
+    .highlight-count{padding:4px 9px;border-radius:999px;background:rgba(2,9,4,.72);color:var(--green);font-size:9px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+    .highlight-stage{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:10px}
+    .highlight-viewport{min-width:0;overflow:hidden;touch-action:pan-y pinch-zoom}
+    .highlight-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain}
+    .highlight-track::-webkit-scrollbar{display:none}
+    .highlight-slide{flex:0 0 100%;display:grid;place-items:center;min-width:100%;scroll-snap-align:start;scroll-snap-stop:always}
+    .highlight-video-wrap{position:relative;width:min(100%,292px);aspect-ratio:9/16}
+    .highlight-video{display:block;width:100%;height:100%;object-fit:contain;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .highlight-video:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+    .highlight-arrow,.sound-toggle{display:grid;place-items:center;border:1px solid rgba(255,255,255,.34);background:rgba(2,9,4,.72);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.3);cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease}
+    .highlight-arrow{width:44px;height:44px;border-radius:50%;font-size:28px;line-height:1}
+    .highlight-arrow:hover,.sound-toggle:hover{transform:scale(1.07)}
+    .highlight-arrow:hover,.highlight-arrow:focus-visible,.sound-toggle:hover,.sound-toggle:focus-visible{border-color:var(--green);background:rgba(14,37,12,.92);outline:2px solid var(--green);outline-offset:2px}
+    .sound-toggle{position:absolute;right:9px;bottom:9px;width:42px;height:42px;border-radius:50%}
+    .sound-toggle svg{width:20px;height:20px;fill:currentColor}
+    .sound-toggle.is-muted::after{content:"";position:absolute;width:24px;height:2px;background:var(--orange);transform:rotate(-45deg);box-shadow:0 1px 2px rgba(0,0,0,.5)}
+    .highlight-dots{display:flex;justify-content:center;gap:2px;padding-top:8px}
+    .highlight-dot{width:24px;height:24px;padding:8px;border:0;background:transparent;cursor:pointer}
+    .highlight-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(2,9,4,.65);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+    .highlight-dot:hover::before{transform:scale(1.25)}
+    .highlight-dot[aria-current="true"]::before{border-color:var(--green);background:var(--green);box-shadow:0 0 11px rgba(184,255,63,.65)}
+    .highlight-hint{margin:5px 0 0;color:#edf3e9;font-size:9px;font-weight:700;letter-spacing:.05em;text-align:center;text-shadow:0 2px 9px #000}
+    .play-feature{position:relative;padding:12px 0 4px;overflow:hidden;background:transparent}
+    .featured-video-wrap{position:relative;width:min(100%,560px);margin:0 auto}
+    .featured-video{display:block;width:100%;height:auto;max-height:min(72vh,760px);object-fit:contain;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
+    .featured-video:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+    .week-sheet{position:fixed;inset:0;z-index:60;overflow-y:auto;padding:16px;background:rgba(0,5,2,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .week-sheet[hidden]{display:none}
+    .sheet-panel{width:min(1160px,100%);margin:auto;display:grid;gap:14px}
+    .sheet-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 17px;background:rgba(2,9,4,.96);border:1px solid var(--line);border-top:3px solid var(--green);border-radius:14px;box-shadow:var(--shadow)}
+    .sheet-bar h2{margin:0;font:400 31px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+    .sheet-close,.sheet-done{min-height:44px;padding:8px 19px;border:0;border-radius:999px;background:var(--green);color:#0a1703;box-shadow:0 8px 20px rgba(184,255,63,.25);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .18s ease,background .18s ease}
+    .sheet-close:hover,.sheet-close:focus-visible,.sheet-done:hover,.sheet-done:focus-visible{background:#ceff77;transform:translateY(-1px)}
+    .sheet-close:active,.sheet-done:active{transform:scale(.97)}
+    .sheet-done{width:100%}
+    .sheet-body{display:grid;gap:14px;min-width:0}
+    .sheet-body .interview{border:1px solid var(--line);border-radius:var(--radius)}
+    .sheet-body .stat-list{border:0}
+
+    @media(prefers-reduced-motion:no-preference){
+      main>*{animation:rise .6s cubic-bezier(.22,.8,.3,1) both}
+      main>*:nth-child(1){animation-delay:.05s}main>*:nth-child(2){animation-delay:.14s}main>*:nth-child(3){animation-delay:.22s}main>*:nth-child(4){animation-delay:.3s}
+      .poster-kicker::before{animation:pulse 1.8s ease-in-out infinite}
+      .sheet-panel{animation:sheet-in .38s cubic-bezier(.22,.8,.3,1) both}
+      @keyframes rise{from{opacity:0;transform:translateY(14px)}}
+      @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.72)}}
+      @keyframes sheet-in{from{opacity:0;transform:translateY(16px)}}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.highlight-track{scroll-behavior:auto}.archive-card,.highlight-arrow,.sound-toggle{transition:none}}
+    /* Damage grid — final breakpoint pass (explicit columns, no span reliance) */
+    @media(max-width:900px){
+      .damage-grid{grid-template-columns:1fr 1fr}
+      .damage-card.c1,.damage-card.c2,.damage-card.c3,.damage-card.c4,.damage-card.c5,.damage-card.c6,.damage-card.c8,.damage-card.c9{grid-column:auto}
+      .damage-card.c7{grid-column:1/-1;border-right:0}
+      .damage-card.c2,.damage-card.c4,.damage-card.c6,.damage-card.c9{border-right:0}
+      .damage-card.c3{border-right:1px solid var(--line-soft)}
+    }
+    @media(max-width:640px){
+      .damage-grid{grid-template-columns:1fr}
+      .damage-card.c1,.damage-card.c2,.damage-card.c3,.damage-card.c4,.damage-card.c5,.damage-card.c6,.damage-card.c7,.damage-card.c8,.damage-card.c9{grid-column:1/-1;border-right:0}
+    }
+    @media(max-width:900px){
+      .race-track{grid-template-columns:repeat(3,1fr)}
+      .race-week:nth-child(4n){border-right:1px solid var(--line-soft)}
+      .race-week:nth-child(3n){border-right:0}
+      .race-week:nth-child(n+9){border-bottom:1px solid var(--line-soft)}
+      .race-week:nth-child(n+13){border-bottom:0}
+      .archive-grid{grid-template-columns:repeat(2,1fr)}
+      .archive-card:nth-child(3n){border-right:1px solid var(--line-soft)}
+      .archive-card:nth-child(2n){border-right:0}
+      .archive-card:nth-child(n+7){border-bottom:1px solid var(--line-soft)}
+      .archive-card:nth-child(n+9){border-bottom:0}
+      .story-grid{grid-template-columns:repeat(2,1fr)}
+      .story:nth-child(3n){border-right:1px solid var(--line-soft)}
+      .story:nth-child(2n){border-right:0}
+      .story:nth-child(n+4){border-bottom:1px solid var(--line-soft)}
+      .story:nth-child(n+5){border-bottom:0}
+    }
+    @media(max-width:640px){
+      .page{width:calc(100% - 14px);padding-top:7px}
+      main{gap:10px;padding-top:10px}
+      .scorebug{top:6px;border-radius:11px}
+      .bug-brand{padding:8px 10px}
+      .bug-brand strong{font-size:23px}
+      .bug-brand span{display:none}
+      .bug-side .bug-name{display:none}
+      .bug-mid strong{font-size:8px}
+      .bug-link{padding:0 11px;font-size:8px}
+      .poster{border-radius:16px}
+      .poster-top{padding:11px 13px}
+      .poster-kicker{font-size:9px;padding:6px 9px}
+      .poster-when{font-size:10px}
+      .poster-title{font-size:clamp(56px,17.5vw,84px)}
+      .poster-eyebrow{font-size:9px;letter-spacing:.22em}
+      .poster-sub{font-size:12px}
+      .faceoff{margin-left:9px;margin-right:9px;border-radius:12px}
+      .fighter{padding:13px 11px}
+      .fighter .f-name{font-size:27px}
+      .fighter .f-num{font-size:46px}
+      .fighter .f-role{font-size:7px}
+      .faceoff-mid span{width:36px;height:36px;font-size:10px}
+      .form i{width:18px;height:18px;font-size:8px;border-radius:5px}
+      .form .form-label{display:none}
+      .stakes{grid-template-columns:1fr;margin-left:9px;margin-right:9px;border-radius:0 0 12px 12px}
+      .stake{padding:12px 13px}
+      .stake+.stake{border-left:0;border-top:1px dashed rgba(246,250,241,.22)}
+      .stake p{font-size:11.5px}
+      .poster-foot{padding:0}
+      .foot-block{padding:13px}
+      .poster-brand{padding:16px 12px 0}
+      .poster-brand span{font-size:clamp(72px,22vw,96px)}
+      .count-chip strong{font-size:27px}
+      .race-track{grid-template-columns:repeat(2,1fr)}
+      .race-week:nth-child(3n){border-right:1px solid var(--line-soft)}
+      .race-week:nth-child(2n){border-right:0}
+      .race-week:nth-child(n+10){border-bottom:1px solid var(--line-soft)}
+      .race-week:nth-child(n+13){border-bottom:0}
+      .race-week .rw-result{font-size:22px}
+      .fp-grid{grid-template-columns:1fr}
+      .fp-lead{border-right:0;border-bottom:1px solid var(--line-soft);padding:16px}
+      .fp-lead h3{font-size:34px}
+      .archive-grid{grid-template-columns:1fr 1fr}
+      .archive-card{padding:13px}
+      .archive-card .ac-wk{font-size:24px}
+      .archive-card .ac-result{font-size:18px}
+      .section-head{padding:11px 12px}
+      .section-head h2{font-size:24px}
+      .section-head p{font-size:9px}
+      .broadcast-strip{grid-template-columns:auto 1fr;min-height:38px}
+      .breaking{padding:0 7px;font-size:15px}
+      .ticker-copy{padding:7px;font-size:11px}
+      .ticker-meta{grid-column:1/-1;padding:4px 7px;border-top:1px solid var(--line);border-left:0;text-align:center;font-size:9px}
+      .week-talk{grid-template-columns:1fr}
+      .talk-title{place-items:start;padding:7px 9px;font-size:18px}
+      .comment-list{display:grid;grid-template-columns:1fr 1fr;padding:3px}
+      .comment-card{grid-template-columns:1fr;align-content:start;gap:4px;min-height:72px;padding:7px 8px}
+      .comment-name{font-size:18px}
+      .comment-card blockquote{padding-left:7px;font-size:11px;line-height:1.3}
+      .carlos-spotlight{grid-template-columns:1fr}
+      .carlos-photo{min-height:130px}
+      .carlos-copy{gap:4px;padding:12px}
+      .carlos-copy h2{font-size:24px}
+      .carlos-copy p{font-size:11.5px;line-height:1.4}
+      .story{padding:11px}
+      .story h3{font-size:18px}
+      .story p{font-size:11px}
+      .story.story--wide{grid-template-columns:1fr;gap:4px}
+      .story--smack{grid-template-columns:1fr;gap:4px}
+      .score-summary div{padding:8px 4px}
+      .score-summary strong{font-size:15px}
+      .teams{grid-template-columns:1fr 1fr}
+      .team+.team{border-left:1px solid var(--line-soft)}
+      .team-title{display:block;min-height:52px;padding:8px}
+      .team-title h3{font-size:21px}
+      .team-title span{display:block;margin-top:3px;font-size:8px}
+      .stat{min-height:0;grid-template-columns:1fr;gap:4px;padding:9px}
+      .stat-name{font-size:18px}
+      .stat-copy{font-size:11px}
+      .interview{padding:12px}
+      .roster summary{padding:11px 12px}
+      .roster-table{min-width:860px}
+      .week-sheet{padding:7px}
+      .sheet-panel{gap:7px}
+      .sheet-body{gap:7px}
+      .sheet-bar{padding:8px 9px;border-radius:10px}
+      .sheet-bar h2{font-size:23px}
+      .sheet-close{min-height:40px;padding:6px 13px}
+      .highlights-head{padding:0 4px 7px}
+      .highlight-stage{grid-template-columns:36px minmax(0,1fr) 36px;gap:4px}
+      .highlight-video-wrap{width:min(100%,248px)}
+      .highlight-arrow{width:36px;height:36px;font-size:23px}
+      footer{font-size:7px}
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="scorebug" aria-label="Season series score">
+      <div class="bug-brand"><strong>CFL</strong><span>Wednesday Night<br>Football · Nutley</span></div>
+      <a class="bug-link" href="#roster">Roster</a>
+    </header>
+
+    <main>
+      <!-- ===== MAIN EVENT: WEEK 10 ===== -->
+      <section class="poster" aria-labelledby="poster-title">
+        <div class="poster-brand" aria-hidden="true"><span>CFL</span></div>
+        <div class="poster-top">
+          <span class="poster-kicker">Week 10 · This Wednesday</span>
+          <span class="poster-when">Wed · <em>Nov 18</em> · Nutley</span>
+          <span class="poster-lights">Under the lights</span>
+        </div>
+        <div class="poster-head">
+          <p class="poster-eyebrow">Taylor vs Mr.Lazer · Before the Feast</p>
+          <h1 class="poster-title" id="poster-title">The <span class="must">Big Game</span></h1>
+          <p class="poster-sub">Lazer has been <strong>outstanding</strong> all season and leads the series by two. It&rsquo;s a <strong>big game</strong> Wednesday — Taylor looks to close the gap, Lazer looks to stretch it — with plenty of season still to play after. And waiting one week later: the <strong>CFL Turkey Bowl</strong>.</p>
+        </div>
+        <div class="faceoff">
+          <div class="fighter taylor">
+            <span class="f-role">QB Captain</span>
+            <span class="f-name">Taylor</span>
+            <div class="f-record"><span class="f-num">3</span><span class="f-wins">Series wins</span></div>
+            <div class="form" aria-label="Taylor last five: win, loss, loss, win, loss">
+              <span class="form-label">Last 5</span><i class="w">W</i><i class="l">L</i><i class="l">L</i><i class="w">W</i><i class="l">L</i>
+            </div>
+          </div>
+          <div class="faceoff-mid"><span>VS</span></div>
+          <div class="fighter lazer">
+            <span class="f-role">Captain · &ldquo;Lazz&rdquo; · In command</span>
+            <span class="f-name">Mr.Lazer</span>
+            <div class="f-record"><span class="f-wins">Series wins</span><span class="f-num">5</span></div>
+            <div class="form" aria-label="Mr.Lazer last five: loss, win, win, loss, win">
+              <span class="form-label">Last 5</span><i class="l">L</i><i class="w">W</i><i class="w">W</i><i class="l">L</i><i class="w">W</i>
+            </div>
+          </div>
+        </div>
+        <div class="stakes">
+          <div class="stake win"><span>If Taylor wins</span><p>4&ndash;5. The gap closes to one, and the CFL Turkey Bowl becomes a chance to tie the series 5&ndash;5 — with more Wednesdays still to come in December.</p></div>
+          <div class="stake lose"><span>If Lazer wins</span><p>6&ndash;3. Lazer stretches the lead to three — but the season runs deep into December.</p></div>
+        </div>
+        <div class="poster-foot">
+          <div class="foot-block">
+            <div class="tgiving">
+              <span class="tg-badge tg-badge-now">Tomorrow night</span>
+              <p><strong>Week 10 · The Big Game &mdash; Wed, Nov 18 · Nutley.</strong><br>Taylor vs Mr.Lazer, under the lights.</p>
+            </div>
+            <div class="count-chip"><strong id="days-out">Wed night</strong><span>Until Week 10 · The Big Game in Nutley</span></div>
+          </div>
+          <div class="foot-block">
+            <div class="tgiving">
+              <span class="tg-badge">On deck</span>
+              <p><strong>Week 11 · CFL Turkey Bowl &mdash; Wed, Nov 25 · Thanksgiving Eve.</strong><br>The day before Thanksgiving. The biggest Wednesday of the season.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== WEEK NINE HIGHLIGHTS — QUICK ACCESS ===== -->
+      <button class="neon-w9" id="week9-highlights-btn" type="button" aria-controls="season-2026 game-film" aria-label="Week Nine Highlights — watch the 5 Week 9 clips">
+        <span class="neon-w9-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+        <span class="neon-w9-main"><span class="neon-w9-title">Week Nine Highlights</span><span class="neon-w9-sub">5 clips &middot; Nov 11 &middot; Tap to watch</span></span>
+        <span class="neon-w9-arrow" aria-hidden="true">&rsaquo;</span>
+      </button>
+
+      <!-- ===== TOP PLAYERS: THE DAMAGE REPORT ===== -->
+      <details class="pill glass damage">
+        <summary class="pill-summary"><h2 id="damage-title">Top players &mdash; the damage report</h2><span class="pill-hint">Brandon #1 · Moe &amp; Chris uncatchable</span></summary>
+        <div class="pill-body">
+          <div class="season-line"><p><span class="sl-tag">The season so far</span><strong>Everybody has had a great season</strong> &mdash; up and down the roster, every player on this field has had their outstanding moment. These are the names doing the most damage.</p></div>
+          <div class="damage-grid">
+            <article class="damage-card c1">
+              <div class="damage-rank"><span class="d-num">01</span><span class="damage-tag">Top pick</span></div>
+              <h3 class="damage-name">Brandon</h3>
+              <p><strong>Number one.</strong> The first name off the board &mdash; a top pick who has done significant damage all season, on both sides of the ball.</p>
+            </article>
+            <article class="damage-card c2">
+              <div class="damage-rank"><span class="d-num">02</span><span class="damage-tag">Top pick</span></div>
+              <h3 class="damage-name">Josh</h3>
+              <p>A <strong>top pick</strong> and one of the league&rsquo;s outstanding players &mdash; performing amazingly week after week.</p>
+            </article>
+            <article class="damage-card c3">
+              <div class="damage-rank"><span class="d-num">03</span><span class="damage-tag">Top pick</span></div>
+              <h3 class="damage-name">Mike Carrasco</h3>
+              <p>A <strong>top pick</strong> doing damage all over the field &mdash; and half of the best deep-safety duo in the league.</p>
+            </article>
+            <article class="damage-card c4">
+              <div class="damage-rank"><span class="d-num">04</span><span class="damage-tag">Top pick</span></div>
+              <h3 class="damage-name">Tank</h3>
+              <p>A <strong>top pick</strong> &mdash; one of the very good, outstanding players who has been performing amazingly all season.</p>
+            </article>
+            <article class="damage-card c5">
+              <div class="damage-rank"><span class="d-num">05</span><span class="damage-tag">The finisher</span></div>
+              <h3 class="damage-name">Damian</h3>
+              <p>Doing a <strong>great job</strong> &mdash; anytime the ball touches his hands, he scores. <strong>Over eight touchdowns this season.</strong> Awesome player.</p>
+            </article>
+            <article class="damage-card c6">
+              <div class="damage-rank"><span class="d-num">06</span><span class="damage-tag">Uncatchable</span></div>
+              <h3 class="damage-name">Moe</h3>
+              <p><strong>Lethal speed.</strong> When Moe gets in the open, <strong>nobody can catch him</strong> &mdash; great defensively, and gaining yards in bunches on offense.</p>
+            </article>
+            <article class="damage-card c7">
+              <div class="damage-rank"><span class="d-num">07</span><span class="damage-tag">Uncatchable</span></div>
+              <h3 class="damage-name">Chris</h3>
+              <p><strong>Lethal speed.</strong> Nobody can catch Chris either &mdash; playing great on defense and piling up yards on offense all season long.</p>
+            </article>
+            <article class="damage-card c8">
+              <div class="damage-rank"><span class="d-num">08</span><span class="damage-tag">On a hot streak</span></div>
+              <h3 class="damage-name">Mr.Lazer</h3>
+              <p><strong>Over 13 touchdowns thrown this season</strong> &mdash; and the captain is <strong>on a hot streak</strong> right now, dealing week after week.</p>
+            </article>
+            <article class="damage-card c9">
+              <div class="damage-rank"><span class="d-num">09</span><span class="damage-tag">Clutch</span></div>
+              <h3 class="damage-name">Cookie</h3>
+              <p><strong>Playing outstanding</strong> all season &mdash; and always <strong>coming in clutch in times of need</strong>, exactly when a play has to be made.</p>
+            </article>
+          </div>
+          <div class="duo-banner">
+            <span class="duo-badge">Deep patrol</span>
+            <p><strong>Brandon &amp; Mike &mdash; the best safeties and corners in the league.</strong> Sometimes they&rsquo;re on the same team, sometimes they&rsquo;re not &mdash; either way, nobody has patrolled the deep ball better this season.</p>
+          </div>
+          <div class="speed-banner">
+            <span class="sp-badge">Speed kills</span>
+            <p><strong>Moe &amp; Chris &mdash; the fastest men in the league.</strong> In the open field it&rsquo;s over: nobody catches Moe, and nobody catches Chris. Both lock it down on defense, both move the chains on offense.</p>
+          </div>
+          <div class="verdict-bar">
+            <div class="verdict lazer"><span>Lazer has the season under control</span><p><strong>5&ndash;3&ndash;1.</strong> The record shows it for itself &mdash; Mr.Lazer consistently finds his players open and keeps the season in his hands.</p></div>
+            <div class="verdict taylor"><span>The word on Taylor</span><p>Bottom line: <strong>Taylor is not focused and not executing when he needs to.</strong> That&rsquo;s the gap he has to close Wednesday.</p></div>
+          </div>
+        </div>
+      </details>
+
+      <!-- ===== 2026 SEASON ===== -->
+      <details class="pill glass season-2026" id="season-2026">
+        <summary class="pill-summary"><h2 id="season-title">2026 Season</h2><span class="pill-hint">more</span></summary>
+        <div class="pill-body season-body">
+          <section class="season-section race" aria-labelledby="race-title">
+            <header class="season-subhead"><h3 id="race-title">Season records &mdash; the race</h3><span class="season-subnote">Lazer 5 · Taylor 3 · 1 tie</span></header>
+        <div class="race-track">
+          <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 1</span><time class="rw-date" datetime="2026-09-16">Sep 16</time></div><div class="rw-result">Taylor 5&ndash;3</div><p class="rw-note">Season opener &mdash; Taylor strikes first.</p></article>
+          <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 2</span><time class="rw-date" datetime="2026-09-23">Sep 23</time></div><div class="rw-result">Lazer 2&ndash;1</div><p class="rw-note">Lazer answers right back.</p></article>
+          <article class="race-week w-tie"><div class="rw-top"><span class="rw-wk">Week 3</span><time class="rw-date" datetime="2026-09-30">Sep 30</time></div><div class="rw-result">Tie 5&ndash;5</div><p class="rw-note">Mookie seals the tie on the final stand.</p></article>
+          <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 4</span><time class="rw-date" datetime="2026-10-07">Oct 7</time></div><div class="rw-result">Lazer 5&ndash;1</div><p class="rw-note">Brian goes to the house &mdash; twice.</p></article>
+          <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 5</span><time class="rw-date" datetime="2026-10-14">Oct 14</time></div><div class="rw-result">Taylor 4&ndash;3</div><p class="rw-note">Moe takes over: 8 catches, 100 yards.</p></article>
+          <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 6</span><time class="rw-date" datetime="2026-10-21">Oct 21</time></div><div class="rw-result">Lazer wins</div><p class="rw-note">Lazer starts to pull away.</p></article>
+          <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 7</span><time class="rw-date" datetime="2026-10-28">Oct 28</time></div><div class="rw-result">Lazer 4&ndash;2</div><p class="rw-note">Back-to-back for Lazer.</p></article>
+          <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 8</span><time class="rw-date" datetime="2026-11-04">Nov 4</time></div><div class="rw-result">Taylor 7&ndash;3</div><p class="rw-note">Joshua erupts &mdash; Taylor&rsquo;s biggest win.</p></article>
+          <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 9</span><time class="rw-date" datetime="2026-11-11">Nov 11</time></div><div class="rw-result">Lazer wins</div><p class="rw-note">Damian: three touchdowns. Lazer up two.</p></article>
+          <article class="race-week is-next"><div class="rw-top"><span class="rw-wk">Week 10</span><time class="rw-date" datetime="2026-11-18">Nov 18</time></div><div class="rw-result">The Big Game</div><p class="rw-note">A big one in Nutley — Taylor looking to close the gap.</p><span class="race-tag">This week</span></article>
+          <article class="race-week is-tgiving"><div class="rw-top"><span class="rw-wk">Week 11</span><time class="rw-date" datetime="2026-11-25">Nov 25</time></div><div class="rw-result">CFL Turkey Bowl</div><p class="rw-note">Thanksgiving Eve &mdash; the day before Thanksgiving.</p><span class="race-tag">CFL Turkey Bowl</span></article>
+          <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 12</span><time class="rw-date" datetime="2026-12-02">Dec 2</time></div><div class="rw-result">December Football</div><p class="rw-note">Season keeps rolling into December.</p><span class="race-tag">December</span></article>
+          <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 13</span><time class="rw-date" datetime="2026-12-09">Dec 9</time></div><div class="rw-result">Late December</div><p class="rw-note">Still going — Wednesday nights continue.</p><span class="race-tag">December</span></article>
+          <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 14</span><time class="rw-date" datetime="2026-12-16">Dec 16</time></div><div class="rw-result">Before Christmas</div><p class="rw-note">Expected last game — the week before Christmas.</p><span class="race-tag">Before Christmas</span></article>
+        </div>
+        <div class="race-legend"><span><i class="lg-t"></i>Taylor win</span><span><i class="lg-l"></i>Lazer win</span><span><i class="lg-tie"></i>Tie</span><span><i class="lg-next"></i>Up next</span></div>
+          </section>
+
+          <!-- ===== LAST WEEK: FRONT PAGE ===== -->
+          <section class="season-section frontpage" aria-labelledby="fp-title">
+            <header class="season-subhead"><h3 id="fp-title">Week 9 &mdash; last week&rsquo;s headlines</h3><span class="season-subnote">Lazer wins · Damian 3 TDs</span></header>
+        <div class="fp-grid">
+          <article class="fp-lead">
+            <span class="fp-kicker">The headline</span>
+            <h3>Laser has amazing game</h3>
+            <p>Mr.Lazer ran the night in Nutley and Taylor lost &mdash; an unbelievable game that pushed the series to 5&ndash;3&ndash;1 and set up a big Wednesday for Taylor.</p>
+          </article>
+          <div class="fp-side">
+            <article class="fp-item"><span class="fp-num">02</span><h3>Damian has three touchdowns</h3><p>Three trips to the end zone &mdash; the Week 9 difference-maker.</p></article>
+            <article class="fp-item"><span class="fp-num">03</span><h3>Unbelievable game</h3><p>The only way anybody who was there describes it.</p></article>
+            <article class="fp-item"><span class="fp-num">04</span><h3>Taylor loses</h3><p>Back-to-back Lazer wins sandwiching the Week 8 blowout &mdash; Taylor looks to bounce back in a big one Wednesday.</p></article>
+          </div>
+        </div>
+        <div class="breaking-bar"><span class="bb-tag">Breaking</span><p><strong>Week 9 final &mdash;</strong> Mr.Lazer wins in Nutley. Damian: 3 TDs. Series: Lazer 5 · Taylor 3 · 1 tie.</p></div>
+          </section>
+
+          <!-- ===== GAME FILM ===== -->
+          <section class="season-section film" id="game-film" aria-labelledby="film-title">
+            <header class="season-subhead"><h3 id="film-title">Game film &mdash; highlights &amp; videos<span class="pill-tag">New · Week 9</span></h3><span class="season-subnote">6 clips from last week</span></header>
+          <div class="w9-block">
+            <div class="w9-head">
+              <div><span class="film-tag">Just added · Week 9 · Nov 11</span><h3>Last week&rsquo;s film &mdash; fresh clips</h3></div>
+              <p class="w9-sub">Six clips from the Week 9 game in Nutley, side by side &mdash; swipe through them. First up: the #1 Play of the Week.</p>
+            </div>
+            <div class="w9-scroll" aria-label="Week 9 video clips — swipe sideways">
+              <article class="w9-card w9-card--top">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-play-of-the-week.mp4" poster="assets/poster-week9-play-of-the-week.jpg" playsinline preload="none" tabindex="0" aria-label="#1 Play of the Week, Week 9 — tap to play or pause"></video><span class="w9-badge">#1 Play of the Week</span><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute the #1 Play of the Week"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch the #1 Play of the Week full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta w9-meta--top"><strong>#1 Play of the Week</strong><span>0:22</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-1.mp4" poster="assets/poster-week9-clip-1.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 1 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 1 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 1</strong><span>0:07</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-2.mp4" poster="assets/poster-week9-clip-2.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 2 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 2 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 2</strong><span>0:37</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-3.mp4" poster="assets/poster-week9-clip-3.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 3 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 3 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 3</strong><span>0:23</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-4.mp4" poster="assets/poster-week9-clip-4.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 4 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 4 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 4</strong><span>0:13</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-5.mp4" poster="assets/poster-week9-clip-5.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 5 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 5 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 5</strong><span>0:15</span></div>
+              </article>
+            </div>
+          </div>
+          <div class="film-grid">
+            <article class="film-item">
+              <span class="film-tag">Latest reel · Week 8</span>
+              <video class="reel-video" data-src="assets/week8-reel.mp4" poster="assets/poster-week8-reel.jpg" playsinline preload="none" controls aria-label="Week 8 highlight reel"></video>
+              <h3>The Week 8 highlight reel</h3>
+              <p>Taylor&rsquo;s 7&ndash;3 win &mdash; Joshua&rsquo;s two-touchdown, 150-yard night, Cookie&rsquo;s six catches and Chris&rsquo;s two scores, all in one reel.</p>
+            </article>
+            <article class="film-item">
+              <span class="film-tag">Play of the Week · Week 3 · by Josh</span>
+              <video class="potw-video" data-src="assets/play-of-the-week.mp4" poster="assets/poster-play-of-week.jpg" playsinline preload="none" controls aria-label="Play of the Week by Josh"></video>
+              <h3>Play of the Week</h3>
+              <p>Josh&rsquo;s Week 3 Play of the Week. All seven Week 3 highlight clips live inside the Week 3 recap in the Archive section below.</p>
+            </article>
+          </div>
+          <p class="film-note"><strong>More film:</strong> the six Week 9 clips also live inside the Week 9 recap in the Archive section below. Scroll down to the Archive and tap Week 3 for the full seven-clip highlight set.</p>
+          </section>
+
+          <!-- ===== ARCHIVE ===== -->
+          <section class="season-section archive" aria-labelledby="archive-title">
+            <header class="season-subhead"><h3 id="archive-title">The archive &mdash; every week</h3><span class="season-subnote">Weeks 1&ndash;9 · full stat books</span></header>
+        <div class="archive-grid">
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-1"><span class="ac-top"><span class="ac-wk">Week 1</span><time class="ac-date" datetime="2026-09-16">Sep 16</time></span><span class="ac-result t">Taylor 5&ndash;3</span><span class="ac-note">Cookie and Tank open the season with a statement.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-2"><span class="ac-top"><span class="ac-wk">Week 2</span><time class="ac-date" datetime="2026-09-23">Sep 23</time></span><span class="ac-result l">Lazer 2&ndash;1</span><span class="ac-note">Josh takes a pick-six to the crib.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-3"><span class="ac-top"><span class="ac-wk">Week 3</span><time class="ac-date" datetime="2026-09-30">Sep 30</time></span><span class="ac-result tie">Tie 5&ndash;5</span><span class="ac-note">Mookie seals it &mdash; plus the Play of the Week and all 7 highlights.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-4"><span class="ac-top"><span class="ac-wk">Week 4</span><time class="ac-date" datetime="2026-10-07">Oct 7</time></span><span class="ac-result l">Lazer 5&ndash;1</span><span class="ac-note">Brian to the house &mdash; Player of the Game.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-5"><span class="ac-top"><span class="ac-wk">Week 5</span><time class="ac-date" datetime="2026-10-14">Oct 14</time></span><span class="ac-result t">Taylor 4&ndash;3</span><span class="ac-note">Moe takes over &mdash; and the post-game talk got loud.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-6"><span class="ac-top"><span class="ac-wk">Week 6</span><time class="ac-date" datetime="2026-10-21">Oct 21</time></span><span class="ac-result l">Lazer wins</span><span class="ac-note">Lazer keeps the pressure on.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-7"><span class="ac-top"><span class="ac-wk">Week 7</span><time class="ac-date" datetime="2026-10-28">Oct 28</time></span><span class="ac-result l">Lazer 4&ndash;2</span><span class="ac-note">Back-to-back for Lazer.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-8"><span class="ac-top"><span class="ac-wk">Week 8</span><time class="ac-date" datetime="2026-11-04">Nov 4</time></span><span class="ac-result t">Taylor 7&ndash;3</span><span class="ac-note">Joshua: 2 TDs, 150+ yards &mdash; Player of the Game.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-9"><span class="ac-top"><span class="ac-wk">Week 9</span><time class="ac-date" datetime="2026-11-11">Nov 11</time></span><span class="ac-result l">Lazer wins</span><span class="ac-note">Laser&rsquo;s amazing game. Damian&rsquo;s three touchdowns.</span><span class="ac-open">Open the week</span></button>
+        </div>
+          </section>
+
+          <!-- ===== ROSTER ===== -->
+          <section class="season-section roster" id="roster" aria-labelledby="roster-title">
+            <header class="season-subhead"><h3 id="roster-title">Roster &mdash; all 24 players</h3><span class="season-subnote">Week-by-week lines</span></header>
+        <div class="roster-scroll" tabindex="0" aria-label="Season roster table — scroll sideways for Weeks 4 and 5">
+        <table class="roster-table" aria-labelledby="roster-title">
+          <colgroup><col><col><col><col><col><col></colgroup>
+          <thead><tr><th scope="col">Player</th><th scope="col">Week 1</th><th scope="col">Week 2</th><th scope="col">Week 3</th><th scope="col">Week 4</th><th scope="col">Week 5</th></tr></thead>
+          <tbody>
+            <tr><td>Aaron</td><td>–</td><td>–</td><td>–</td><td>1 TD · team’s only score</td><td>1 TD · 4 rec</td></tr>
+            <tr><td>Angelo</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><td>Brandon</td><td>2 TD · 1 INT (Wk 1–2)</td><td>2 Receptions</td><td>1 TD</td><td>–</td><td>–</td></tr>
+            <tr><td>Brian</td><td>–</td><td>–</td><td>2 INT</td><td>Player of the Game · 50-yd TD · pick-six · 4 rec · 3 knockdowns</td><td>1 TD</td></tr>
+            <tr><td>Carlos</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><td>Chris</td><td>–</td><td>–</td><td>1 INT · 1 TD</td><td>Out — pulled hamstring</td><td>–</td></tr>
+            <tr><td>Cookie</td><td>2 TD</td><td>1 TD (3 season)</td><td>–</td><td>–</td><td>2 rec</td></tr>
+            <tr><td>Damian</td><td>–</td><td>–</td><td>–</td><td>3 TD · 6 tackles</td><td>1 TD · 1 INT</td></tr>
+            <tr><td>Erick Morales</td><td>–</td><td>6 catches 50+ Yard, 3 sacks</td><td>4 sacks</td><td>–</td><td>–</td></tr>
+            <tr><td>Goudy</td><td>–</td><td>1 TD</td><td>1 endzone INT</td><td>–</td><td>–</td></tr>
+            <tr><td>Jacob</td><td>1 TD, 1 INT</td><td>–</td><td>1 reception</td><td>2 catches · 65 yards</td><td>–</td></tr>
+            <tr><td>Jeff</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><td>Josh</td><td>–</td><td>1 pick-six “to the crib”</td><td>3 INT · 1 pick-six</td><td>5 catches</td><td>3 INT · 6 rec</td></tr>
+            <tr><td>Justin</td><td>–</td><td>–</td><td>1 catch (played hurt)</td><td>–</td><td>–</td></tr>
+            <tr><td>Marano</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+            <tr><td>Marco</td><td>–</td><td>–</td><td>–</td><td>Out — maternity leave</td><td>1 TD · one-hand grab · 1 INT · 4 rec · 40-yd rec</td></tr>
+            <tr><td>Matt</td><td>–</td><td>–</td><td>–</td><td>–</td><td>1 INT</td></tr>
+            <tr><td>Mike</td><td>–</td><td>–</td><td>–</td><td>–</td><td>7 rec · 60 yards</td></tr>
+            <tr><td>Mo</td><td>–</td><td>–</td><td>1 INT</td><td>–</td><td>Player of the Game · 1 TD · 8 rec · 100 yards</td></tr>
+            <tr><td>Mookie</td><td>1 TD, 1 INT</td><td>–</td><td>Player of the Game · 1 TD, multiple catches and defensive stops — including the play that sealed the tie.</td><td>–</td><td>5 rec</td></tr>
+            <tr><td>Mr.Lazer</td><td>Captain (QB)</td><td>–</td><td>3 TD passes</td><td>Captain (QB) · 5–1 win</td><td>Captain (QB) · 3 TD passes · 3 INT</td></tr>
+            <tr><td>Snarski</td><td>–</td><td>–</td><td>–</td><td>–</td><td>1 TD</td></tr>
+            <tr><td>Tank</td><td>2 INT (incl. pick-six)</td><td>–</td><td>–</td><td>–</td><td>1 TD</td></tr>
+            <tr><td>Taylor</td><td>Captain (QB) · 1 INT</td><td>1 INT</td><td>3 TD passes · 6 INT · 1 TD scored</td><td>Captain (QB)</td><td>Captain (QB) · 4 TD passes · 3 INT</td></tr>
+          </tbody>
+        </table>
+        </div>
+          </section>
+        </div>
+      </details>
+    </main>
+
+    <footer><span>CFL · Wednesday Night Football</span><span>Nutley · Every Wednesday night</span></footer>
+  </div>
+
+<div class="week-sheet" id="sheet-week-1" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-1-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-1-title">Week 1</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+        <section class="stats glass" aria-label="Week 1 stat book">
+          <header class="section-head"><h2>Week 1 stat book</h2><p>Season opener &middot; Sep 16</p></header>
+          <div class="score-summary week4-summary">
+            <div><span>Week 1 final</span><strong>Taylor 5 &middot; Mr.Lazer 3</strong></div>
+            <div><span>Week 1</span><strong>Sep 16</strong></div>
+          </div>
+          <div class="stat-list">
+              <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>Captain (QB)</strong> &middot; 1 INT</span></div>
+              <div class="stat"><span class="stat-name">Cookie</span><span class="stat-copy"><strong>2 TD</strong></span></div>
+              <div class="stat"><span class="stat-name">Tank</span><span class="stat-copy"><strong>2 INT</strong> (incl. pick-six)</span></div>
+              <div class="stat"><span class="stat-name">Mookie</span><span class="stat-copy"><strong>1 TD</strong> &middot; 1 INT</span></div>
+              <div class="stat"><span class="stat-name">Jacob</span><span class="stat-copy"><strong>1 TD</strong> &middot; 1 INT</span></div>
+              <div class="stat"><span class="stat-name">Brandon</span><span class="stat-copy"><strong>2 TD</strong> &middot; 1 INT (Wk 1&ndash;2)</span></div>
+              <div class="stat"><span class="stat-name">Mr.Lazer</span><span class="stat-copy"><strong>Captain (QB)</strong></span></div>
+          </div>
+        </section>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <div class="week-sheet" id="sheet-week-2" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-2-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-2-title">Week 2</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+        <section class="stats glass" aria-label="Week 2 stat book">
+          <header class="section-head"><h2>Week 2 stat book</h2><p>Week 2 &middot; Sep 23</p></header>
+          <div class="score-summary week4-summary">
+            <div><span>Week 2 final</span><strong>Mr.Lazer 2 &middot; Taylor 1</strong></div>
+            <div><span>Week 2</span><strong>Sep 23</strong></div>
+          </div>
+          <div class="stat-list">
+              <div class="stat"><span class="stat-name">Cookie</span><span class="stat-copy"><strong>1 TD</strong> (3 season)</span></div>
+              <div class="stat"><span class="stat-name">Josh</span><span class="stat-copy"><strong>1 pick-six</strong> &ldquo;to the crib&rdquo;</span></div>
+              <div class="stat"><span class="stat-name">Goudy</span><span class="stat-copy"><strong>1 TD</strong></span></div>
+              <div class="stat"><span class="stat-name">Erick Morales</span><span class="stat-copy"><strong>6 catches</strong> 50+ Yard &middot; 3 sacks</span></div>
+              <div class="stat"><span class="stat-name">Brandon</span><span class="stat-copy"><strong>2 Receptions</strong></span></div>
+              <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>1 INT</strong></span></div>
+          </div>
+        </section>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <div class="week-sheet" id="sheet-week-3" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-3-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-3-title">Week 3</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+      <aside class="broadcast-strip" aria-label="Week 3 breaking news">
+        <span class="breaking">Week 3</span>
+        <span class="ticker-copy"><strong>Mookie · Player of the Game · Week 3</strong> · 1 TD, multiple catches and defensive stops — including the play that sealed the tie.</span>
+        <span class="ticker-meta">Final · 5–5</span>
+      </aside>
+
+      <section class="carlos-spotlight week3-spotlight glass" aria-labelledby="mookie-title">
+        <div class="carlos-copy">
+          <span class="eyebrow">PLAYER OF THE GAME · WEEK 3</span>
+          <h2 id="mookie-title">MOOKIE SEALS THE TIE</h2>
+          <p>1 TD, multiple catches and defensive stops — including the play that sealed the tie.</p>
+          <div class="fact-row"><span class="fact">1 TOUCHDOWN</span><span class="fact">MULTIPLE CATCHES</span><span class="fact">DEFENSIVE STOPS</span></div>
+        </div>
+      </section>
+
+      <section class="play-feature" aria-labelledby="play-of-week-title">
+        <header class="highlights-head">
+          <h2 id="play-of-week-title">PLAY OF THE WEEK — by JOSH</h2>
+        </header>
+        <div class="featured-video-wrap">
+          <video class="featured-video" id="featured-play" data-src="assets/play-of-the-week.mp4" poster="assets/poster-play-of-week.jpg" playsinline preload="none" tabindex="0" aria-label="Play of the Week by Josh"></video>
+          <button class="sound-toggle" id="featured-sound" type="button" aria-label="Mute Play of the Week"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button>
+        </div>
+        <p class="highlight-hint">Tap video to play or pause</p>
+      </section>
+
+      <section class="highlights" aria-labelledby="highlights-title">
+        <header class="highlights-head">
+          <h2 id="highlights-title">WEEK 3 HIGHLIGHTS</h2>
+          <span class="highlight-count" id="highlight-count">1 / 7</span>
+        </header>
+        <div class="highlight-stage">
+          <button class="highlight-arrow" id="highlight-prev" type="button" aria-label="Previous highlight">‹</button>
+          <div class="highlight-viewport">
+            <div class="highlight-track" id="highlight-track">
+              <article class="highlight-slide" aria-label="Week 3 highlight 1 of 7"><div class="highlight-video-wrap"><video class="highlight-video" data-src="https://files.catbox.moe/53z5hi.mp4" poster="assets/poster-week3-01.jpg" playsinline preload="none" tabindex="0" aria-label="Play Week 3 highlight 1"></video><button class="sound-toggle" type="button" aria-label="Mute highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button></div></article>
+              <article class="highlight-slide" aria-label="Week 3 highlight 2 of 7"><div class="highlight-video-wrap"><video class="highlight-video" data-src="https://files.catbox.moe/71o70p.mp4" poster="assets/poster-week3-02.jpg" playsinline preload="none" tabindex="0" aria-label="Play Week 3 highlight 2"></video><button class="sound-toggle" type="button" aria-label="Mute highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button></div></article>
+              <article class="highlight-slide" aria-label="Week 3 highlight 3 of 7"><div class="highlight-video-wrap"><video class="highlight-video" data-src="https://files.catbox.moe/lgpxld.mp4" poster="assets/poster-week3-03.jpg" playsinline preload="none" tabindex="0" aria-label="Play Week 3 highlight 3"></video><button class="sound-toggle" type="button" aria-label="Mute highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button></div></article>
+              <article class="highlight-slide" aria-label="Week 3 highlight 4 of 7"><div class="highlight-video-wrap"><video class="highlight-video" data-src="https://files.catbox.moe/360s1n.mp4" poster="assets/poster-week3-04.jpg" playsinline preload="none" tabindex="0" aria-label="Play Week 3 highlight 4"></video><button class="sound-toggle" type="button" aria-label="Mute highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button></div></article>
+              <article class="highlight-slide" aria-label="Week 3 highlight 5 of 7"><div class="highlight-video-wrap"><video class="highlight-video" data-src="https://files.catbox.moe/5x2uoz.mp4" poster="assets/poster-week3-05.jpg" playsinline preload="none" tabindex="0" aria-label="Play Week 3 highlight 5"></video><button class="sound-toggle" type="button" aria-label="Mute highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button></div></article>
+              <article class="highlight-slide" aria-label="Week 3 highlight 6 of 7"><div class="highlight-video-wrap"><video class="highlight-video" data-src="https://files.catbox.moe/pv3jl9.mp4" poster="assets/poster-week3-06.jpg" playsinline preload="none" tabindex="0" aria-label="Play Week 3 highlight 6"></video><button class="sound-toggle" type="button" aria-label="Mute highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button></div></article>
+              <article class="highlight-slide" aria-label="Week 3 highlight 7 of 7"><div class="highlight-video-wrap"><video class="highlight-video" data-src="https://files.catbox.moe/eeo2l7.mp4" poster="assets/poster-week3-07.jpg" playsinline preload="none" tabindex="0" aria-label="Play Week 3 highlight 7"></video><button class="sound-toggle" type="button" aria-label="Mute highlight"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button></div></article>
+            </div>
+          </div>
+          <button class="highlight-arrow" id="highlight-next" type="button" aria-label="Next highlight">›</button>
+        </div>
+        <div class="highlight-dots" id="highlight-dots" aria-label="Choose a highlight"></div>
+        <p class="highlight-hint">Swipe or use the arrows · Tap video to play or pause</p>
+      </section>
+
+      <section class="preview glass" aria-labelledby="preview-title">
+        <header class="section-head"><h2 id="preview-title">Week 3 news desk</h2><p>Week 3: Five apiece</p></header>
+        <div class="story-grid">
+          <article class="story story--green"><span class="story-number">01</span><h3>MOOKIE SEALS THE TIE</h3><p>1 TD, multiple catches and defensive stops — including the play that sealed the tie.</p></article>
+          <article class="story story--orange"><span class="story-number">02</span><h3>TAYLOR’S ROLLERCOASTER</h3><p>Three TD passes and a touchdown scored after a hot 3–0 start — then six interceptions turned the night.</p></article>
+          <article class="story story--gold"><span class="story-number">03</span><h3>LAZER’S COMEBACK</h3><p>Three TD passes powered the comeback, but Mr.Lazer could not seal the deal on the last drive.</p></article>
+          <article class="story story--green"><span class="story-number">04</span><h3>AARON'S #1 PERFORMANCE GAME</h3><p>4 receptions, 3 tackles, 2 knock downs! Impressive!</p></article>
+        </div>
+      </section>
+
+      <section class="stats glass" aria-labelledby="stats-title">
+        <header class="section-head"><h2 id="stats-title">Week 3 stat book</h2><p>One box · Both teams</p></header>
+        <div class="score-summary" aria-label="Season score summary">
+          <div><span>Week 1 final</span><strong>Taylor 5 · Mr.Lazer 3</strong></div>
+          <div><span>Week 2 final</span><strong>Mr.Lazer 2 · Taylor 1</strong></div>
+          <div><span>Week 3 final</span><strong>Taylor 5 · Mr.Lazer 5 (tie)</strong></div>
+          <div><span>Season record</span><strong>Taylor 1–1–1 Mr.Lazer</strong></div>
+        </div>
+        <div class="teams">
+          <article class="team">
+            <div class="team-title"><h3>Taylor’s team</h3><span>Week 3 · 5 points</span></div>
+            <div class="stat-list">
+              <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>3 TD passes</strong> · 6 INT thrown · 1 TD scored · Led 3–0 early</span></div>
+              <div class="stat"><span class="stat-name">Mookie</span><span class="stat-copy"><strong>Player of the Game</strong> · 1 TD, multiple catches and defensive stops — including the play that sealed the tie.</span></div>
+              <div class="stat"><span class="stat-name">Justin</span><span class="stat-copy"><strong>1 catch</strong> · Pulled hamstring in Q1 and kept playing — was a dog</span></div>
+              <div class="stat"><span class="stat-name">Mo</span><span class="stat-copy"><strong>1 interception</strong></span></div>
+              <div class="stat"><span class="stat-name">Brandon</span><span class="stat-copy"><strong>1 touchdown</strong></span></div>
+              <div class="stat"><span class="stat-name">Chris</span><span class="stat-copy"><strong>1 interception · 1 touchdown</strong></span></div>
+            </div>
+          </article>
+          <article class="team">
+            <div class="team-title"><h3>Mr.Lazer’s team</h3><span>Week 3 · 5 points</span></div>
+            <div class="stat-list">
+              <div class="stat"><span class="stat-name">Mr.Lazer</span><span class="stat-copy"><strong>3 TD passes</strong> · Great comeback · Could not seal the deal on the last drive</span></div>
+              <div class="stat"><span class="stat-name">Josh</span><span class="stat-copy"><strong>3 INT · 1 pick-six</strong> · Honorable mention</span></div>
+              <div class="stat"><span class="stat-name">Erick Morales</span><span class="stat-copy"><strong>4 sacks</strong> · 1 dropped pass</span></div>
+              <div class="stat"><span class="stat-name">Brian</span><span class="stat-copy"><strong>2 interceptions</strong></span></div>
+              <div class="stat"><span class="stat-name">Goudy</span><span class="stat-copy"><strong>1 endzone interception</strong> · Clutch</span></div>
+              <div class="stat"><span class="stat-name">Jacob</span><span class="stat-copy"><strong>1 reception</strong> · One controversy call!!</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+        <article class="interview" aria-labelledby="interview-title">
+          <span class="eyebrow">Post-game interview · Week 3</span>
+          <h2 id="interview-title">Five-five under the lights</h2>
+          <p>Taylor’s 3–0 start gave way to Mr.Lazer’s comeback. With the last drive unable to settle it, Mookie’s defensive play sealed the tie and moved the series to 1-1-1.</p>
+          <div class="final-score"><strong>5-5</strong><span>Final · September 30, 2026</span></div>
+        </article>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <div class="week-sheet" id="sheet-week-4" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-4-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-4-title">Week 4</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+      <aside class="broadcast-strip" aria-label="Week 4 breaking news">
+        <span class="breaking">Week 4</span>
+        <span class="ticker-copy"><strong>Brian · Player of the Game · Week 4</strong> · 50-yard TD, pick-six to the house, 4 receptions and 3 knockdowns.</span>
+        <span class="ticker-meta">Final · 5–1</span>
+      </aside>
+
+      <section class="carlos-spotlight week4-spotlight glass" aria-labelledby="brian-title">
+        <div class="carlos-copy">
+          <span class="eyebrow">PLAYER OF THE GAME · WEEK 4</span>
+          <h2 id="brian-title">BRIAN TO THE HOUSE</h2>
+          <p>A 50-yard touchdown, a pick-six to the house, 4 receptions and 3 knockdowns — Brian owned both sides of the ball.</p>
+          <div class="fact-row"><span class="fact">50-YARD TD</span><span class="fact">PICK-SIX</span><span class="fact">4 RECEPTIONS</span><span class="fact">3 KNOCKDOWNS</span></div>
+        </div>
+      </section>
+
+      <section class="preview glass" aria-labelledby="week4-news-title">
+        <header class="section-head"><h2 id="week4-news-title">Week 4 news desk</h2><p>Week 4: Lazer wins 5–1</p></header>
+        <div class="story-grid">
+          <article class="story story--green"><span class="story-number">01</span><h3>DAMIAN’S NIGHT</h3><p>Three touchdowns and 6 tackles powered Mr.Lazer’s team on both sides of the ball.</p></article>
+          <article class="story story--gold"><span class="story-number">02</span><h3>BRIAN · PLAYER OF THE GAME</h3><p>50-yard TD, pick-six to the house, 4 receptions and 3 knockdowns.</p></article>
+          <article class="story story--orange"><span class="story-number">03</span><h3>TAYLOR’S TEAM STALLS</h3><p>Only 1 point. Aaron scored the lone touchdown, Josh made 5 catches, and Jacob had 2 catches for 65 yards.</p></article>
+          <article class="story story--green"><span class="story-number">04</span><h3>MISSING MEN</h3><p>Marco was out on leave. Chris was sidelined with a pulled hamstring.</p></article>
+        </div>
+      </section>
+
+      <section class="stats glass" aria-labelledby="week4-stats-title">
+        <header class="section-head"><h2 id="week4-stats-title">Week 4 stat book</h2><p>One box · Both teams</p></header>
+        <div class="score-summary week4-summary" aria-label="Week 4 and season score summary">
+          <div><span>Week 4 final</span><strong>Mr.Lazer 5 · Taylor 1</strong></div>
+          <div><span>Season record</span><strong>Taylor 1 · Mr.Lazer 2 · 1 tie</strong></div>
+        </div>
+        <div class="teams">
+          <article class="team">
+            <div class="team-title"><h3>Taylor’s team</h3><span>Week 4 · 1 point</span></div>
+            <div class="stat-list">
+              <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>QB captain</strong></span></div>
+              <div class="stat"><span class="stat-name">Aaron</span><span class="stat-copy"><strong>1 touchdown</strong></span></div>
+              <div class="stat"><span class="stat-name">Josh</span><span class="stat-copy"><strong>5 catches</strong></span></div>
+              <div class="stat"><span class="stat-name">Jacob</span><span class="stat-copy"><strong>2 catches · 65 yards</strong></span></div>
+            </div>
+          </article>
+          <article class="team">
+            <div class="team-title"><h3>Mr.Lazer’s team</h3><span>Week 4 · 5 points</span></div>
+            <div class="stat-list">
+              <div class="stat"><span class="stat-name">Mr.Lazer</span><span class="stat-copy"><strong>Captain</strong></span></div>
+              <div class="stat"><span class="stat-name">Damian</span><span class="stat-copy"><strong>3 touchdowns · 6 tackles</strong></span></div>
+              <div class="stat"><span class="stat-name">Brian</span><span class="stat-copy"><strong>Player of the Game</strong> · 50-yard TD · Pick-six to the house · 4 receptions · 3 knockdowns</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <div class="week-sheet" id="sheet-week-5" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-5-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-5-title">Week 5</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+      <aside class="broadcast-strip" aria-label="Week 5 breaking news">
+        <span class="breaking">Breaking News</span>
+        <span class="ticker-copy"><strong>Moe · Player of the Game · Week 5</strong> · 1 TD, 8 receptions and 100 yards in Taylor’s 4–3 win.</span>
+        <span class="ticker-meta">Week 5</span>
+      </aside>
+
+      <section class="carlos-spotlight week5-spotlight glass" aria-labelledby="moe-title">
+        <div class="carlos-copy">
+          <span class="eyebrow">PLAYER OF THE GAME · WEEK 5</span>
+          <h2 id="moe-title">MOE TAKES OVER</h2>
+          <p>1 touchdown, 8 receptions and 100 yards — Moe was Taylor’s go-to all night in the 4–3 win.</p>
+          <div class="fact-row"><span class="fact">1 TOUCHDOWN</span><span class="fact">8 RECEPTIONS</span><span class="fact">100 YARDS</span></div>
+        </div>
+      </section>
+
+      <section class="preview glass" aria-labelledby="week5-news-title">
+        <header class="section-head"><h2 id="week5-news-title">Week 5 news desk</h2><p>Week 5: Taylor wins 4–3</p></header>
+        <div class="story-grid">
+          <article class="story story--green"><span class="story-number">01</span><h3>MOE’S NIGHT</h3><p>Player of the Game — 1 TD, 8 receptions and 100 yards as Taylor’s team hung on 4–3.</p></article>
+          <article class="story story--gold"><span class="story-number">02</span><h3>TAYLOR DELIVERS</h3><p>Four TD passes from Taylor — Marco, Moe, Tank and Damian all found the end zone.</p></article>
+          <article class="story story--orange"><span class="story-number">03</span><h3>JOSH ON DEFENSE</h3><p>3 interceptions and 6 receptions kept Mr.Lazer’s team in it until the end.</p></article>
+          <article class="story story--green"><span class="story-number">04</span><h3>LAZER FALLS SHORT</h3><p>Brian, Snarski and Aaron scored for Mr.Lazer — one short in the 4–3 loss.</p></article>
+          <article class="story story--gold story--wide"><span class="story-number">05</span><h3>MARCO OWNS THE CORNER</h3><p>An outstanding game from Marco — a one-hand grab touchdown and great defense, taking control of the corner.</p></article>
+          <article class="story story--smack"><span class="eyebrow">Play of the Game</span><p>Josh broke Tank’s ankles!</p></article>
+        </div>
+      </section>
+
+      <section class="stats glass" aria-labelledby="week5-stats-title">
+        <header class="section-head"><h2 id="week5-stats-title">Week 5 stat book</h2><p>One box · Both teams</p></header>
+        <div class="score-summary week4-summary" aria-label="Week 5 and season score summary">
+          <div><span>Week 5 final</span><strong>Taylor 4 · Mr.Lazer 3</strong></div>
+          <div><span>Season record</span><strong>Taylor 2 · Mr.Lazer 2 · 1 tie</strong></div>
+        </div>
+        <div class="teams">
+          <article class="team">
+            <div class="team-title"><h3>Taylor’s team</h3><span>Week 5 · 4 points</span></div>
+            <div class="stat-list">
+              <div class="stat"><span class="stat-name">Marco</span><span class="stat-copy"><strong>1 TD</strong> · 1 INT · 4 receptions · 40-yard reception</span></div>
+              <div class="stat"><span class="stat-name">Moe</span><span class="stat-copy"><strong>Player of the Game</strong> · 1 TD · 100 yards · 8 receptions</span></div>
+              <div class="stat"><span class="stat-name">Tank</span><span class="stat-copy"><strong>1 TD</strong></span></div>
+              <div class="stat"><span class="stat-name">Damian</span><span class="stat-copy"><strong>1 TD</strong> · 1 INT</span></div>
+              <div class="stat"><span class="stat-name">Mike</span><span class="stat-copy"><strong>7 receptions</strong> · 60 yards</span></div>
+              <div class="stat"><span class="stat-name">Matt</span><span class="stat-copy"><strong>1 INT</strong></span></div>
+              <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>QB captain</strong> · 4 TD · 3 INTs</span></div>
+            </div>
+          </article>
+          <article class="team">
+            <div class="team-title"><h3>Mr.Lazer’s team</h3><span>Week 5 · 3 points</span></div>
+            <div class="stat-list">
+              <div class="stat"><span class="stat-name">Josh</span><span class="stat-copy"><strong>3 INTs</strong> · 6 receptions</span></div>
+              <div class="stat"><span class="stat-name">Brian</span><span class="stat-copy"><strong>1 TD</strong></span></div>
+              <div class="stat"><span class="stat-name">Mookie</span><span class="stat-copy"><strong>5 receptions</strong></span></div>
+              <div class="stat"><span class="stat-name">Snarski</span><span class="stat-copy"><strong>1 TD</strong></span></div>
+              <div class="stat"><span class="stat-name">Aaron</span><span class="stat-copy"><strong>1 TD</strong> · 4 receptions</span></div>
+              <div class="stat"><span class="stat-name">Cookie</span><span class="stat-copy"><strong>2 receptions</strong></span></div>
+              <div class="stat"><span class="stat-name">Lazer</span><span class="stat-copy"><strong>QB captain</strong> · 3 TD · 3 INTs</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="week-talk glass" aria-label="Week 5 post-game comments">
+        <div class="talk-title">Post-game talk</div>
+        <ul class="comment-list">
+          <li class="comment-card"><span class="comment-name">Taylor</span><blockquote>We won because of our defense !</blockquote></li>
+          <li class="comment-card"><span class="comment-name">Marco</span><blockquote>I told them !!!</blockquote></li>
+          <li class="comment-card"><span class="comment-name">Brian</span><blockquote>Lazer has to practice !!</blockquote></li>
+          <li class="comment-card"><span class="comment-name">Josh</span><blockquote>😒</blockquote></li>
+          <li class="comment-card"><span class="comment-name">Mookie</span><blockquote>tough game tough loss today ! Left side of the field ima "Bobby wagner" ….but we still lost !</blockquote></li>
+        </ul>
+      </section>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <div class="week-sheet" id="sheet-week-6" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-6-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-6-title">Week 6</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+        <section class="stats glass" aria-label="Week 6 result">
+          <header class="section-head"><h2>Week 6 result</h2><p>Week 6 &middot; Oct 21</p></header>
+          <div class="score-summary week4-summary">
+            <div><span>Week 6 final</span><strong>Mr.Lazer wins</strong></div>
+            <div><span>Week 6</span><strong>Oct 21</strong></div>
+          </div>
+          <div class="stat-list">
+              <div class="stat"><span class="stat-name">Final</span><span class="stat-copy"><strong>Mr.Lazer wins</strong></span></div>
+          </div>
+        </section>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <div class="week-sheet" id="sheet-week-7" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-7-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-7-title">Week 7</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+        <section class="stats glass" aria-label="Week 7 result">
+          <header class="section-head"><h2>Week 7 result</h2><p>Week 7 &middot; Oct 28</p></header>
+          <div class="score-summary week4-summary">
+            <div><span>Week 7 final</span><strong>Mr.Lazer wins 4–2</strong></div>
+            <div><span>Week 7</span><strong>Oct 28</strong></div>
+          </div>
+          <div class="stat-list">
+              <div class="stat"><span class="stat-name">Final</span><span class="stat-copy"><strong>Mr.Lazer wins 4–2</strong></span></div>
+          </div>
+        </section>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <div class="week-sheet" id="sheet-week-8" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-8-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-8-title">Week 8</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+      <aside class="broadcast-strip" aria-label="Week 8 breaking news">
+        <span class="breaking">Breaking News</span>
+        <span class="ticker-copy"><strong>Joshua · Player of the Game · Week 8</strong> · 2 outstanding touchdowns, 5 catches and over 150 yards receiving in the 7–3 final.</span>
+        <span class="ticker-meta">Week 8</span>
+      </aside>
+
+      <section class="stats glass" aria-labelledby="week8-standouts-title">
+        <header class="section-head"><h2 id="week8-standouts-title">Week 8 standouts</h2><p>Full stats to follow</p></header>
+        <div class="score-summary week4-summary">
+          <div><span>Week 8 final</span><strong>Taylor 7 · Mr.Lazer 3</strong></div>
+          <div><span>Week 8</span><strong>Nov 4</strong></div>
+        </div>
+        <div class="stat-list">
+          <div class="stat"><span class="stat-name">Joshua</span><span class="stat-copy"><strong>Player of the Game</strong> · 2 TD · 5 catches · 150+ yards receiving</span></div>
+          <div class="stat"><span class="stat-name">Cookie</span><span class="stat-copy"><strong>1 TD</strong> · 6 receptions · 70 yards</span></div>
+          <div class="stat"><span class="stat-name">Chris</span><span class="stat-copy"><strong>2 TD</strong> · amazing catches</span></div>
+          <div class="stat"><span class="stat-name">Mr.Lazer</span><span class="stat-copy"><strong>3 TD passes</strong> · “the laser” also threw interceptions — exact count to come with the full stats</span></div>
+        </div>
+      </section>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <div class="week-sheet" id="sheet-week-9" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-9-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-9-title">Week 9</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+        <section class="preview glass" aria-labelledby="week9-sheet-headlines-title">
+          <header class="section-head"><h2 id="week9-sheet-headlines-title">Week 9 headlines</h2><p>Nutley · Nov 11</p></header>
+          <div class="story-grid" style="grid-template-columns:repeat(2,1fr)">
+            <article class="story story--gold"><span class="story-number">01</span><h3>Laser has amazing game</h3></article>
+            <article class="story story--green"><span class="story-number">02</span><h3>Damian has three touchdowns</h3></article>
+            <article class="story story--orange"><span class="story-number">03</span><h3>unbelievable game</h3></article>
+            <article class="story story--green"><span class="story-number">04</span><h3>Taylor loses</h3></article>
+          </div>
+        </section>
+        <section class="glass" aria-label="Week 9 film">
+          <div class="w9-block" style="border-bottom:0">
+            <div class="w9-head">
+              <div><span class="film-tag">Week 9 film · Nov 11</span><h3>Clips from the game</h3></div>
+              <p class="w9-sub">Six clips from the night, side by side &mdash; swipe through them. First up: the #1 Play of the Week.</p>
+            </div>
+            <div class="w9-scroll" aria-label="Week 9 video clips — swipe sideways">
+              <article class="w9-card w9-card--top">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-play-of-the-week.mp4" poster="assets/poster-week9-play-of-the-week.jpg" playsinline preload="none" tabindex="0" aria-label="#1 Play of the Week, Week 9 — tap to play or pause"></video><span class="w9-badge">#1 Play of the Week</span><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute the #1 Play of the Week"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch the #1 Play of the Week full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta w9-meta--top"><strong>#1 Play of the Week</strong><span>0:22</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-1.mp4" poster="assets/poster-week9-clip-1.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 1 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 1 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 1</strong><span>0:07</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-2.mp4" poster="assets/poster-week9-clip-2.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 2 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 2 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 2</strong><span>0:37</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-3.mp4" poster="assets/poster-week9-clip-3.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 3 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 3 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 3</strong><span>0:23</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-4.mp4" poster="assets/poster-week9-clip-4.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 4 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 4 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 4</strong><span>0:13</span></div>
+              </article>
+              <article class="w9-card">
+                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-5.mp4" poster="assets/poster-week9-clip-5.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 5 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 5 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
+                <div class="w9-meta"><strong>Clip 5</strong><span>0:15</span></div>
+              </article>
+            </div>
+          </div>
+        </section>
+        <section class="stats glass" aria-label="Week 9 result">
+          <header class="section-head"><h2>Week 9 result</h2><p>Week 9 &middot; Nov 11</p></header>
+          <div class="score-summary week4-summary">
+            <div><span>Week 9 final</span><strong>Mr.Lazer wins</strong></div>
+            <div><span>Week 9</span><strong>Nov 11</strong></div>
+          </div>
+          <div class="stat-list">
+              <div class="stat"><span class="stat-name">Damian</span><span class="stat-copy"><strong>3 touchdowns</strong></span></div>
+              <div class="stat"><span class="stat-name">Final</span><span class="stat-copy"><strong>Mr.Lazer wins</strong> · Taylor loses</span></div>
+          </div>
+        </section>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const featuredVideo = document.getElementById('featured-play');
+      const featuredSound = document.getElementById('featured-sound');
+      const ensureFeaturedSrc = () => {
+        if (!featuredVideo.getAttribute('src') && featuredVideo.getAttribute('data-src')) {
+          featuredVideo.preload = 'auto';
+          featuredVideo.src = featuredVideo.getAttribute('data-src');
+          featuredVideo.load();
+        }
+      };
+      const toggleFeaturedPlayback = () => {
+        ensureFeaturedSrc();
+        if (featuredVideo.paused) {
+          videos.forEach((video) => video.pause());
+          featuredVideo.play().catch(() => {});
+        } else {
+          featuredVideo.pause();
+        }
+      };
+      featuredVideo.addEventListener('click', toggleFeaturedPlayback);
+      featuredVideo.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          toggleFeaturedPlayback();
+        }
+      });
+      featuredSound.addEventListener('click', (event) => {
+        event.stopPropagation();
+        featuredVideo.muted = !featuredVideo.muted;
+        featuredSound.classList.toggle('is-muted', featuredVideo.muted);
+        featuredSound.setAttribute('aria-label', featuredVideo.muted ? 'Turn sound on' : 'Mute Play of the Week');
+        ensureFeaturedSrc();
+        if (featuredVideo.paused) featuredVideo.play().catch(() => {});
+      });
+
+      const track = document.getElementById('highlight-track');
+      const slides = Array.from(track.querySelectorAll('.highlight-slide'));
+      const videos = Array.from(track.querySelectorAll('.highlight-video'));
+      const soundButtons = Array.from(track.querySelectorAll('.sound-toggle'));
+      const dots = document.getElementById('highlight-dots');
+      const count = document.getElementById('highlight-count');
+      let activeHighlight = 0;
+      let soundMuted = false;
+      let scrollFrame;
+
+      const syncHighlight = (index) => {
+        activeHighlight = Math.max(0, Math.min(slides.length - 1, index));
+        count.textContent = `${activeHighlight + 1} / ${slides.length}`;
+        Array.from(dots.children).forEach((dot, dotIndex) => {
+          dot.setAttribute('aria-current', dotIndex === activeHighlight ? 'true' : 'false');
+        });
+        videos.forEach((video, videoIndex) => {
+          if (videoIndex !== activeHighlight && !video.paused) video.pause();
+        });
+      };
+
+      const goToHighlight = (index, smooth = true) => {
+        const nextIndex = (index + slides.length) % slides.length;
+        track.scrollTo({
+          left: nextIndex * track.clientWidth,
+          behavior: smooth && !window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'smooth' : 'auto'
+        });
+        syncHighlight(nextIndex);
+      };
+
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'highlight-dot';
+        dot.setAttribute('aria-label', `Show highlight ${index + 1}`);
+        dot.addEventListener('click', () => goToHighlight(index));
+        dots.appendChild(dot);
+      });
+
+      videos.forEach((video) => {
+        video.muted = soundMuted;
+        const togglePlayback = () => {
+          if (!video.getAttribute('src') && video.getAttribute('data-src')) {
+            video.preload = 'auto';
+            video.src = video.getAttribute('data-src');
+            video.load();
+          }
+          if (video.paused) {
+            featuredVideo.pause();
+            videos.forEach((other) => { if (other !== video) other.pause(); });
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        };
+        video.addEventListener('click', togglePlayback);
+        video.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            togglePlayback();
+          }
+        });
+      });
+
+      soundButtons.forEach((button, index) => {
+        button.addEventListener('click', (event) => {
+          event.stopPropagation();
+          soundMuted = !soundMuted;
+          videos.forEach((video) => { video.muted = soundMuted; });
+          soundButtons.forEach((soundButton) => {
+            soundButton.classList.toggle('is-muted', soundMuted);
+            soundButton.setAttribute('aria-label', soundMuted ? 'Turn sound on' : 'Mute highlight');
+          });
+          const active = videos[index];
+          if (!active.getAttribute('src') && active.getAttribute('data-src')) {
+            active.preload = 'auto';
+            active.src = active.getAttribute('data-src');
+            active.load();
+          }
+          if (active.paused) active.play().catch(() => {});
+        });
+      });
+
+      document.getElementById('highlight-prev').addEventListener('click', () => goToHighlight(activeHighlight - 1));
+      document.getElementById('highlight-next').addEventListener('click', () => goToHighlight(activeHighlight + 1));
+      track.addEventListener('scroll', () => {
+        cancelAnimationFrame(scrollFrame);
+        scrollFrame = requestAnimationFrame(() => {
+          const width = track.clientWidth || 1;
+          syncHighlight(Math.round(track.scrollLeft / width));
+        });
+      }, { passive: true });
+      // iPhone Safari fires resize on every scroll (URL bar show/hide) — only
+      // re-sync the carousel when the width truly changes, never mid-scroll.
+      let lastTrackWidth = track.clientWidth;
+      window.addEventListener('resize', () => {
+        const width = track.clientWidth;
+        if (width !== lastTrackWidth) {
+          lastTrackWidth = width;
+          goToHighlight(activeHighlight, false);
+        }
+      });
+      syncHighlight(0);
+    })();
+  </script>
+  <script>
+    (() => {
+      const pills = Array.from(document.querySelectorAll('[data-open-sheet]'));
+      const sheets = Array.from(document.querySelectorAll('.week-sheet'));
+      let openSheetEl = null;
+      let lastPill = null;
+
+      const closeSheet = () => {
+        if (!openSheetEl) return;
+        openSheetEl.querySelectorAll('video').forEach((video) => video.pause());
+        openSheetEl.hidden = true;
+        openSheetEl = null;
+        document.body.style.overflow = '';
+        if (lastPill) lastPill.focus();
+      };
+
+      const openSheet = (sheet, pill) => {
+        if (!sheet) return;
+        closeSheet();
+        lastPill = pill || null;
+        openSheetEl = sheet;
+        sheet.hidden = false;
+        if (window.__cflLoadLazy) window.__cflLoadLazy(sheet);
+        sheet.scrollTop = 0;
+        document.body.style.overflow = 'hidden';
+        const closeButton = sheet.querySelector('[data-close-sheet]');
+        if (closeButton) closeButton.focus();
+        requestAnimationFrame(() => window.dispatchEvent(new Event('resize')));
+      };
+
+      pills.forEach((pill) => {
+        pill.addEventListener('click', () => openSheet(document.getElementById(pill.getAttribute('data-open-sheet')), pill));
+      });
+      sheets.forEach((sheet) => {
+        sheet.querySelectorAll('[data-close-sheet]').forEach((button) => {
+          button.addEventListener('click', closeSheet);
+        });
+        sheet.addEventListener('click', (event) => {
+          if (event.target === sheet) closeSheet();
+        });
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && openSheetEl) closeSheet();
+      });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const el = document.getElementById('days-out');
+      if (!el) return;
+      const now = new Date();
+      const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
+      const today = new Date(et.getFullYear(), et.getMonth(), et.getDate());
+      const game = new Date(2026, 10, 18);
+      const days = Math.round((game - today) / 86400000);
+      el.textContent = days > 1 ? days + ' days out' : days === 1 ? 'Tomorrow night' : days === 0 ? 'Tonight' : 'Wed night';
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const seasonPill = document.getElementById('season-2026');
+      const openSeasonToRoster = () => {
+        if (seasonPill && !seasonPill.open) seasonPill.open = true;
+        const rosterEl = document.getElementById('roster');
+        if (rosterEl) requestAnimationFrame(() => rosterEl.scrollIntoView({ block: 'start' }));
+      };
+      document.querySelectorAll('a[href="#roster"]').forEach((link) => {
+        link.addEventListener('click', (event) => { event.preventDefault(); openSeasonToRoster(); });
+      });
+      if (window.location.hash === '#roster') openSeasonToRoster();
+    })();
+  </script>
+  <script>
+    (() => {
+      const loadLazy = (root) => {
+        root.querySelectorAll('video[data-src]:not(.w9-video)').forEach((video) => {
+          if (!video.getAttribute('src')) {
+            video.src = video.getAttribute('data-src');
+            video.preload = 'metadata';
+            video.load();
+          }
+        });
+      };
+      window.__cflLoadLazy = loadLazy;
+      document.querySelectorAll('details').forEach((pill) => {
+        pill.addEventListener('toggle', () => {
+          if (pill.open) {
+            loadLazy(pill);
+          } else {
+            pill.querySelectorAll('video').forEach((video) => video.pause());
+          }
+        });
+        if (pill.open) loadLazy(pill);
+      });
+    })();
+  </script>
+  <script>
+    (() => {
+      const clips = Array.from(document.querySelectorAll('.w9-video'));
+      if (!clips.length) return;
+      const setState = (video, label) => {
+        const wrap = video.closest('.w9-wrap');
+        const state = wrap ? wrap.querySelector('.w9-state') : null;
+        if (state) state.textContent = label;
+      };
+      // Poster-first: a clip carries no src at all until it is tapped, so it
+      // can never sit in a browser error state ("Unable to play media.")
+      // before interaction — the poster plus the Tap to play chip is the
+      // resting state. A tap fetches the full stream in the same gesture,
+      // so the first tap starts instantly instead of stalling on metadata.
+      const ensureSrc = (video, forPlay) => {
+        if (!video.getAttribute('src')) {
+          video.preload = forPlay ? 'auto' : 'metadata';
+          video.src = video.getAttribute('data-src');
+          video.load();
+        } else if (forPlay && video.preload !== 'auto') {
+          video.preload = 'auto';
+        }
+      };
+      // If a fetch ever fails, drop straight back to the clean poster state
+      // instead of leaving the browser's broken-media UI on screen; the
+      // next tap retries the load from scratch.
+      const resetToPoster = (video) => {
+        if (!video.getAttribute('src')) return;
+        video.removeAttribute('src');
+        video.preload = 'none';
+        video.load();
+        setState(video, 'Tap to play');
+      };
+      clips.forEach((video) => {
+        setState(video, 'Tap to play');
+        const toggle = () => {
+          ensureSrc(video, true);
+          if (video.paused || video.ended) {
+            clips.forEach((other) => { if (other !== video && !other.paused) other.pause(); });
+            document.querySelectorAll('.reel-video,.potw-video').forEach((other) => other.pause());
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        };
+        video.addEventListener('click', toggle);
+        video.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); toggle(); }
+        });
+        video.addEventListener('play', () => setState(video, 'Playing'));
+        video.addEventListener('pause', () => setState(video, video.ended ? 'Replay' : 'Paused'));
+        video.addEventListener('ended', () => setState(video, 'Replay'));
+        video.addEventListener('loadstart', () => setState(video, 'Loading…'));
+        video.addEventListener('waiting', () => setState(video, 'Loading…'));
+        video.addEventListener('playing', () => setState(video, 'Playing'));
+        video.addEventListener('error', () => resetToPoster(video));
+        const wrap = video.closest('.w9-wrap');
+        const fsBtn = wrap ? wrap.querySelector('.w9-full') : null;
+        if (fsBtn) {
+          fsBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            ensureSrc(video, true);
+            const goFullscreen = () => {
+              if (typeof video.webkitEnterFullscreen === 'function') {
+                try { video.webkitEnterFullscreen(); return; } catch (err) { /* fall through */ }
+              }
+              if (typeof video.requestFullscreen === 'function') {
+                video.requestFullscreen().catch(() => {});
+              } else if (wrap && typeof wrap.requestFullscreen === 'function') {
+                wrap.requestFullscreen().catch(() => {});
+              }
+            };
+            // iPhone Safari needs the clip loaded before it will go full screen.
+            if (video.readyState >= 1) {
+              goFullscreen();
+            } else {
+              video.addEventListener('loadedmetadata', goFullscreen, { once: true });
+              video.load();
+            }
+          });
+        }
+        const soundBtn = wrap ? wrap.querySelector('.w9-sound') : null;
+        if (soundBtn) {
+          soundBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            ensureSrc(video, true);
+            video.muted = !video.muted;
+            soundBtn.classList.toggle('is-muted', video.muted);
+            soundBtn.setAttribute('aria-label', video.muted ? 'Turn sound on' : 'Mute clip');
+            if (video.paused) video.play().catch(() => {});
+          });
+        }
+      });
+    })();
+  </script>
+  <script>
+    (() => {
+      const btn = document.getElementById('week9-highlights-btn');
+      const seasonPill = document.getElementById('season-2026');
+      const film = document.getElementById('game-film');
+      if (!btn || !seasonPill || !film) return;
+      const goToWeek9Film = () => {
+        if (!seasonPill.open) seasonPill.open = true;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            const strip = film.querySelector('.w9-scroll');
+            if (strip) strip.scrollLeft = 0;
+            film.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+          });
+        });
+      };
+      btn.addEventListener('click', goToWeek9Film);
+      if (window.location.hash === '#game-film' || window.location.hash === '#week9') goToWeek9Film();
+    })();
+  </script>
+  <script>
+    // Hold your place: if the browser/webview ever reloads this page on its own
+    // (e.g. iOS discarding it under memory pressure), come back to the same open
+    // pills and scroll spot instead of landing back at the top. Session-only UI
+    // state — nothing is kept after the tab closes, and a fresh visit or a
+    // shared #link always starts at the top as normal.
+    (() => {
+      const KEY = 'cfl-place-v1';
+      let store = null;
+      try { store = window.sessionStorage; } catch (err) { store = null; }
+      if (!store) return;
+      const allPills = () => Array.from(document.querySelectorAll('details'));
+      const pillKey = (pill, index) => pill.id || ('pill-' + index);
+      const save = () => {
+        try {
+          const open = [];
+          allPills().forEach((pill, index) => { if (pill.open) open.push(pillKey(pill, index)); });
+          store.setItem(KEY, JSON.stringify({ y: window.scrollY || 0, open, t: Date.now() }));
+        } catch (err) { /* storage unavailable — page still works */ }
+      };
+      let saveFrame = null;
+      window.addEventListener('scroll', () => {
+        if (saveFrame) return;
+        saveFrame = requestAnimationFrame(() => { saveFrame = null; save(); });
+      }, { passive: true });
+      document.addEventListener('toggle', save, true);
+      window.addEventListener('pagehide', save);
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') save(); });
+
+      // Restore whenever this same tab already browsed here and saved a place
+      // (a fresh tab has no saved state, so a first open always starts at the
+      // top; a shared #link always wins over the saved spot).
+      if (window.location.hash) return;
+      let saved = null;
+      try { saved = JSON.parse(store.getItem(KEY) || 'null'); } catch (err) { saved = null; }
+      if (!saved || !saved.t || Date.now() - saved.t > 30 * 60 * 1000) return;
+      const openSet = new Set(saved.open || []);
+      allPills().forEach((pill, index) => { if (openSet.has(pillKey(pill, index))) pill.open = true; });
+      const targetY = Math.max(0, saved.y || 0);
+      if (targetY > 0) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => window.scrollTo(0, targetY));
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
