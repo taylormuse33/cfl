@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <title>CFL — Wednesday Night Football · Week 10: The Big Game</title>
+  <title>CFL — Wednesday Night Football · Week 10 Final: Taylor Wins The Big Game</title>
   <style>
     :root{
       color-scheme:dark;
@@ -45,7 +45,7 @@
     .mono{font-family:"IBM Plex Mono",monospace}
 
     /* ============ SCOREBUG BAR ============ */
-    .scorebug{position:sticky;top:10px;z-index:40;display:grid;grid-template-columns:auto auto;justify-content:space-between;align-items:stretch;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:rgba(5,11,5,.94);box-shadow:0 16px 40px rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    .scorebug{position:sticky;top:10px;z-index:40;display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;align-items:stretch;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:rgba(5,11,5,.94);box-shadow:0 16px 40px rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
     .bug-brand{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--green);color:#0c1c02}
     .bug-brand strong{font:400 30px/0.9 "Bebas Neue",sans-serif;letter-spacing:.06em}
     .bug-brand span{font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;line-height:1.35}
@@ -78,6 +78,7 @@
     .poster-eyebrow{margin:0;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.3em;text-transform:uppercase}
     .poster-title{margin:8px 0 0;font:400 clamp(64px,13vw,148px)/0.82 "Bebas Neue",sans-serif;letter-spacing:.01em;text-transform:uppercase;text-shadow:0 6px 0 rgba(0,0,0,.35),0 22px 60px rgba(0,0,0,.7)}
     .poster-title .must{color:var(--green);text-shadow:0 0 44px rgba(184,255,63,.45),0 6px 0 rgba(0,0,0,.35)}
+    .poster-score{margin:16px 0 0;font:400 clamp(28px,5vw,44px)/1 "Bebas Neue",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--green);text-shadow:0 0 26px rgba(184,255,63,.35)}
     .poster-sub{max-width:640px;margin:16px auto 0;color:#e6efe1;font-size:clamp(13px,1.8vw,16px);font-weight:550;line-height:1.55;text-wrap:balance}
     .poster-sub strong{color:#fff}
     .faceoff{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;margin:clamp(20px,4vw,36px) clamp(14px,3vw,34px) 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:rgba(3,8,3,.55)}
@@ -304,13 +305,21 @@
     .breaking-bar .bb-tag{flex:0 0 auto;padding:5px 10px;background:var(--orange);color:#220b00;border-radius:5px;font:400 17px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
     .breaking-bar p{margin:0;font-size:12px;font-weight:650}
     .breaking-bar p strong{color:var(--gold);text-transform:uppercase}
+    .recap10 .fp-lead{background:linear-gradient(150deg,rgba(184,255,63,.15),transparent 70%)}
+    .recap10 .fp-lead .fp-kicker{color:var(--green)}
+    .huge-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-soft)}
+    .huge-cell{padding:15px 19px;border-right:1px solid var(--line-soft)}
+    .huge-cell:last-child{border-right:0}
+    .huge-cell span{display:block;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .huge-cell strong{display:block;margin-top:5px;font:400 27px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+    @media(max-width:640px){.huge-row{grid-template-columns:1fr 1fr}.huge-cell{padding:12px 14px}.huge-cell:nth-child(2n){border-right:0}.huge-cell:nth-child(-n+2){border-bottom:1px solid var(--line-soft)}}
 
     /* ============ ARCHIVE ============ */
     .archive{overflow:hidden}
     .archive-grid{display:grid;grid-template-columns:repeat(3,1fr)}
     .archive-card{position:relative;display:block;width:100%;padding:18px;text-align:left;border:0;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s ease}
     .archive-card:nth-child(3n){border-right:0}
-    .archive-card:nth-child(n+7){border-bottom:0}
+    .archive-card:nth-child(n+10){border-bottom:0}
     .archive-card:hover,.archive-card:focus-visible{background:rgba(184,255,63,.07)}
     .archive-card .ac-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
     .archive-card .ac-wk{font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
@@ -646,6 +655,11 @@
   <div class="page">
     <header class="scorebug" aria-label="Season series score">
       <div class="bug-brand"><strong>CFL</strong><span>Wednesday Night<br>Football · Nutley</span></div>
+      <div class="bug-score" role="img" aria-label="Season record: Taylor 4 wins, 1 tie, Mr.Lazer 5 wins">
+        <div class="bug-side taylor"><span class="bug-name">Taylor</span><span class="bug-num">4</span></div>
+        <div class="bug-mid"><span>Season</span><strong>1 tie</strong></div>
+        <div class="bug-side lazer"><span class="bug-num">5</span><span class="bug-name">Mr.Lazer</span></div>
+      </div>
       <a class="bug-link" href="#roster">Roster</a>
     </header>
 
@@ -654,22 +668,23 @@
       <section class="poster" aria-labelledby="poster-title">
         <div class="poster-brand" aria-hidden="true"><span>CFL</span></div>
         <div class="poster-top">
-          <span class="poster-kicker">Week 10 · This Wednesday</span>
+          <span class="poster-kicker">Week 10 · Final</span>
           <span class="poster-when">Wed · <em>Nov 18</em> · Nutley</span>
           <span class="poster-lights">Under the lights</span>
         </div>
         <div class="poster-head">
-          <p class="poster-eyebrow">Taylor vs Mr.Lazer · Before the Feast</p>
-          <h1 class="poster-title" id="poster-title">The <span class="must">Big Game</span></h1>
-          <p class="poster-sub">Lazer has been <strong>outstanding</strong> all season and leads the series by two. It&rsquo;s a <strong>big game</strong> Wednesday — Taylor looks to close the gap, Lazer looks to stretch it — with plenty of season still to play after. And waiting one week later: the <strong>CFL Turkey Bowl</strong>.</p>
+          <p class="poster-eyebrow">Week 10 · Taylor vs Mr.Lazer · The Big Game</p>
+          <h1 class="poster-title" id="poster-title">Taylor <span class="must">Wins</span></h1>
+          <p class="poster-score">Final · Taylor 4 — Mr.Lazer 3</p>
+          <p class="poster-sub">Taylor takes <strong>The Big Game</strong> in Nutley, <strong>4&ndash;3</strong>, and cuts the series gap to one. Mr.Lazer still leads the season — <strong>5 wins to Taylor&rsquo;s 4, with one tie</strong> — and next Wednesday is the <strong>CFL Turkey Bowl</strong>, where a Taylor win ties the series 5&ndash;5.</p>
         </div>
         <div class="faceoff">
           <div class="fighter taylor">
             <span class="f-role">QB Captain</span>
             <span class="f-name">Taylor</span>
-            <div class="f-record"><span class="f-num">3</span><span class="f-wins">Series wins</span></div>
-            <div class="form" aria-label="Taylor last five: win, loss, loss, win, loss">
-              <span class="form-label">Last 5</span><i class="w">W</i><i class="l">L</i><i class="l">L</i><i class="w">W</i><i class="l">L</i>
+            <div class="f-record"><span class="f-num">4</span><span class="f-wins">Series wins</span></div>
+            <div class="form" aria-label="Taylor last five: loss, loss, win, loss, win">
+              <span class="form-label">Last 5</span><i class="l">L</i><i class="l">L</i><i class="w">W</i><i class="l">L</i><i class="w">W</i>
             </div>
           </div>
           <div class="faceoff-mid"><span>VS</span></div>
@@ -677,22 +692,22 @@
             <span class="f-role">Captain · &ldquo;Lazz&rdquo; · In command</span>
             <span class="f-name">Mr.Lazer</span>
             <div class="f-record"><span class="f-wins">Series wins</span><span class="f-num">5</span></div>
-            <div class="form" aria-label="Mr.Lazer last five: loss, win, win, loss, win">
-              <span class="form-label">Last 5</span><i class="l">L</i><i class="w">W</i><i class="w">W</i><i class="l">L</i><i class="w">W</i>
+            <div class="form" aria-label="Mr.Lazer last five: win, win, loss, win, loss">
+              <span class="form-label">Last 5</span><i class="w">W</i><i class="w">W</i><i class="l">L</i><i class="w">W</i><i class="l">L</i>
             </div>
           </div>
         </div>
         <div class="stakes">
-          <div class="stake win"><span>If Taylor wins</span><p>4&ndash;5. The gap closes to one, and the CFL Turkey Bowl becomes a chance to tie the series 5&ndash;5 — with more Wednesdays still to come in December.</p></div>
-          <div class="stake lose"><span>If Lazer wins</span><p>6&ndash;3. Lazer stretches the lead to three — but the season runs deep into December.</p></div>
+          <div class="stake win"><span>The result</span><p>Taylor 4 · Mr.Lazer 3. The gap closes to one — 4&ndash;5 with a tie — and the CFL Turkey Bowl becomes a chance to tie the series 5&ndash;5, with more Wednesdays still to come in December.</p></div>
+          <div class="stake lose"><span>Still up</span><p>Mr.Lazer still leads the season, 5&ndash;4&ndash;1. One more Taylor win ties it — and the Turkey Bowl is next Wednesday.</p></div>
         </div>
         <div class="poster-foot">
           <div class="foot-block">
             <div class="tgiving">
-              <span class="tg-badge tg-badge-now">Tomorrow night</span>
-              <p><strong>Week 10 · The Big Game &mdash; Wed, Nov 18 · Nutley.</strong><br>Taylor vs Mr.Lazer, under the lights.</p>
+              <span class="tg-badge tg-badge-now">Final</span>
+              <p><strong>Week 10 · The Big Game &mdash; Taylor wins 4&ndash;3.</strong><br>Season: Mr.Lazer 5 · Taylor 4 · 1 tie &mdash; Lazer still up.</p>
             </div>
-            <div class="count-chip"><strong id="days-out">Wed night</strong><span>Until Week 10 · The Big Game in Nutley</span></div>
+            <div class="count-chip"><strong>4&ndash;3</strong><span>Final · Week 10 · Taylor wins</span></div>
           </div>
           <div class="foot-block">
             <div class="tgiving">
@@ -703,12 +718,30 @@
         </div>
       </section>
 
-      <!-- ===== WEEK NINE HIGHLIGHTS — QUICK ACCESS ===== -->
-      <button class="neon-w9" id="week9-highlights-btn" type="button" aria-controls="season-2026 game-film" aria-label="Week Nine Highlights — watch the 5 Week 9 clips">
-        <span class="neon-w9-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-        <span class="neon-w9-main"><span class="neon-w9-title">Week Nine Highlights</span><span class="neon-w9-sub">5 clips &middot; Nov 11 &middot; Tap to watch</span></span>
-        <span class="neon-w9-arrow" aria-hidden="true">&rsaquo;</span>
-      </button>
+      <!-- ===== WEEK 10 RECAP ===== -->
+      <section class="frontpage glass recap10" aria-labelledby="recap10-title">
+        <header class="section-head"><h2 id="recap10-title">Week 10 &mdash; the recap</h2><p>Final &middot; Taylor 4 &middot; Mr.Lazer 3 &middot; Nutley</p></header>
+        <div class="fp-grid">
+          <article class="fp-lead">
+            <span class="fp-kicker">Player of the Day</span>
+            <h3>Aaron</h3>
+            <p><strong>2 touchdowns &middot; over 7 receptions &middot; 100 yards.</strong> Aaron owned The Big Game &mdash; the best player on the field in Taylor&rsquo;s 4&ndash;3 win.</p>
+          </article>
+          <div class="fp-side">
+            <article class="fp-item"><span class="fp-num">Honorable mention</span><h3>Damian</h3><p>1 touchdown &middot; two long receptions of 70 yards each &middot; 1 interception on defense.</p></article>
+            <article class="fp-item"><span class="fp-num">02</span><h3>Cookie</h3><p>1 touchdown &middot; 5 catches &middot; 50 yards.</p></article>
+            <article class="fp-item"><span class="fp-num">03</span><h3>Mike</h3><p>4 catches &middot; 70 yards.</p></article>
+            <article class="fp-item"><span class="fp-num">04</span><h3>Jason &mdash; Mr.Lazer&rsquo;s team</h3><p>2 interceptions &middot; 3 completions &middot; 70 yards in the loss.</p></article>
+          </div>
+        </div>
+        <div class="huge-row" aria-label="Huge games in Week 10">
+          <div class="huge-cell"><span>Huge game</span><strong>Damian</strong></div>
+          <div class="huge-cell"><span>Huge game</span><strong>Aaron</strong></div>
+          <div class="huge-cell"><span>Huge game</span><strong>Mike</strong></div>
+          <div class="huge-cell"><span>Huge game</span><strong>Taylor</strong></div>
+        </div>
+        <div class="breaking-bar"><span class="bb-tag">Final</span><p><strong>Week 10 final &mdash;</strong> Taylor 4 &middot; Mr.Lazer 3 in The Big Game. Season: Mr.Lazer 5 &middot; Taylor 4 &middot; 1 tie. Next: the CFL Turkey Bowl, Wed Nov 25.</p></div>
+      </section>
 
       <!-- ===== TOP PLAYERS: THE DAMAGE REPORT ===== -->
       <details class="pill glass damage">
@@ -771,7 +804,7 @@
             <p><strong>Moe &amp; Chris &mdash; the fastest men in the league.</strong> In the open field it&rsquo;s over: nobody catches Moe, and nobody catches Chris. Both lock it down on defense, both move the chains on offense.</p>
           </div>
           <div class="verdict-bar">
-            <div class="verdict lazer"><span>Lazer has the season under control</span><p><strong>5&ndash;3&ndash;1.</strong> The record shows it for itself &mdash; Mr.Lazer consistently finds his players open and keeps the season in his hands.</p></div>
+            <div class="verdict lazer"><span>Lazer has the season under control</span><p><strong>5&ndash;4&ndash;1.</strong> The record shows it for itself &mdash; Mr.Lazer consistently finds his players open and keeps the season in his hands.</p></div>
             <div class="verdict taylor"><span>The word on Taylor</span><p>Bottom line: <strong>Taylor is not focused and not executing when he needs to.</strong> That&rsquo;s the gap he has to close Wednesday.</p></div>
           </div>
         </div>
@@ -782,7 +815,7 @@
         <summary class="pill-summary"><h2 id="season-title">2026 Season</h2><span class="pill-hint">more</span></summary>
         <div class="pill-body season-body">
           <section class="season-section race" aria-labelledby="race-title">
-            <header class="season-subhead"><h3 id="race-title">Season records &mdash; the race</h3><span class="season-subnote">Lazer 5 · Taylor 3 · 1 tie</span></header>
+            <header class="season-subhead"><h3 id="race-title">Season records &mdash; the race</h3><span class="season-subnote">Lazer 5 · Taylor 4 · 1 tie</span></header>
         <div class="race-track">
           <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 1</span><time class="rw-date" datetime="2026-09-16">Sep 16</time></div><div class="rw-result">Taylor 5&ndash;3</div><p class="rw-note">Season opener &mdash; Taylor strikes first.</p></article>
           <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 2</span><time class="rw-date" datetime="2026-09-23">Sep 23</time></div><div class="rw-result">Lazer 2&ndash;1</div><p class="rw-note">Lazer answers right back.</p></article>
@@ -793,7 +826,7 @@
           <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 7</span><time class="rw-date" datetime="2026-10-28">Oct 28</time></div><div class="rw-result">Lazer 4&ndash;2</div><p class="rw-note">Back-to-back for Lazer.</p></article>
           <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 8</span><time class="rw-date" datetime="2026-11-04">Nov 4</time></div><div class="rw-result">Taylor 7&ndash;3</div><p class="rw-note">Joshua erupts &mdash; Taylor&rsquo;s biggest win.</p></article>
           <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 9</span><time class="rw-date" datetime="2026-11-11">Nov 11</time></div><div class="rw-result">Lazer wins</div><p class="rw-note">Damian: three touchdowns. Lazer up two.</p></article>
-          <article class="race-week is-next"><div class="rw-top"><span class="rw-wk">Week 10</span><time class="rw-date" datetime="2026-11-18">Nov 18</time></div><div class="rw-result">The Big Game</div><p class="rw-note">A big one in Nutley — Taylor looking to close the gap.</p><span class="race-tag">This week</span></article>
+          <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 10</span><time class="rw-date" datetime="2026-11-18">Nov 18</time></div><div class="rw-result">Taylor 4&ndash;3</div><p class="rw-note">The Big Game &mdash; Aaron: Player of the Day.</p></article>
           <article class="race-week is-tgiving"><div class="rw-top"><span class="rw-wk">Week 11</span><time class="rw-date" datetime="2026-11-25">Nov 25</time></div><div class="rw-result">CFL Turkey Bowl</div><p class="rw-note">Thanksgiving Eve &mdash; the day before Thanksgiving.</p><span class="race-tag">CFL Turkey Bowl</span></article>
           <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 12</span><time class="rw-date" datetime="2026-12-02">Dec 2</time></div><div class="rw-result">December Football</div><p class="rw-note">Season keeps rolling into December.</p><span class="race-tag">December</span></article>
           <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 13</span><time class="rw-date" datetime="2026-12-09">Dec 9</time></div><div class="rw-result">Late December</div><p class="rw-note">Still going — Wednesday nights continue.</p><span class="race-tag">December</span></article>
@@ -802,59 +835,10 @@
         <div class="race-legend"><span><i class="lg-t"></i>Taylor win</span><span><i class="lg-l"></i>Lazer win</span><span><i class="lg-tie"></i>Tie</span><span><i class="lg-next"></i>Up next</span></div>
           </section>
 
-          <!-- ===== LAST WEEK: FRONT PAGE ===== -->
-          <section class="season-section frontpage" aria-labelledby="fp-title">
-            <header class="season-subhead"><h3 id="fp-title">Week 9 &mdash; last week&rsquo;s headlines</h3><span class="season-subnote">Lazer wins · Damian 3 TDs</span></header>
-        <div class="fp-grid">
-          <article class="fp-lead">
-            <span class="fp-kicker">The headline</span>
-            <h3>Laser has amazing game</h3>
-            <p>Mr.Lazer ran the night in Nutley and Taylor lost &mdash; an unbelievable game that pushed the series to 5&ndash;3&ndash;1 and set up a big Wednesday for Taylor.</p>
-          </article>
-          <div class="fp-side">
-            <article class="fp-item"><span class="fp-num">02</span><h3>Damian has three touchdowns</h3><p>Three trips to the end zone &mdash; the Week 9 difference-maker.</p></article>
-            <article class="fp-item"><span class="fp-num">03</span><h3>Unbelievable game</h3><p>The only way anybody who was there describes it.</p></article>
-            <article class="fp-item"><span class="fp-num">04</span><h3>Taylor loses</h3><p>Back-to-back Lazer wins sandwiching the Week 8 blowout &mdash; Taylor looks to bounce back in a big one Wednesday.</p></article>
-          </div>
-        </div>
-        <div class="breaking-bar"><span class="bb-tag">Breaking</span><p><strong>Week 9 final &mdash;</strong> Mr.Lazer wins in Nutley. Damian: 3 TDs. Series: Lazer 5 · Taylor 3 · 1 tie.</p></div>
-          </section>
 
           <!-- ===== GAME FILM ===== -->
           <section class="season-section film" id="game-film" aria-labelledby="film-title">
-            <header class="season-subhead"><h3 id="film-title">Game film &mdash; highlights &amp; videos<span class="pill-tag">New · Week 9</span></h3><span class="season-subnote">6 clips from last week</span></header>
-          <div class="w9-block">
-            <div class="w9-head">
-              <div><span class="film-tag">Just added · Week 9 · Nov 11</span><h3>Last week&rsquo;s film &mdash; fresh clips</h3></div>
-              <p class="w9-sub">Six clips from the Week 9 game in Nutley, side by side &mdash; swipe through them. First up: the #1 Play of the Week.</p>
-            </div>
-            <div class="w9-scroll" aria-label="Week 9 video clips — swipe sideways">
-              <article class="w9-card w9-card--top">
-                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-play-of-the-week.mp4" poster="assets/poster-week9-play-of-the-week.jpg" playsinline preload="none" tabindex="0" aria-label="#1 Play of the Week, Week 9 — tap to play or pause"></video><span class="w9-badge">#1 Play of the Week</span><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute the #1 Play of the Week"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch the #1 Play of the Week full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
-                <div class="w9-meta w9-meta--top"><strong>#1 Play of the Week</strong><span>0:22</span></div>
-              </article>
-              <article class="w9-card">
-                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-1.mp4" poster="assets/poster-week9-clip-1.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 1 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 1 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
-                <div class="w9-meta"><strong>Clip 1</strong><span>0:07</span></div>
-              </article>
-              <article class="w9-card">
-                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-2.mp4" poster="assets/poster-week9-clip-2.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 2 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 2"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 2 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
-                <div class="w9-meta"><strong>Clip 2</strong><span>0:37</span></div>
-              </article>
-              <article class="w9-card">
-                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-3.mp4" poster="assets/poster-week9-clip-3.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 3 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 3"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 3 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
-                <div class="w9-meta"><strong>Clip 3</strong><span>0:23</span></div>
-              </article>
-              <article class="w9-card">
-                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-4.mp4" poster="assets/poster-week9-clip-4.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 4 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 4"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 4 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
-                <div class="w9-meta"><strong>Clip 4</strong><span>0:13</span></div>
-              </article>
-              <article class="w9-card">
-                <div class="w9-wrap"><video class="w9-video" data-src="assets/week9-clip-5.mp4" poster="assets/poster-week9-clip-5.jpg" playsinline preload="none" tabindex="0" aria-label="Week 9 clip 5 — tap to play or pause"></video><span class="w9-state" aria-hidden="true">Tap to play</span><button class="w9-sound" type="button" aria-label="Mute clip 5"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm11.5 3a3.5 3.5 0 0 0-2-3.16v6.31A3.5 3.5 0 0 0 15.5 12zm0-7v2.05A6 6 0 0 1 18 12a6 6 0 0 1-2.5 4.95V19A8 8 0 0 0 20 12a8 8 0 0 0-4.5-7z"/></svg></button><button class="w9-full" type="button" aria-label="Watch clip 5 full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg></button></div>
-                <div class="w9-meta"><strong>Clip 5</strong><span>0:15</span></div>
-              </article>
-            </div>
-          </div>
+            <header class="season-subhead"><h3 id="film-title">Game film &mdash; highlights &amp; videos</h3><span class="season-subnote">Week 8 reel &middot; Week 3 Play of the Week</span></header>
           <div class="film-grid">
             <article class="film-item">
               <span class="film-tag">Latest reel · Week 8</span>
@@ -869,12 +853,12 @@
               <p>Josh&rsquo;s Week 3 Play of the Week. All seven Week 3 highlight clips live inside the Week 3 recap in the Archive section below.</p>
             </article>
           </div>
-          <p class="film-note"><strong>More film:</strong> the six Week 9 clips also live inside the Week 9 recap in the Archive section below. Scroll down to the Archive and tap Week 3 for the full seven-clip highlight set.</p>
+          <p class="film-note"><strong>More film:</strong> Week 9&rsquo;s six clips &mdash; including the #1 Play of the Week &mdash; live inside the Week 9 recap in the Archive below. Tap Week 3 in the Archive for the full seven-clip highlight set.</p>
           </section>
 
           <!-- ===== ARCHIVE ===== -->
           <section class="season-section archive" aria-labelledby="archive-title">
-            <header class="season-subhead"><h3 id="archive-title">The archive &mdash; every week</h3><span class="season-subnote">Weeks 1&ndash;9 · full stat books</span></header>
+            <header class="season-subhead"><h3 id="archive-title">The archive &mdash; every week</h3><span class="season-subnote">Weeks 1&ndash;10 · full stat books</span></header>
         <div class="archive-grid">
           <button class="archive-card" type="button" data-open-sheet="sheet-week-1"><span class="ac-top"><span class="ac-wk">Week 1</span><time class="ac-date" datetime="2026-09-16">Sep 16</time></span><span class="ac-result t">Taylor 5&ndash;3</span><span class="ac-note">Cookie and Tank open the season with a statement.</span><span class="ac-open">Open the week</span></button>
           <button class="archive-card" type="button" data-open-sheet="sheet-week-2"><span class="ac-top"><span class="ac-wk">Week 2</span><time class="ac-date" datetime="2026-09-23">Sep 23</time></span><span class="ac-result l">Lazer 2&ndash;1</span><span class="ac-note">Josh takes a pick-six to the crib.</span><span class="ac-open">Open the week</span></button>
@@ -885,6 +869,7 @@
           <button class="archive-card" type="button" data-open-sheet="sheet-week-7"><span class="ac-top"><span class="ac-wk">Week 7</span><time class="ac-date" datetime="2026-10-28">Oct 28</time></span><span class="ac-result l">Lazer 4&ndash;2</span><span class="ac-note">Back-to-back for Lazer.</span><span class="ac-open">Open the week</span></button>
           <button class="archive-card" type="button" data-open-sheet="sheet-week-8"><span class="ac-top"><span class="ac-wk">Week 8</span><time class="ac-date" datetime="2026-11-04">Nov 4</time></span><span class="ac-result t">Taylor 7&ndash;3</span><span class="ac-note">Joshua: 2 TDs, 150+ yards &mdash; Player of the Game.</span><span class="ac-open">Open the week</span></button>
           <button class="archive-card" type="button" data-open-sheet="sheet-week-9"><span class="ac-top"><span class="ac-wk">Week 9</span><time class="ac-date" datetime="2026-11-11">Nov 11</time></span><span class="ac-result l">Lazer wins</span><span class="ac-note">Laser&rsquo;s amazing game. Damian&rsquo;s three touchdowns.</span><span class="ac-open">Open the week</span></button>
+          <button class="archive-card" type="button" data-open-sheet="sheet-week-10"><span class="ac-top"><span class="ac-wk">Week 10</span><time class="ac-date" datetime="2026-11-18">Nov 18</time></span><span class="ac-result t">Taylor 4&ndash;3</span><span class="ac-note">The Big Game &mdash; Aaron: Player of the Day.</span><span class="ac-open">Open the week</span></button>
         </div>
           </section>
 
@@ -1358,6 +1343,56 @@
       <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
     </div>
   </div>
+  <div class="week-sheet" id="sheet-week-10" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-10-title">
+    <div class="sheet-panel">
+      <div class="sheet-bar"><h2 id="sheet-week-10-title">Week 10</h2><button class="sheet-close" type="button" data-close-sheet>Close &times;</button></div>
+      <div class="sheet-body">
+      <aside class="broadcast-strip" aria-label="Week 10 breaking news">
+        <span class="breaking">Week 10</span>
+        <span class="ticker-copy"><strong>Aaron · Player of the Day · Week 10</strong> · 2 touchdowns, over 7 receptions and 100 yards in Taylor&rsquo;s 4&ndash;3 win in The Big Game.</span>
+        <span class="ticker-meta">Final · 4&ndash;3</span>
+      </aside>
+
+      <section class="carlos-spotlight week5-spotlight glass" aria-labelledby="aaron-title">
+        <div class="carlos-copy">
+          <span class="eyebrow">PLAYER OF THE DAY · WEEK 10</span>
+          <h2 id="aaron-title">AARON TAKES THE BIG GAME</h2>
+          <p>2 touchdowns, over 7 receptions and 100 yards — Aaron was the best player on the field as Taylor took The Big Game 4&ndash;3.</p>
+          <div class="fact-row"><span class="fact">2 TOUCHDOWNS</span><span class="fact">OVER 7 RECEPTIONS</span><span class="fact">100 YARDS</span></div>
+        </div>
+      </section>
+
+      <section class="stats glass" aria-labelledby="week10-stats-title">
+        <header class="section-head"><h2 id="week10-stats-title">Week 10 stat book</h2><p>One box · Both teams</p></header>
+        <div class="score-summary week4-summary" aria-label="Week 10 and season score summary">
+          <div><span>Week 10 final</span><strong>Taylor 4 · Mr.Lazer 3</strong></div>
+          <div><span>Season record</span><strong>Taylor 4 · Mr.Lazer 5 · 1 tie</strong></div>
+        </div>
+        <div class="teams">
+          <article class="team">
+            <div class="team-title"><h3>Taylor&rsquo;s team</h3><span>Week 10 · 4 points</span></div>
+            <div class="stat-list">
+              <div class="stat"><span class="stat-name">Aaron</span><span class="stat-copy"><strong>Player of the Day</strong> · 2 TD · over 7 receptions · 100 yards</span></div>
+              <div class="stat"><span class="stat-name">Damian</span><span class="stat-copy"><strong>Honorable mention</strong> · 1 TD · two 70-yard receptions · 1 INT on defense</span></div>
+              <div class="stat"><span class="stat-name">Cookie</span><span class="stat-copy"><strong>1 TD</strong> · 5 catches · 50 yards</span></div>
+              <div class="stat"><span class="stat-name">Mike</span><span class="stat-copy"><strong>4 catches</strong> · 70 yards</span></div>
+              <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>QB captain</strong> · huge game</span></div>
+            </div>
+          </article>
+          <article class="team">
+            <div class="team-title"><h3>Mr.Lazer&rsquo;s team</h3><span>Week 10 · 3 points</span></div>
+            <div class="stat-list">
+              <div class="stat"><span class="stat-name">Jason</span><span class="stat-copy"><strong>2 INT</strong> · 3 completions · 70 yards</span></div>
+              <div class="stat"><span class="stat-name">Mr.Lazer</span><span class="stat-copy"><strong>Captain (QB)</strong></span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+      </div>
+      <button class="sheet-done" type="button" data-close-sheet>Back to this week</button>
+    </div>
+  </div>
+
 
   <script>
     (() => {
@@ -1547,18 +1582,6 @@
     })();
   </script>
 
-  <script>
-    (() => {
-      const el = document.getElementById('days-out');
-      if (!el) return;
-      const now = new Date();
-      const et = new Date(now.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-      const today = new Date(et.getFullYear(), et.getMonth(), et.getDate());
-      const game = new Date(2026, 10, 18);
-      const days = Math.round((game - today) / 86400000);
-      el.textContent = days > 1 ? days + ' days out' : days === 1 ? 'Tomorrow night' : days === 0 ? 'Tonight' : 'Wed night';
-    })();
-  </script>
 
   <script>
     (() => {
@@ -1691,27 +1714,6 @@
           });
         }
       });
-    })();
-  </script>
-  <script>
-    (() => {
-      const btn = document.getElementById('week9-highlights-btn');
-      const seasonPill = document.getElementById('season-2026');
-      const film = document.getElementById('game-film');
-      if (!btn || !seasonPill || !film) return;
-      const goToWeek9Film = () => {
-        if (!seasonPill.open) seasonPill.open = true;
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            const strip = film.querySelector('.w9-scroll');
-            if (strip) strip.scrollLeft = 0;
-            film.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
-          });
-        });
-      };
-      btn.addEventListener('click', goToWeek9Film);
-      if (window.location.hash === '#game-film' || window.location.hash === '#week9') goToWeek9Film();
     })();
   </script>
   <script>
