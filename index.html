@@ -4,87 +4,95 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#070d06">
+  <meta name="theme-color" content="#1a0e05">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <title>CFL — Wednesday Night Football · Week 10 Final: Taylor Wins The Big Game</title>
+  <title>CFL — Wednesday Night Football · Turkey Bowl Week · Taylor Won Week 10</title>
   <style>
     :root{
       color-scheme:dark;
-      --ink:#f6faf1;
-      --muted:#aebfa9;
-      --faint:#7e9079;
-      --paper:#0b130a;
-      --panel:#101a0e;
-      --panel-2:#0d150c;
-      --line:rgba(246,250,241,.14);
-      --line-soft:rgba(246,250,241,.08);
+      --ink:#fdf6ec;
+      --muted:#d8c4a8;
+      --faint:#a68a6a;
+      --paper:#140d07;
+      --panel:#1a120a;
+      --panel-2:#150e08;
+      --line:rgba(253,246,236,.16);
+      --line-soft:rgba(253,246,236,.09);
       --green:#b8ff3f;
       --green-deep:#79bd27;
-      --gold:#ffd34e;
-      --orange:#ff692e;
+      --gold:#e9b44c;
+      --deep-gold:#d9a441;
+      --orange:#e86a2c;
+      --burnt:#c75b26;
+      --pumpkin:#e67c2e;
+      --cranberry:#b03045;
+      --cranberry-deep:#7e1f30;
+      --brown:#5c3d2e;
+      --brown-dark:#2b1a10;
       --blue:#70ccff;
       --radius:18px;
       --radius-sm:12px;
-      --shadow:0 24px 60px rgba(0,0,0,.52);
-      --glass:linear-gradient(165deg,rgba(16,32,17,.92),rgba(5,12,6,.96));
-      --glass-strong:linear-gradient(165deg,rgba(13,27,14,.95),rgba(4,10,5,.97));
+      --shadow:0 24px 60px rgba(0,0,0,.55);
+      --glass:linear-gradient(165deg,rgba(42,26,14,.92),rgba(12,8,5,.96));
+      --glass-strong:linear-gradient(165deg,rgba(36,22,12,.95),rgba(10,6,4,.97));
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;min-width:320px;min-height:100vh;overflow-x:hidden;background:#070d06;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-    ::selection{background:var(--green);color:#0a1703}
-    body::before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(4,10,4,.55),rgba(4,10,4,.72) 46%,rgba(3,8,3,.94)),url("assets/night-field.jpg") center 58%/cover no-repeat;filter:brightness(1.02) saturate(1.05)}
-    body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 50% -8%,rgba(255,244,200,.12),transparent 46%),linear-gradient(180deg,transparent 60%,rgba(2,6,2,.5))}
+    body{margin:0;min-width:320px;min-height:100vh;overflow-x:hidden;background:#140b05;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    ::selection{background:var(--pumpkin);color:#1c0d02}
+    body::before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(28,12,4,.52),rgba(22,10,4,.68) 46%,rgba(14,7,3,.94)),url("assets/night-field.jpg") center 58%/cover no-repeat;filter:brightness(1.02) saturate(1.08) sepia(.18)}
+    body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 50% -8%,rgba(255,176,66,.18),transparent 46%),radial-gradient(ellipse at 8% 22%,rgba(176,48,69,.10),transparent 40%),radial-gradient(ellipse at 92% 18%,rgba(230,124,46,.10),transparent 40%),linear-gradient(180deg,transparent 60%,rgba(10,4,2,.55))}
     button{font:inherit}
-    :focus-visible{outline:3px solid var(--green);outline-offset:2px}
+    :focus-visible{outline:3px solid var(--pumpkin);outline-offset:2px}
     .page{width:min(1180px,calc(100% - 28px));margin:auto;padding:max(14px,env(safe-area-inset-top)) 0 max(30px,env(safe-area-inset-bottom))}
     .glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
     .mono{font-family:"IBM Plex Mono",monospace}
 
     /* ============ SCOREBUG BAR ============ */
-    .scorebug{position:sticky;top:10px;z-index:40;display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;align-items:stretch;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:rgba(5,11,5,.94);box-shadow:0 16px 40px rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-    .bug-brand{display:flex;align-items:center;gap:10px;padding:10px 16px;background:var(--green);color:#0c1c02}
+    .scorebug{position:sticky;top:10px;z-index:40;display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;align-items:stretch;overflow:hidden;border:1px solid rgba(233,180,76,.35);border-radius:14px;background:rgba(20,11,5,.94);box-shadow:0 16px 40px rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    .bug-brand{display:flex;align-items:center;gap:10px;padding:10px 16px;background:linear-gradient(135deg,var(--burnt),var(--pumpkin) 55%,var(--deep-gold));color:#1c0d02}
     .bug-brand strong{font:400 30px/0.9 "Bebas Neue",sans-serif;letter-spacing:.06em}
     .bug-brand span{font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;line-height:1.35}
     .bug-score{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,26px);padding:8px 12px;min-width:0}
     .bug-side{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
     .bug-side .bug-name{font:400 clamp(19px,3vw,27px)/1 "Bebas Neue",sans-serif;letter-spacing:.05em}
     .bug-side .bug-num{font:400 clamp(26px,4vw,38px)/0.9 "Bebas Neue",sans-serif}
-    .bug-side.taylor .bug-num{color:var(--green)}
+    .bug-side.taylor .bug-num{color:var(--pumpkin)}
     .bug-side.lazer .bug-num{color:var(--gold)}
     .bug-mid{text-align:center}
     .bug-mid span{display:block;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
     .bug-mid strong{display:block;margin-top:2px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff}
-    .bug-link{display:grid;place-items:center;padding:0 18px;border-left:1px solid var(--line);color:var(--green);font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:background .18s ease,color .18s ease}
-    .bug-link:hover,.bug-link:focus-visible{background:var(--green);color:#0c1c02}
+    .bug-link{display:grid;place-items:center;padding:0 18px;border-left:1px solid var(--line);color:var(--gold);font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:background .18s ease,color .18s ease}
+    .bug-link:hover,.bug-link:focus-visible{background:var(--pumpkin);color:#1c0d02}
 
     main{display:grid;gap:18px;padding-top:18px}
 
     /* ============ MAIN EVENT POSTER ============ */
-    .poster{position:relative;overflow:hidden;border:1px solid rgba(184,255,63,.4);border-radius:22px;background:linear-gradient(180deg,rgba(10,22,9,.82),rgba(5,11,5,.94) 78%);box-shadow:0 34px 80px rgba(0,0,0,.6)}
-    .poster::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.035) 79px 80px);pointer-events:none}
+    .poster{position:relative;overflow:hidden;border:1px solid rgba(230,124,46,.55);border-radius:22px;background:linear-gradient(180deg,rgba(38,20,8,.86),rgba(16,9,4,.95) 78%);box-shadow:0 34px 80px rgba(0,0,0,.62),0 0 0 1px rgba(233,180,76,.12),0 0 44px rgba(199,91,38,.14)}
+    .poster::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,235,200,.04) 79px 80px);pointer-events:none}
+    .poster::after{content:"🍂  🎃  🍂";position:absolute;top:10px;right:16px;font-size:13px;letter-spacing:.6em;opacity:.55;pointer-events:none}
     .poster-brand{position:relative;text-align:center;padding:clamp(20px,4vw,34px) 20px 2px}
-    .poster-brand span{display:block;font:400 clamp(84px,18vw,168px)/0.78 "Bebas Neue",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--green);text-shadow:0 0 44px rgba(184,255,63,.45),0 6px 0 rgba(0,0,0,.35),0 22px 60px rgba(0,0,0,.7)}
-    .poster-top{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:16px 22px;border-bottom:1px dashed rgba(246,250,241,.25)}
-    .poster-kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 13px;background:var(--orange);color:#220b00;border-radius:6px;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 22px rgba(255,105,46,.35)}
-    .poster-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#220b00}
+    .poster-brand span{display:block;font:400 clamp(84px,18vw,168px)/0.78 "Bebas Neue",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--pumpkin);text-shadow:0 0 44px rgba(230,124,46,.5),0 6px 0 rgba(0,0,0,.35),0 22px 60px rgba(0,0,0,.7)}
+    .poster-top{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:16px 22px;border-bottom:1px dashed rgba(253,246,236,.28)}
+    .poster-kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 13px;background:var(--cranberry);color:#fff3e6;border-radius:6px;font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 22px rgba(176,48,69,.4)}
+    .poster-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff3e6}
     .poster-when{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#eaf3e4}
     .poster-when em{font-style:normal;color:var(--gold)}
     .poster-lights{flex:1 1 100%;margin-top:2px;text-align:center;font:400 clamp(34px,7.5vw,56px)/1 "Bebas Neue",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 0 6px rgba(255,255,255,.95),0 0 18px rgba(255,255,255,.85),0 0 42px rgba(255,255,255,.6),0 0 90px rgba(255,255,255,.45)}
     .poster-head{position:relative;padding:clamp(22px,4.5vw,44px) clamp(18px,4vw,40px) 6px;text-align:center}
-    .poster-eyebrow{margin:0;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.3em;text-transform:uppercase}
+    .poster-eyebrow{margin:0;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.3em;text-transform:uppercase}
     .poster-title{margin:8px 0 0;font:400 clamp(64px,13vw,148px)/0.82 "Bebas Neue",sans-serif;letter-spacing:.01em;text-transform:uppercase;text-shadow:0 6px 0 rgba(0,0,0,.35),0 22px 60px rgba(0,0,0,.7)}
-    .poster-title .must{color:var(--green);text-shadow:0 0 44px rgba(184,255,63,.45),0 6px 0 rgba(0,0,0,.35)}
-    .poster-score{margin:16px 0 0;font:400 clamp(28px,5vw,44px)/1 "Bebas Neue",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--green);text-shadow:0 0 26px rgba(184,255,63,.35)}
+    .poster-title .must{color:var(--pumpkin);text-shadow:0 0 44px rgba(230,124,46,.5),0 6px 0 rgba(0,0,0,.35)}
+    .poster-score{margin:16px 0 0;font:400 clamp(28px,5vw,44px)/1 "Bebas Neue",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-shadow:0 0 26px rgba(233,180,76,.4)}
     .poster-sub{max-width:640px;margin:16px auto 0;color:#e6efe1;font-size:clamp(13px,1.8vw,16px);font-weight:550;line-height:1.55;text-wrap:balance}
     .poster-sub strong{color:#fff}
-    .faceoff{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;margin:clamp(20px,4vw,36px) clamp(14px,3vw,34px) 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:rgba(3,8,3,.55)}
+    .faceoff{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;margin:clamp(20px,4vw,36px) clamp(14px,3vw,34px) 0;border:1px solid rgba(233,180,76,.28);border-radius:16px;overflow:hidden;background:rgba(14,7,3,.6)}
     .fighter{padding:clamp(16px,3vw,28px);min-width:0}
-    .fighter.taylor{background:linear-gradient(150deg,rgba(184,255,63,.14),transparent 70%)}
-    .fighter.lazer{background:linear-gradient(210deg,rgba(255,211,78,.14),transparent 70%);text-align:right}
+    .fighter.taylor{background:linear-gradient(150deg,rgba(230,124,46,.18),transparent 70%)}
+    .fighter.lazer{background:linear-gradient(210deg,rgba(233,180,76,.16),transparent 70%);text-align:right}
     .fighter .f-role{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
     .fighter .f-name{display:block;margin-top:6px;font:400 clamp(38px,6.5vw,64px)/0.88 "Bebas Neue",sans-serif;letter-spacing:.02em;text-transform:uppercase}
     .fighter.taylor .f-name{color:#fff}
@@ -92,36 +100,94 @@
     .fighter .f-record{display:flex;align-items:baseline;gap:10px;margin-top:10px}
     .fighter.lazer .f-record{justify-content:flex-end}
     .fighter .f-num{font:400 clamp(56px,8vw,84px)/0.8 "Bebas Neue",sans-serif}
-    .fighter.taylor .f-num{color:var(--green);text-shadow:0 0 34px rgba(184,255,63,.4)}
-    .fighter.lazer .f-num{color:var(--gold);text-shadow:0 0 34px rgba(255,211,78,.4)}
+    .fighter.taylor .f-num{color:var(--pumpkin);text-shadow:0 0 34px rgba(230,124,46,.45)}
+    .fighter.lazer .f-num{color:var(--gold);text-shadow:0 0 34px rgba(233,180,76,.45)}
     .fighter .f-wins{color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
     .form{display:flex;align-items:center;gap:5px;margin-top:14px}
     .fighter.lazer .form{justify-content:flex-end}
     .form .form-label{margin-right:4px;color:var(--faint);font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
     .form i{display:grid;place-items:center;width:21px;height:21px;border-radius:6px;font-size:9px;font-style:normal;font-weight:900}
-    .form i.w{background:var(--green);color:#0c1c02}
-    .form i.l{background:rgba(255,105,46,.9);color:#220b00}
-    .form i.t{background:rgba(255,255,255,.35);color:#0b130a}
+    .form i.w{background:var(--pumpkin);color:#1c0d02}
+    .form i.l{background:rgba(176,48,69,.92);color:#fff3e6}
+    .form i.t{background:rgba(255,255,255,.35);color:#140d07}
     .faceoff-mid{display:grid;place-items:center;padding:0 6px}
     .faceoff-mid span{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#fff;color:#0a1408;font:800 13px/1 "IBM Plex Sans",sans-serif;box-shadow:0 0 0 6px rgba(255,255,255,.13),0 12px 28px rgba(0,0,0,.5)}
-    .stakes{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:0 clamp(14px,3vw,34px);border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;overflow:hidden;background:rgba(3,8,3,.4)}
+    .stakes{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:0 clamp(14px,3vw,34px);border:1px solid rgba(233,180,76,.28);border-top:0;border-radius:0 0 16px 16px;overflow:hidden;background:rgba(14,7,3,.45)}
     .stake{padding:16px 20px}
-    .stake+.stake{border-left:1px dashed rgba(246,250,241,.22)}
+    .stake+.stake{border-left:1px dashed rgba(253,246,236,.24)}
     .stake span{display:block;font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
-    .stake.win span{color:var(--green)}
-    .stake.lose span{color:var(--orange)}
-    .stake p{margin:7px 0 0;color:#e9f1e4;font-size:12.5px;font-weight:550;line-height:1.5}
-    .poster-foot{position:relative;display:grid;gap:0;margin-top:clamp(18px,3vw,28px);border-top:1px dashed rgba(246,250,241,.25);background:rgba(3,8,3,.5)}
+    .stake.win span{color:var(--pumpkin)}
+    .stake.lose span{color:var(--cranberry)}
+    .stake p{margin:7px 0 0;color:#f3e6d3;font-size:12.5px;font-weight:550;line-height:1.5}
+    .poster-foot{position:relative;display:grid;gap:0;margin-top:clamp(18px,3vw,28px);border-top:1px dashed rgba(253,246,236,.28);background:rgba(14,7,3,.55)}
     .foot-block{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:16px 22px}
-    .foot-block+.foot-block{border-top:1px dashed rgba(246,250,241,.22)}
+    .foot-block+.foot-block{border-top:1px dashed rgba(253,246,236,.24)}
     .tgiving{display:flex;align-items:center;gap:14px;min-width:0}
-    .tgiving .tg-badge{flex:0 0 auto;padding:8px 12px;border:1px solid rgba(255,211,78,.55);border-radius:8px;color:var(--gold);font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
-    .tgiving .tg-badge.tg-badge-now{border-color:rgba(184,255,63,.6);color:var(--green)}
-    .tgiving p{margin:0;color:#e9f1e4;font-size:12px;font-weight:600;line-height:1.45}
+    .tgiving .tg-badge{flex:0 0 auto;padding:8px 12px;border:1px solid rgba(233,180,76,.6);border-radius:8px;color:var(--gold);font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
+    .tgiving .tg-badge.tg-badge-now{border-color:rgba(230,124,46,.65);color:var(--pumpkin)}
+    .tgiving p{margin:0;color:#f3e6d3;font-size:12px;font-weight:600;line-height:1.45}
     .tgiving p strong{color:#fff}
     .count-chip{flex:0 0 auto;text-align:right}
-    .count-chip strong{display:block;color:var(--green);font:400 34px/0.9 "Bebas Neue",sans-serif;letter-spacing:.04em}
+    .count-chip strong{display:block;color:var(--pumpkin);font:400 34px/0.9 "Bebas Neue",sans-serif;letter-spacing:.04em}
     .count-chip span{display:block;margin-top:3px;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+
+    /* ============ TURKEY BOWL — WEEK 11 HYPE ============ */
+    .turkey-bowl{position:relative;overflow:hidden;border:2px solid rgba(230,124,46,.65);border-radius:22px;background:linear-gradient(180deg,rgba(52,26,10,.94),rgba(18,9,4,.97) 72%);box-shadow:0 30px 70px rgba(0,0,0,.62),0 0 0 1px rgba(233,180,76,.18),0 0 52px rgba(199,91,38,.22)}
+    .turkey-bowl::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% -10%,rgba(255,176,66,.16),transparent 52%),repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,235,200,.035) 79px 80px);pointer-events:none}
+    .tb-topbar{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:14px 20px;border-bottom:1px dashed rgba(253,246,236,.28);background:rgba(0,0,0,.22)}
+    .tb-live{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;background:var(--cranberry);color:#fff3e6;border-radius:6px;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;box-shadow:0 8px 22px rgba(176,48,69,.38)}
+    .tb-live::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff3e6}
+    .tb-when{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#f3e6d3}
+    .tb-when em{font-style:normal;color:var(--gold)}
+    .tb-head{position:relative;text-align:center;padding:clamp(22px,4vw,36px) clamp(16px,4vw,36px) 4px}
+    .tb-deco{font-size:20px;letter-spacing:.45em;line-height:1;opacity:.9}
+    .tb-eyebrow{margin:12px 0 0;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.32em;text-transform:uppercase}
+    .tb-title{margin:8px 0 0;font:400 clamp(58px,12vw,124px)/0.84 "Bebas Neue",sans-serif;letter-spacing:.01em;text-transform:uppercase;color:#fff;text-shadow:0 6px 0 rgba(0,0,0,.35),0 22px 60px rgba(0,0,0,.7)}
+    .tb-title .tb-accent{display:block;color:var(--pumpkin);text-shadow:0 0 44px rgba(230,124,46,.55),0 6px 0 rgba(0,0,0,.35)}
+    .tb-sub{max-width:620px;margin:14px auto 0;color:#f3e6d3;font-size:clamp(13px,1.8vw,15.5px);font-weight:550;line-height:1.6;text-wrap:balance}
+    .tb-sub strong{color:#fff}
+    .tb-countdown{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:560px;margin:22px auto 0;padding:0 16px}
+    .tb-count-cell{padding:14px 8px 12px;border:1px solid rgba(233,180,76,.38);border-radius:14px;background:rgba(0,0,0,.38);text-align:center}
+    .tb-count-cell strong{display:block;font:400 clamp(34px,7vw,48px)/0.9 "Bebas Neue",sans-serif;letter-spacing:.04em;color:var(--gold);text-shadow:0 0 22px rgba(233,180,76,.35);font-variant-numeric:tabular-nums}
+    .tb-count-cell span{display:block;margin-top:5px;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .tb-count-note{position:relative;margin:10px 0 0;text-align:center;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+    .tb-series{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:22px clamp(14px,3vw,30px) 0;padding:16px 18px;border:1px solid rgba(233,180,76,.3);border-radius:16px;background:rgba(0,0,0,.32)}
+    .tb-team{text-align:center;min-width:0}
+    .tb-team .tb-team-name{display:block;font:400 clamp(24px,4.5vw,36px)/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
+    .tb-team .tb-team-num{display:block;margin-top:4px;font:400 clamp(52px,9vw,76px)/0.85 "Bebas Neue",sans-serif}
+    .tb-team.taylor .tb-team-num{color:var(--pumpkin);text-shadow:0 0 30px rgba(230,124,46,.45)}
+    .tb-team.lazer .tb-team-num{color:var(--gold);text-shadow:0 0 30px rgba(233,180,76,.45)}
+    .tb-team .tb-team-sub{display:block;margin-top:4px;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .tb-vs{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#fff3e6;color:#2b1606;font:800 12px/1 "IBM Plex Sans",sans-serif;box-shadow:0 0 0 5px rgba(255,243,230,.14),0 10px 24px rgba(0,0,0,.5)}
+    .tb-tie{text-align:center;margin:10px 16px 0;color:var(--muted);font-size:11px;font-weight:650}
+    .tb-tie strong{color:#fff}
+    .tb-stakes{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;margin:16px clamp(14px,3vw,30px) 0;border:1px solid rgba(233,180,76,.3);border-radius:16px;overflow:hidden;background:rgba(0,0,0,.28)}
+    .tb-stake{padding:17px 19px}
+    .tb-stake+.tb-stake{border-left:1px dashed rgba(253,246,236,.26)}
+    .tb-stake span{display:block;font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .tb-stake.win span{color:var(--pumpkin)}
+    .tb-stake.lose span{color:var(--gold)}
+    .tb-stake strong{display:block;margin-top:7px;font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+    .tb-stake p{margin:7px 0 0;color:#f3e6d3;font-size:12.5px;font-weight:550;line-height:1.55}
+    .tb-momentum{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin:16px clamp(14px,3vw,30px) clamp(18px,3vw,26px);padding:15px 18px;border:1px solid rgba(230,124,46,.4);border-radius:14px;background:linear-gradient(105deg,rgba(230,124,46,.16),rgba(176,48,69,.10) 62%,transparent)}
+    .tb-momentum .tb-mom-badge{flex:0 0 auto;padding:8px 12px;border:1px solid rgba(230,124,46,.65);border-radius:8px;color:var(--pumpkin);font:400 18px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase;background:rgba(0,0,0,.25)}
+    .tb-momentum p{margin:0;flex:1 1 300px;color:#f3e6d3;font-size:12.5px;font-weight:600;line-height:1.55}
+    .tb-momentum p strong{color:#fff}
+    @media(max-width:640px){
+      .tb-topbar{padding:11px 13px}
+      .tb-countdown{gap:7px;padding:0 12px}
+      .tb-count-cell{padding:11px 4px 9px;border-radius:11px}
+      .tb-series{margin-left:10px;margin-right:10px;padding:13px 10px;gap:8px}
+      .tb-vs{width:38px;height:38px;font-size:10px}
+      .tb-stakes{grid-template-columns:1fr;margin-left:10px;margin-right:10px}
+      .tb-stake{padding:13px 14px}
+      .tb-stake+.tb-stake{border-left:0;border-top:1px dashed rgba(253,246,236,.26)}
+      .tb-momentum{margin-left:10px;margin-right:10px;padding:13px 14px}
+      .tb-title{font-size:clamp(52px,16vw,76px)}
+    }
+    @media(prefers-reduced-motion:no-preference){
+      .tb-live::before{animation:pulse 1.8s ease-in-out infinite}
+    }
 
     /* ============ WEEK NINE HIGHLIGHTS — NEON QUICK ACCESS ============ */
     .neon-w9{display:flex;align-items:center;gap:14px;width:100%;min-height:68px;padding:12px 14px 12px 12px;border-radius:999px;border:2px solid #4dd8ff;background:linear-gradient(180deg,rgba(6,32,52,.96),rgba(3,14,28,.98));color:#eaf9ff;cursor:pointer;text-align:left;-webkit-tap-highlight-color:transparent;box-shadow:0 0 0 1px rgba(125,230,255,.35),0 0 18px rgba(56,198,255,.65),0 0 44px rgba(0,166,255,.38),inset 0 0 18px rgba(56,198,255,.22),0 18px 36px rgba(0,0,0,.45);transition:box-shadow .18s ease,transform .18s ease,background .18s ease}
@@ -150,10 +216,10 @@
     /* ============ SECTION HEADS ============ */
     .section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 19px;border-bottom:1px solid var(--line-soft)}
     .section-head h2{display:flex;align-items:center;gap:11px}
-    .section-head h2::before{content:"";flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:var(--green);box-shadow:0 0 12px rgba(184,255,63,.65);transform:rotate(45deg)}
+    .section-head h2::before{content:"";flex:0 0 auto;width:9px;height:9px;border-radius:2px;background:var(--pumpkin);box-shadow:0 0 12px rgba(230,124,46,.7);transform:rotate(45deg)}
     .section-head p{margin:0;color:var(--muted);font-size:11px;text-align:right}
     h2{margin:0;font:400 clamp(28px,3.6vw,42px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
-    .eyebrow{color:var(--green);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .eyebrow{color:var(--pumpkin);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
 
     /* ============ SEASON RACE TRACK ============ */
     .race{overflow:hidden}
@@ -166,27 +232,27 @@
     .race-week .rw-date{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase}
     .race-week .rw-result{margin-top:9px;font:400 26px/0.95 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase}
     .race-week .rw-note{margin:6px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
-    .race-week.w-taylor{background:linear-gradient(155deg,rgba(184,255,63,.13),transparent 72%)}
-    .race-week.w-taylor .rw-result{color:var(--green)}
-    .race-week.w-lazer{background:linear-gradient(155deg,rgba(255,211,78,.11),transparent 72%)}
+    .race-week.w-taylor{background:linear-gradient(155deg,rgba(230,124,46,.16),transparent 72%)}
+    .race-week.w-taylor .rw-result{color:var(--pumpkin)}
+    .race-week.w-lazer{background:linear-gradient(155deg,rgba(233,180,76,.13),transparent 72%)}
     .race-week.w-lazer .rw-result{color:var(--gold)}
     .race-week.w-tie .rw-result{color:#fff}
-    .race-week.is-next{outline:2px solid var(--orange);outline-offset:-2px;background:linear-gradient(155deg,rgba(255,105,46,.16),transparent 75%)}
-    .race-week.is-next .rw-result{color:var(--orange)}
-    .race-week.is-tgiving{background:linear-gradient(155deg,rgba(255,211,78,.16),transparent 75%)}
+    .race-week.is-next{outline:2px solid var(--pumpkin);outline-offset:-2px;background:linear-gradient(155deg,rgba(230,124,46,.18),transparent 75%)}
+    .race-week.is-next .rw-result{color:var(--pumpkin)}
+    .race-week.is-tgiving{outline:2px solid rgba(233,180,76,.7);outline-offset:-2px;background:linear-gradient(155deg,rgba(233,180,76,.20),rgba(176,48,69,.10) 78%)}
     .race-week.is-tgiving .rw-result{color:var(--gold)}
     .race-tag{display:inline-block;margin-top:10px;padding:4px 8px;border-radius:999px;font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    .race-week.is-next .race-tag{background:var(--orange);color:#220b00}
-    .race-week.is-tgiving .race-tag{border:1px solid rgba(255,211,78,.6);color:var(--gold)}
+    .race-week.is-next .race-tag{background:var(--pumpkin);color:#1c0d02}
+    .race-week.is-tgiving .race-tag{background:var(--cranberry);border-color:rgba(176,48,69,.7);color:#fff3e6}
     .race-week .race-tag{border:1px solid var(--line);color:var(--muted)}
     .race-week.is-next .race-tag{border:0}
     .race-legend{display:flex;flex-wrap:wrap;gap:16px;padding:13px 19px;border-top:1px solid var(--line-soft);background:rgba(0,0,0,.25)}
     .race-legend span{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
     .race-legend i{width:10px;height:10px;border-radius:3px}
-    .race-legend .lg-t{background:var(--green)}
+    .race-legend .lg-t{background:var(--pumpkin)}
     .race-legend .lg-l{background:var(--gold)}
     .race-legend .lg-tie{background:rgba(255,255,255,.5)}
-    .race-legend .lg-next{background:var(--orange)}
+    .race-legend .lg-next{background:var(--cranberry)}
 
     /* ============ TOP PLAYERS — DAMAGE REPORT ============ */
     .damage-grid{display:grid;grid-template-columns:repeat(6,1fr)}
@@ -194,12 +260,12 @@
     .damage-card.c1,.damage-card.c2,.damage-card.c3{grid-column:span 2}
     .damage-card.c4,.damage-card.c5{grid-column:span 3}
     .damage-card.c3,.damage-card.c5{border-right:0}
-    .damage-card.c1{background:linear-gradient(155deg,rgba(184,255,63,.16),transparent 72%)}
+    .damage-card.c1{background:linear-gradient(155deg,rgba(230,124,46,.18),transparent 72%)}
     .damage-card.c5{background:linear-gradient(155deg,rgba(255,105,46,.13),transparent 72%)}
     .damage-rank{display:flex;align-items:center;justify-content:space-between;gap:8px}
-    .damage-rank .d-num{font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;color:var(--green)}
+    .damage-rank .d-num{font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;color:var(--pumpkin)}
     .damage-card.c5 .d-num{color:var(--orange)}
-    .damage-tag{padding:4px 8px;border-radius:999px;border:1px solid rgba(184,255,63,.55);color:var(--green);font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+    .damage-tag{padding:4px 8px;border-radius:999px;border:1px solid rgba(230,124,46,.6);color:var(--pumpkin);font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
     .damage-card.c5 .damage-tag{border-color:rgba(255,105,46,.6);color:var(--orange)}
     .damage-name{margin:9px 0 0;font:400 clamp(30px,4vw,42px)/0.92 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase}
     .damage-card p{margin:7px 0 0;color:#e9f1e4;font-size:12.5px;line-height:1.55}
@@ -235,14 +301,14 @@
     }
 
     /* ============ SEASON LINE + SPEED KINGS ============ */
-    .season-line{padding:15px 20px;border-bottom:1px solid var(--line-soft);background:linear-gradient(105deg,rgba(184,255,63,.1),transparent 72%)}
-    .season-line p{margin:0;color:#e9f1e4;font-size:13px;font-weight:600;line-height:1.55}
+    .season-line{padding:15px 20px;border-bottom:1px solid var(--line-soft);background:linear-gradient(105deg,rgba(230,124,46,.13),transparent 72%)}
+    .season-line p{margin:0;color:#f3e6d3;font-size:13px;font-weight:600;line-height:1.55}
     .season-line p strong{color:#fff}
-    .season-line .sl-tag{display:inline-block;margin-right:10px;padding:5px 9px;border-radius:6px;background:var(--green);color:#0c1c02;font-size:8px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;vertical-align:2px}
+    .season-line .sl-tag{display:inline-block;margin-right:10px;padding:5px 9px;border-radius:6px;background:var(--pumpkin);color:#1c0d02;font-size:8px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;vertical-align:2px}
     .damage-card.c6,.damage-card.c7{grid-column:span 3}
     .damage-card.c7{border-right:0}
     .damage-card.c6{background:linear-gradient(155deg,rgba(112,204,255,.16),transparent 72%)}
-    .damage-card.c7{background:linear-gradient(155deg,rgba(112,204,255,.07),rgba(184,255,63,.1) 75%)}
+    .damage-card.c7{background:linear-gradient(155deg,rgba(112,204,255,.07),rgba(230,124,46,.12) 75%)}
     .damage-card.c6 .d-num,.damage-card.c7 .d-num{color:var(--blue)}
     .damage-card.c6 .damage-tag,.damage-card.c7 .damage-tag{border-color:rgba(112,204,255,.6);color:var(--blue)}
     .damage-card.c8,.damage-card.c9{grid-column:span 3}
@@ -250,7 +316,7 @@
     .damage-card.c8{background:linear-gradient(155deg,rgba(255,211,78,.15),transparent 72%)}
     .damage-card.c8 .d-num{color:var(--gold)}
     .damage-card.c8 .damage-tag{border-color:rgba(255,211,78,.6);color:var(--gold)}
-    .damage-card.c9{background:linear-gradient(155deg,rgba(184,255,63,.12),transparent 72%)}
+    .damage-card.c9{background:linear-gradient(155deg,rgba(230,124,46,.14),transparent 72%)}
     .speed-banner{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;padding:17px 20px;border-bottom:1px solid var(--line-soft);background:linear-gradient(105deg,rgba(255,211,78,.13),transparent 70%)}
     .speed-banner .sp-badge{flex:0 0 auto;padding:8px 12px;border:1px solid rgba(255,211,78,.6);border-radius:8px;color:var(--gold);font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
     .speed-banner p{margin:0;flex:1 1 320px;color:#e9f1e4;font-size:12.5px;font-weight:600;line-height:1.55}
@@ -266,14 +332,14 @@
     .w9-video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#000;border:1px solid var(--line);border-radius:14px}
     .w9-wrap{position:relative}
     .w9-wrap .w9-video{cursor:pointer;-webkit-tap-highlight-color:transparent}
-    .w9-wrap .w9-video:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+    .w9-wrap .w9-video:focus-visible{outline:3px solid var(--pumpkin);outline-offset:2px}
     .w9-sound{position:absolute;right:9px;bottom:9px;z-index:3;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.34);background:rgba(2,9,4,.72);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.3);cursor:pointer}
     .w9-sound svg{width:20px;height:20px;fill:currentColor}
     .w9-sound.is-muted::after{content:"";position:absolute;width:24px;height:2px;background:var(--orange);transform:rotate(-45deg);box-shadow:0 1px 2px rgba(0,0,0,.5)}
-    .w9-sound:hover,.w9-sound:focus-visible{border-color:var(--green);background:rgba(14,37,12,.92);outline:2px solid var(--green);outline-offset:2px}
+    .w9-sound:hover,.w9-sound:focus-visible{border-color:var(--pumpkin);background:rgba(42,22,8,.94);outline:2px solid var(--pumpkin);outline-offset:2px}
     .w9-full{position:absolute;right:9px;top:9px;z-index:3;display:grid;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.34);background:rgba(2,9,4,.72);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.3);cursor:pointer}
     .w9-full svg{width:20px;height:20px;fill:currentColor}
-    .w9-full:hover,.w9-full:focus-visible{border-color:var(--green);background:rgba(14,37,12,.92);outline:2px solid var(--green);outline-offset:2px}
+    .w9-full:hover,.w9-full:focus-visible{border-color:var(--pumpkin);background:rgba(42,22,8,.94);outline:2px solid var(--pumpkin);outline-offset:2px}
     .w9-state{position:absolute;left:9px;bottom:9px;z-index:3;padding:5px 9px;border-radius:999px;background:rgba(2,9,4,.72);color:#fff;font-size:9px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;pointer-events:none}
     .w9-meta{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-top:8px}
     .w9-meta strong{font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
@@ -291,7 +357,7 @@
     /* ============ FRONT PAGE (WEEK 9) ============ */
     .frontpage{overflow:hidden}
     .fp-grid{display:grid;grid-template-columns:1.25fr 1fr}
-    .fp-lead{padding:22px 24px;border-right:1px solid var(--line-soft);background:linear-gradient(150deg,rgba(255,211,78,.12),transparent 70%)}
+    .fp-lead{padding:22px 24px;border-right:1px solid var(--line-soft);background:linear-gradient(150deg,rgba(233,180,76,.14),transparent 70%)}
     .fp-lead .fp-kicker{color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
     .fp-lead h3{margin:9px 0 0;font:400 clamp(38px,5.4vw,58px)/0.9 "Bebas Neue",sans-serif;letter-spacing:.02em;text-transform:uppercase}
     .fp-lead p{margin:11px 0 0;color:#e9f1e4;font-size:13px;line-height:1.55;max-width:460px}
@@ -305,12 +371,12 @@
     .breaking-bar .bb-tag{flex:0 0 auto;padding:5px 10px;background:var(--orange);color:#220b00;border-radius:5px;font:400 17px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase}
     .breaking-bar p{margin:0;font-size:12px;font-weight:650}
     .breaking-bar p strong{color:var(--gold);text-transform:uppercase}
-    .recap10 .fp-lead{background:linear-gradient(150deg,rgba(184,255,63,.15),transparent 70%)}
-    .recap10 .fp-lead .fp-kicker{color:var(--green)}
+    .recap10 .fp-lead{background:linear-gradient(150deg,rgba(230,124,46,.18),transparent 70%)}
+    .recap10 .fp-lead .fp-kicker{color:var(--pumpkin)}
     .huge-row{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line-soft)}
     .huge-cell{padding:15px 19px;border-right:1px solid var(--line-soft)}
     .huge-cell:last-child{border-right:0}
-    .huge-cell span{display:block;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .huge-cell span{display:block;color:var(--pumpkin);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
     .huge-cell strong{display:block;margin-top:5px;font:400 27px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
     @media(max-width:640px){.huge-row{grid-template-columns:1fr 1fr}.huge-cell{padding:12px 14px}.huge-cell:nth-child(2n){border-right:0}.huge-cell:nth-child(-n+4){border-bottom:1px solid var(--line-soft)}.huge-cell:last-child{grid-column:1/-1;border-right:0}}
 
@@ -320,26 +386,26 @@
     .archive-card{position:relative;display:block;width:100%;padding:18px;text-align:left;border:0;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s ease}
     .archive-card:nth-child(3n){border-right:0}
     .archive-card:nth-child(n+10){border-bottom:0}
-    .archive-card:hover,.archive-card:focus-visible{background:rgba(184,255,63,.07)}
+    .archive-card:hover,.archive-card:focus-visible{background:rgba(230,124,46,.09)}
     .archive-card .ac-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
     .archive-card .ac-wk{font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
     .archive-card .ac-date{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase}
     .archive-card .ac-result{display:block;margin-top:9px;font:400 22px/1 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase}
-    .archive-card .ac-result.t{color:var(--green)}
+    .archive-card .ac-result.t{color:var(--pumpkin)}
     .archive-card .ac-result.l{color:var(--gold)}
     .archive-card .ac-result.tie{color:#fff}
     .archive-card .ac-note{display:block;margin-top:6px;color:var(--muted);font-size:11px;line-height:1.45}
-    .archive-card .ac-open{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    .archive-card .ac-open{display:inline-flex;align-items:center;gap:6px;margin-top:12px;color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
     .archive-card .ac-open::after{content:"›";font-size:15px;line-height:1;transition:transform .18s ease}
     .archive-card:hover .ac-open::after{transform:translateX(3px)}
 
     /* ============ ROSTER ============ */
     .roster{overflow:hidden;scroll-margin-top:84px}
     .roster summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 19px;cursor:pointer;list-style:none;transition:background .2s ease}
-    .roster summary:hover{background:rgba(184,255,63,.05)}
+    .roster summary:hover{background:rgba(230,124,46,.07)}
     .roster summary::-webkit-details-marker{display:none}
     .roster summary h2{margin:0}
-    .roster summary span{color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .roster summary span{color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
     .roster summary span::after{content:" +"}
     .roster[open] summary{border-bottom:1px solid var(--line-soft)}
     .roster[open] summary span::after{content:" −"}
@@ -347,15 +413,15 @@
     .roster-table{width:100%;min-width:900px;border-collapse:collapse;table-layout:fixed}
     .roster-table col:nth-child(1){width:122px}
     .roster-table th:first-child,.roster-table td:first-child{position:sticky;left:0;z-index:2;box-shadow:7px 0 12px -7px rgba(0,0,0,.7)}
-    .roster-table th:first-child{background:#22380f}
-    .roster-table td:first-child{background:#0c1a09}
+    .roster-table th:first-child{background:#4a2c12}
+    .roster-table td:first-child{background:#1e1208}
     .roster-table th,.roster-table td{padding:11px 13px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);text-align:left;vertical-align:middle}
     .roster-table th:last-child,.roster-table td:last-child{border-right:0}.roster-table tbody tr:last-child td{border-bottom:0}
-    .roster-table th{background:rgba(184,255,63,.12);color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
-    .roster-table td{color:#edf3e9;font-size:11px;font-weight:600;line-height:1.35}
+    .roster-table th{background:rgba(230,124,46,.16);color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+    .roster-table td{color:#f3e9da;font-size:11px;font-weight:600;line-height:1.35}
     .roster-table tbody tr{transition:background .15s ease}
     .roster-table tbody tr:nth-child(even){background:rgba(255,255,255,.022)}
-    .roster-table tbody tr:hover{background:rgba(184,255,63,.055)}
+    .roster-table tbody tr:hover{background:rgba(230,124,46,.07)}
     .roster-table td:first-child{color:#fff;font:400 20px/1 "Bebas Neue",sans-serif;letter-spacing:.035em}
     footer{display:flex;justify-content:space-between;gap:14px;padding:18px 2px 0;color:#d9e1d6;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-shadow:0 2px 12px #000}
 
@@ -363,15 +429,15 @@
     /* ============ COLLAPSIBLE PILLS ============ */
     .pill{overflow:hidden;scroll-margin-top:84px}
     .pill>summary.pill-summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer;list-style:none;transition:background .2s ease}
-    .pill>summary.pill-summary:hover{background:rgba(184,255,63,.05)}
+    .pill>summary.pill-summary:hover{background:rgba(230,124,46,.07)}
     .pill>summary::-webkit-details-marker{display:none}
     .pill>summary h2{margin:0}
-    .pill-hint{flex:0 1 auto;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:right}
+    .pill-hint{flex:0 1 auto;color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:right}
     .pill-hint::after{content:" +"}
     .pill[open]>summary.pill-summary{border-bottom:1px solid var(--line-soft)}
     .pill[open] .pill-hint::after{content:" \2212"}
     .pill-body{min-width:0}
-    .pill-tag{display:inline-block;margin-left:10px;padding:4px 8px;border-radius:999px;background:var(--orange);color:#220b00;font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;vertical-align:middle}
+    .pill-tag{display:inline-block;margin-left:10px;padding:4px 8px;border-radius:999px;background:var(--cranberry);color:#fff3e6;font-size:8px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;vertical-align:middle}
     /* ============ TOP PLAYERS PILL — NEON GREEN GLOW ============ */
     .pill.damage{border:2px solid #39ff14;box-shadow:0 0 0 1px rgba(57,255,20,.35),0 0 18px rgba(57,255,20,.55),0 0 44px rgba(57,255,20,.3),inset 0 0 18px rgba(57,255,20,.14),0 24px 60px rgba(0,0,0,.52)}
     .pill.damage>summary.pill-summary h2{color:#e4ffd9;text-shadow:0 0 8px rgba(57,255,20,.85),0 0 22px rgba(57,255,20,.55)}
@@ -387,8 +453,8 @@
     .season-section+.season-section{border-top:1px solid var(--line)}
     .season-subhead{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 19px 13px;border-bottom:1px solid var(--line-soft)}
     .season-subhead h3{margin:0;display:flex;align-items:center;gap:11px;font:400 clamp(24px,3vw,34px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
-    .season-subhead h3::before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:2px;background:var(--green);box-shadow:0 0 10px rgba(184,255,63,.6);transform:rotate(45deg)}
-    .season-subnote{flex:0 1 auto;color:var(--green);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:right}
+    .season-subhead h3::before{content:"";flex:0 0 auto;width:8px;height:8px;border-radius:2px;background:var(--pumpkin);box-shadow:0 0 10px rgba(230,124,46,.65);transform:rotate(45deg)}
+    .season-subnote{flex:0 1 auto;color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:right}
     .season-section.roster{scroll-margin-top:84px}
     @media(max-width:640px){.season-subhead{padding:11px 12px}.season-subhead h3{font-size:22px}.season-subnote{font-size:8px}}
     /* ============ GAME FILM ============ */
@@ -396,7 +462,7 @@
     .film-item{min-width:0}
     .film-item h3{margin:10px 0 0;font:400 27px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
     .film-item p{margin:6px 0 0;color:var(--muted);font-size:11.5px;line-height:1.5}
-    .film-item .film-tag{color:var(--green);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .film-item .film-tag{color:var(--pumpkin);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
     .reel-video{display:block;width:min(100%,320px);aspect-ratio:9/16;object-fit:contain;background:#000;border:1px solid var(--line);border-radius:14px}
     .potw-video{display:block;width:100%;max-height:480px;object-fit:contain;background:#000;border:1px solid var(--line);border-radius:14px}
     .film-note{padding:0 20px 18px;color:var(--muted);font-size:11px;line-height:1.5}
@@ -409,26 +475,26 @@
       .film-note{padding:0 14px 14px}
     }
     /* ============ WEEK SHEETS (shared components, kept) ============ */
-    .broadcast-strip{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;min-height:44px;background:rgba(2,9,4,.88);border:1px solid var(--line);border-top:3px solid var(--orange);border-radius:var(--radius-sm);overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.4)}
-    .breaking{align-self:stretch;display:grid;place-items:center;padding:0 14px;background:linear-gradient(160deg,#ff7d47,var(--orange));color:#1c0801;font-family:"Bebas Neue",sans-serif;font-size:19px;letter-spacing:.08em}
+    .broadcast-strip{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;min-height:44px;background:rgba(16,8,3,.9);border:1px solid var(--line);border-top:3px solid var(--cranberry);border-radius:var(--radius-sm);overflow:hidden;box-shadow:0 12px 32px rgba(0,0,0,.4)}
+    .breaking{align-self:stretch;display:grid;place-items:center;padding:0 14px;background:linear-gradient(160deg,#d94f30,var(--burnt));color:#fff3e6;font-family:"Bebas Neue",sans-serif;font-size:19px;letter-spacing:.08em}
     .ticker-copy{min-width:0;padding:8px 14px;font-size:12px;font-weight:650;line-height:1.35}
     .ticker-copy strong{color:var(--gold);text-transform:uppercase}
-    .ticker-meta{padding:0 14px;border-left:1px solid var(--line);color:var(--green);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
-    .week-talk{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:stretch;overflow:hidden;border-color:rgba(184,255,63,.5)}
-    .talk-title{display:grid;place-items:center;padding:12px 18px;background:linear-gradient(160deg,#c9ff70,var(--green));color:#102000;font:400 24px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
+    .ticker-meta{padding:0 14px;border-left:1px solid var(--line);color:var(--gold);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+    .week-talk{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:stretch;overflow:hidden;border-color:rgba(230,124,46,.5)}
+    .talk-title{display:grid;place-items:center;padding:12px 18px;background:linear-gradient(160deg,#f0a35e,var(--pumpkin));color:#1c0d02;font:400 24px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
     .comment-list{list-style:none;margin:0;padding:6px}
     .comment-card{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:15px;min-height:54px;padding:10px 13px;border-radius:10px}
     .comment-card:nth-child(odd){background:rgba(255,255,255,.035)}
-    .comment-name{color:var(--green);font:400 25px/1 "Bebas Neue",sans-serif;letter-spacing:.045em;text-transform:uppercase}
-    .comment-card blockquote{margin:0;padding-left:15px;border-left:2px solid rgba(184,255,63,.5);color:#fff;font-size:12px;font-weight:650;line-height:1.4}
-    .carlos-spotlight{display:grid;grid-template-columns:minmax(230px,.48fr) minmax(0,1fr);overflow:hidden;border-color:rgba(184,255,63,.45);background:linear-gradient(105deg,rgba(3,11,5,.88),rgba(184,255,63,.13))}
-    .week3-spotlight,.week4-spotlight,.week5-spotlight{grid-template-columns:1fr;background:linear-gradient(105deg,rgba(184,255,63,.17),rgba(3,11,5,.88) 68%)}
+    .comment-name{color:var(--pumpkin);font:400 25px/1 "Bebas Neue",sans-serif;letter-spacing:.045em;text-transform:uppercase}
+    .comment-card blockquote{margin:0;padding-left:15px;border-left:2px solid rgba(230,124,46,.55);color:#fff;font-size:12px;font-weight:650;line-height:1.4}
+    .carlos-spotlight{display:grid;grid-template-columns:minmax(230px,.48fr) minmax(0,1fr);overflow:hidden;border-color:rgba(230,124,46,.5);background:linear-gradient(105deg,rgba(16,8,3,.9),rgba(230,124,46,.14))}
+    .week3-spotlight,.week4-spotlight,.week5-spotlight{grid-template-columns:1fr;background:linear-gradient(105deg,rgba(230,124,46,.18),rgba(16,8,3,.9) 68%)}
     .carlos-photo{position:relative;min-height:190px;background:#061108}
     .carlos-photo img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 76%}
     .carlos-copy{display:grid;align-content:center;gap:8px;padding:22px 26px}
     .carlos-copy p{max-width:610px;margin:0;color:#e9f0e5;font-size:13px;line-height:1.55}
     .fact-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
-    .fact{padding:6px 9px;border:1px solid rgba(184,255,63,.45);border-radius:999px;background:rgba(184,255,63,.07);color:#f8fbf3;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
+    .fact{padding:6px 9px;border:1px solid rgba(230,124,46,.5);border-radius:999px;background:rgba(230,124,46,.08);color:#fdf6ec;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}
     .preview{overflow:hidden}
     .story-grid{display:grid;grid-template-columns:repeat(3,1fr)}
     .story{position:relative;min-width:0;padding:19px;border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);transition:background .25s ease}
@@ -437,8 +503,8 @@
     .story-number{display:inline-block;margin-bottom:9px;padding:3px 8px;border-radius:6px;background:rgba(255,105,46,.16);color:var(--orange);font:400 19px/1 "Bebas Neue",sans-serif;letter-spacing:.06em}
     .story h3{margin:0;font:400 25px/1.02 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
     .story p{margin:7px 0 0;color:var(--muted);font-size:11.5px;line-height:1.5}
-    .story--green{background:linear-gradient(145deg,rgba(184,255,63,.1),transparent 65%)}
-    .story--green .story-number{background:rgba(184,255,63,.15);color:var(--green)}
+    .story--green{background:linear-gradient(145deg,rgba(230,124,46,.12),transparent 65%)}
+    .story--green .story-number{background:rgba(230,124,46,.16);color:var(--pumpkin)}
     .story--gold{background:linear-gradient(145deg,rgba(255,211,78,.09),transparent 65%)}
     .story--gold .story-number{background:rgba(255,211,78,.15);color:var(--gold)}
     .story--orange{background:linear-gradient(145deg,rgba(255,105,46,.1),transparent 65%)}
@@ -455,28 +521,28 @@
     .score-summary div:last-child{border-right:0}
     .score-summary span{display:block;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
     .score-summary strong{display:block;margin-top:5px;color:#fff;font:400 23px/1 "Bebas Neue",sans-serif;letter-spacing:.035em;text-transform:uppercase}
-    .score-summary div:last-child strong{color:var(--green)}
+    .score-summary div:last-child strong{color:var(--pumpkin)}
     .teams{display:grid;grid-template-columns:1fr 1fr}
     .team{min-width:0}.team+.team{border-left:1px solid var(--line-soft)}
-    .team-title{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:62px;margin:0;padding:14px 19px;border-bottom:1px solid var(--line-soft);background:linear-gradient(90deg,rgba(184,255,63,.1),transparent 75%)}
-    .team:nth-child(2) .team-title{background:linear-gradient(90deg,rgba(255,211,78,.1),transparent 75%)}
+    .team-title{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:62px;margin:0;padding:14px 19px;border-bottom:1px solid var(--line-soft);background:linear-gradient(90deg,rgba(230,124,46,.13),transparent 75%)}
+    .team:nth-child(2) .team-title{background:linear-gradient(90deg,rgba(233,180,76,.12),transparent 75%)}
     .team-title h3{margin:0;font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
     .team-title span{flex:0 0 auto;color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
     .stat-list{display:grid}
-    .stat{display:grid;grid-template-columns:minmax(104px,.65fr) minmax(0,1.35fr);align-items:center;gap:18px;min-height:64px;padding:13px 19px;border-bottom:1px solid var(--line-soft);background:rgba(3,11,5,.55);transition:background .2s ease}
+    .stat{display:grid;grid-template-columns:minmax(104px,.65fr) minmax(0,1.35fr);align-items:center;gap:18px;min-height:64px;padding:13px 19px;border-bottom:1px solid var(--line-soft);background:rgba(16,8,3,.55);transition:background .2s ease}
     .stat:last-child{border-bottom:0}
-    .stat:hover{background:rgba(184,255,63,.05)}
+    .stat:hover{background:rgba(230,124,46,.07)}
     .stat-name{font:400 23px/1 "Bebas Neue",sans-serif;letter-spacing:.045em}
     .stat-copy{color:#edf3e9;font-size:11.5px;font-weight:650;line-height:1.45;text-align:left}
     .stat-copy strong{color:var(--gold)}
     .interview{padding:22px;background:linear-gradient(140deg,rgba(255,211,78,.13),transparent 68%)}
     .interview h2{margin-top:7px}.interview p{margin:10px 0 0;color:#edf3e9;font-size:12.5px;line-height:1.55}
     .final-score{display:flex;align-items:baseline;gap:8px;margin-top:15px;padding-top:13px;border-top:1px solid var(--line-soft)}
-    .final-score strong{color:var(--green);font:400 38px/1 "Bebas Neue",sans-serif;text-shadow:0 0 22px rgba(184,255,63,.35)}.final-score span{color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .final-score strong{color:var(--pumpkin);font:400 38px/1 "Bebas Neue",sans-serif;text-shadow:0 0 22px rgba(230,124,46,.4)}.final-score span{color:var(--muted);font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
     .highlights{position:relative;padding:12px 0 4px;overflow:hidden;background:transparent}
     .highlights-head{display:flex;align-items:end;justify-content:space-between;gap:16px;padding:0 8px 10px}
     .highlights-head h2{color:#fff;text-shadow:0 3px 18px #000}
-    .highlight-count{padding:4px 9px;border-radius:999px;background:rgba(2,9,4,.72);color:var(--green);font-size:9px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
+    .highlight-count{padding:4px 9px;border-radius:999px;background:rgba(16,8,3,.78);color:var(--gold);font-size:9px;font-weight:900;letter-spacing:.11em;text-transform:uppercase}
     .highlight-stage{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr) 44px;align-items:center;gap:10px}
     .highlight-viewport{min-width:0;overflow:hidden;touch-action:pan-y pinch-zoom}
     .highlight-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain}
@@ -484,11 +550,11 @@
     .highlight-slide{flex:0 0 100%;display:grid;place-items:center;min-width:100%;scroll-snap-align:start;scroll-snap-stop:always}
     .highlight-video-wrap{position:relative;width:min(100%,292px);aspect-ratio:9/16}
     .highlight-video{display:block;width:100%;height:100%;object-fit:contain;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
-    .highlight-video:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+    .highlight-video:focus-visible{outline:3px solid var(--pumpkin);outline-offset:4px}
     .highlight-arrow,.sound-toggle{display:grid;place-items:center;border:1px solid rgba(255,255,255,.34);background:rgba(2,9,4,.72);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.3);cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease}
     .highlight-arrow{width:44px;height:44px;border-radius:50%;font-size:28px;line-height:1}
     .highlight-arrow:hover,.sound-toggle:hover{transform:scale(1.07)}
-    .highlight-arrow:hover,.highlight-arrow:focus-visible,.sound-toggle:hover,.sound-toggle:focus-visible{border-color:var(--green);background:rgba(14,37,12,.92);outline:2px solid var(--green);outline-offset:2px}
+    .highlight-arrow:hover,.highlight-arrow:focus-visible,.sound-toggle:hover,.sound-toggle:focus-visible{border-color:var(--pumpkin);background:rgba(42,22,8,.94);outline:2px solid var(--pumpkin);outline-offset:2px}
     .sound-toggle{position:absolute;right:9px;bottom:9px;width:42px;height:42px;border-radius:50%}
     .sound-toggle svg{width:20px;height:20px;fill:currentColor}
     .sound-toggle.is-muted::after{content:"";position:absolute;width:24px;height:2px;background:var(--orange);transform:rotate(-45deg);box-shadow:0 1px 2px rgba(0,0,0,.5)}
@@ -496,19 +562,19 @@
     .highlight-dot{width:24px;height:24px;padding:8px;border:0;background:transparent;cursor:pointer}
     .highlight-dot::before{content:"";display:block;width:8px;height:8px;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(2,9,4,.65);transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease}
     .highlight-dot:hover::before{transform:scale(1.25)}
-    .highlight-dot[aria-current="true"]::before{border-color:var(--green);background:var(--green);box-shadow:0 0 11px rgba(184,255,63,.65)}
+    .highlight-dot[aria-current="true"]::before{border-color:var(--pumpkin);background:var(--pumpkin);box-shadow:0 0 11px rgba(230,124,46,.7)}
     .highlight-hint{margin:5px 0 0;color:#edf3e9;font-size:9px;font-weight:700;letter-spacing:.05em;text-align:center;text-shadow:0 2px 9px #000}
     .play-feature{position:relative;padding:12px 0 4px;overflow:hidden;background:transparent}
     .featured-video-wrap{position:relative;width:min(100%,560px);margin:0 auto}
     .featured-video{display:block;width:100%;height:auto;max-height:min(72vh,760px);object-fit:contain;background:transparent;cursor:pointer;-webkit-tap-highlight-color:transparent}
-    .featured-video:focus-visible{outline:3px solid var(--green);outline-offset:4px}
+    .featured-video:focus-visible{outline:3px solid var(--pumpkin);outline-offset:4px}
     .week-sheet{position:fixed;inset:0;z-index:60;overflow-y:auto;padding:16px;background:rgba(0,5,2,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
     .week-sheet[hidden]{display:none}
     .sheet-panel{width:min(1160px,100%);margin:auto;display:grid;gap:14px}
-    .sheet-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 17px;background:rgba(2,9,4,.96);border:1px solid var(--line);border-top:3px solid var(--green);border-radius:14px;box-shadow:var(--shadow)}
+    .sheet-bar{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 17px;background:rgba(16,8,3,.97);border:1px solid var(--line);border-top:3px solid var(--pumpkin);border-radius:14px;box-shadow:var(--shadow)}
     .sheet-bar h2{margin:0;font:400 31px/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
-    .sheet-close,.sheet-done{min-height:44px;padding:8px 19px;border:0;border-radius:999px;background:var(--green);color:#0a1703;box-shadow:0 8px 20px rgba(184,255,63,.25);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .18s ease,background .18s ease}
-    .sheet-close:hover,.sheet-close:focus-visible,.sheet-done:hover,.sheet-done:focus-visible{background:#ceff77;transform:translateY(-1px)}
+    .sheet-close,.sheet-done{min-height:44px;padding:8px 19px;border:0;border-radius:999px;background:var(--pumpkin);color:#1c0d02;box-shadow:0 8px 20px rgba(230,124,46,.3);font-size:11px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .18s ease,background .18s ease}
+    .sheet-close:hover,.sheet-close:focus-visible,.sheet-done:hover,.sheet-done:focus-visible{background:#f59a4e;transform:translateY(-1px)}
     .sheet-close:active,.sheet-done:active{transform:scale(.97)}
     .sheet-done{width:100%}
     .sheet-body{display:grid;gap:14px;min-width:0}
@@ -654,7 +720,7 @@
 <body>
   <div class="page">
     <header class="scorebug" aria-label="Season series score">
-      <div class="bug-brand"><strong>CFL</strong><span>Wednesday Night<br>Football · Nutley</span></div>
+      <div class="bug-brand"><strong>CFL</strong><span>Wednesday Night<br>Football · Nutley 🍂</span></div>
       <div class="bug-score" role="img" aria-label="Season record: Taylor 4 wins, 1 tie, Mr.Lazer 5 wins">
         <div class="bug-side taylor"><span class="bug-name">Taylor</span><span class="bug-num">4</span></div>
         <div class="bug-mid"><span>Season</span><strong>1 tie</strong></div>
@@ -711,7 +777,7 @@
           </div>
           <div class="foot-block">
             <div class="tgiving">
-              <span class="tg-badge">On deck</span>
+              <span class="tg-badge">🦃 On deck</span>
               <p><strong>Week 11 · CFL Turkey Bowl &mdash; Wed, Nov 25 · Thanksgiving Eve.</strong><br>The day before Thanksgiving. The biggest Wednesday of the season.</p>
             </div>
           </div>
@@ -743,6 +809,41 @@
           <div class="huge-cell"><span>Huge game</span><strong>Tank</strong></div>
         </div>
         <div class="breaking-bar"><span class="bb-tag">Final</span><p><strong>Week 10 final &mdash;</strong> Taylor 4 &middot; Mr.Lazer 3 in The Big Game. Season: Mr.Lazer 5 &middot; Taylor 4 &middot; 1 tie. Next: the CFL Turkey Bowl, Wed Nov 25.</p></div>
+      </section>
+
+      <!-- ===== TURKEY BOWL — WEEK 11 HYPE ===== -->
+      <section class="turkey-bowl" aria-labelledby="turkey-title">
+        <div class="tb-topbar">
+          <span class="tb-live">Next up · Week 11</span>
+          <span class="tb-when">Wed · <em>Nov 25</em> · Thanksgiving Eve · Nutley</span>
+        </div>
+        <div class="tb-head">
+          <div class="tb-deco" aria-hidden="true">🍂 🦃 🎃</div>
+          <p class="tb-eyebrow">Thanksgiving Eve · Under the lights</p>
+          <h2 class="tb-title" id="turkey-title">The CFL <span class="tb-accent">Turkey Bowl</span></h2>
+          <p class="tb-sub">The biggest Wednesday of the season. <strong>Wednesday, November 25 in Nutley</strong> — the night before Thanksgiving — with the whole series on the line. <strong>Mr. Lazer leads 5–4 with one tie.</strong> One game decides whether December starts tied or stretched.</p>
+          <div class="tb-countdown" role="timer" aria-label="Countdown to the Turkey Bowl on November 25">
+            <div class="tb-count-cell"><strong id="tb-days">—</strong><span>Days</span></div>
+            <div class="tb-count-cell"><strong id="tb-hours">—</strong><span>Hours</span></div>
+            <div class="tb-count-cell"><strong id="tb-mins">—</strong><span>Minutes</span></div>
+            <div class="tb-count-cell"><strong id="tb-secs">—</strong><span>Seconds</span></div>
+          </div>
+          <p class="tb-count-note" id="tb-count-note">Until kickoff · Wed Nov 25 · Nutley</p>
+        </div>
+        <div class="tb-series" aria-label="Season series: Mr. Lazer 5 wins, Taylor 4 wins, 1 tie">
+          <div class="tb-team taylor"><span class="tb-team-name">Taylor</span><span class="tb-team-num">4</span><span class="tb-team-sub">Series wins</span></div>
+          <div class="tb-vs" aria-hidden="true">VS</div>
+          <div class="tb-team lazer"><span class="tb-team-name">Mr. Lazer</span><span class="tb-team-num">5</span><span class="tb-team-sub">Series wins · Still up</span></div>
+        </div>
+        <p class="tb-tie">Plus <strong>1 tie</strong> this season — Lazer leads the series <strong>5–4</strong> heading into the Turkey Bowl.</p>
+        <div class="tb-stakes">
+          <div class="tb-stake win"><span>If Taylor wins</span><strong>Series tied 5–5</strong><p>Taylor ties the series 5–5 heading into December — all even with the season still rolling.</p></div>
+          <div class="tb-stake lose"><span>If Lazer wins</span><strong>Series stretches to 6–4</strong><p>Mr. Lazer stretches the lead to 6–4 and takes full control heading into December.</p></div>
+        </div>
+        <div class="tb-momentum">
+          <span class="tb-mom-badge">🍂 Momentum</span>
+          <p><strong>Taylor carries the momentum in.</strong> Taylor just won Week 10, <strong>4–3 in The Big Game</strong>, with <strong>Aaron as Player of the Day</strong> — 2 touchdowns, over 7 receptions, 100 yards. Now it’s Thanksgiving Eve, with a chance to tie the series.</p>
+        </div>
       </section>
 
       <!-- ===== TOP PLAYERS: THE DAMAGE REPORT ===== -->
@@ -829,7 +930,7 @@
           <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 8</span><time class="rw-date" datetime="2026-11-04">Nov 4</time></div><div class="rw-result">Taylor 7&ndash;3</div><p class="rw-note">Joshua erupts &mdash; Taylor&rsquo;s biggest win.</p></article>
           <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 9</span><time class="rw-date" datetime="2026-11-11">Nov 11</time></div><div class="rw-result">Lazer wins</div><p class="rw-note">Damian: three touchdowns. Lazer up two.</p></article>
           <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 10</span><time class="rw-date" datetime="2026-11-18">Nov 18</time></div><div class="rw-result">Taylor 4&ndash;3</div><p class="rw-note">The Big Game &mdash; Aaron: Player of the Day.</p></article>
-          <article class="race-week is-tgiving"><div class="rw-top"><span class="rw-wk">Week 11</span><time class="rw-date" datetime="2026-11-25">Nov 25</time></div><div class="rw-result">CFL Turkey Bowl</div><p class="rw-note">Thanksgiving Eve &mdash; the day before Thanksgiving.</p><span class="race-tag">CFL Turkey Bowl</span></article>
+          <article class="race-week is-tgiving"><div class="rw-top"><span class="rw-wk">Week 11</span><time class="rw-date" datetime="2026-11-25">Nov 25</time></div><div class="rw-result">CFL Turkey Bowl 🦃</div><p class="rw-note">Thanksgiving Eve — Taylor win ties it 5–5, Lazer win makes it 6–4.</p><span class="race-tag">Turkey Bowl · Thanksgiving Eve</span></article>
           <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 12</span><time class="rw-date" datetime="2026-12-02">Dec 2</time></div><div class="rw-result">December Football</div><p class="rw-note">Season keeps rolling into December.</p><span class="race-tag">December</span></article>
           <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 13</span><time class="rw-date" datetime="2026-12-09">Dec 9</time></div><div class="rw-result">Late December</div><p class="rw-note">Still going — Wednesday nights continue.</p><span class="race-tag">December</span></article>
           <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 14</span><time class="rw-date" datetime="2026-12-16">Dec 16</time></div><div class="rw-result">Before Christmas</div><p class="rw-note">Expected last game — the week before Christmas.</p><span class="race-tag">Before Christmas</span></article>
@@ -915,7 +1016,7 @@
       </details>
     </main>
 
-    <footer><span>CFL · Wednesday Night Football</span><span>Nutley · Every Wednesday night</span></footer>
+    <footer><span>🍂 CFL · Wednesday Night Football · Turkey Bowl Week 🦃</span><span>Nutley · Every Wednesday night</span></footer>
   </div>
 
 <div class="week-sheet" id="sheet-week-1" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-1-title">
@@ -1763,6 +1864,37 @@
           requestAnimationFrame(() => window.scrollTo(0, targetY));
         });
       }
+    })();
+  </script>
+  <script>
+    (() => {
+      const target = new Date('2026-11-25T19:00:00-05:00').getTime();
+      const dEl = document.getElementById('tb-days');
+      const hEl = document.getElementById('tb-hours');
+      const mEl = document.getElementById('tb-mins');
+      const sEl = document.getElementById('tb-secs');
+      const noteEl = document.getElementById('tb-count-note');
+      if (!dEl || !hEl || !mEl || !sEl) return;
+      const pad = (n) => String(n).padStart(2, '0');
+      const tick = () => {
+        const diff = target - Date.now();
+        if (diff <= 0) {
+          dEl.textContent = '0'; hEl.textContent = '00'; mEl.textContent = '00'; sEl.textContent = '00';
+          if (noteEl) noteEl.textContent = 'Turkey Bowl night · Wed Nov 25 · Nutley';
+          return;
+        }
+        const totalSecs = Math.floor(diff / 1000);
+        const days = Math.floor(totalSecs / 86400);
+        const hours = Math.floor((totalSecs % 86400) / 3600);
+        const mins = Math.floor((totalSecs % 3600) / 60);
+        const secs = totalSecs % 60;
+        dEl.textContent = String(days);
+        hEl.textContent = pad(hours);
+        mEl.textContent = pad(mins);
+        sEl.textContent = pad(secs);
+      };
+      tick();
+      setInterval(tick, 1000);
     })();
   </script>
 </body>
