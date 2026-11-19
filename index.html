@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
-  <title>CFL — Wednesday Night Football · Turkey Bowl Week · Taylor Won Week 10</title>
+  <title>CFL — Wednesday Night Football · CFL Turkey Bowl Week · Taylor Won Week 10</title>
   <style>
     :root{
       color-scheme:dark;
@@ -44,36 +44,49 @@
     body{margin:0;min-width:320px;min-height:100vh;overflow-x:hidden;background:#140b05;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     ::selection{background:var(--pumpkin);color:#1c0d02}
     body::before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(28,12,4,.52),rgba(22,10,4,.68) 46%,rgba(14,7,3,.94)),url("assets/night-field.jpg") center 58%/cover no-repeat;filter:brightness(1.02) saturate(1.08) sepia(.18)}
-    body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 50% -8%,rgba(255,176,66,.18),transparent 46%),radial-gradient(ellipse at 8% 22%,rgba(176,48,69,.10),transparent 40%),radial-gradient(ellipse at 92% 18%,rgba(230,124,46,.10),transparent 40%),linear-gradient(180deg,transparent 60%,rgba(10,4,2,.55))}
+    body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 50% -8%,rgba(255,176,66,.27),transparent 48%),radial-gradient(ellipse at 8% 22%,rgba(176,48,69,.17),transparent 42%),radial-gradient(ellipse at 92% 18%,rgba(230,124,46,.18),transparent 42%),radial-gradient(ellipse at 50% 108%,rgba(199,91,38,.20),transparent 55%),linear-gradient(180deg,transparent 60%,rgba(10,4,2,.55))}
     button{font:inherit}
     :focus-visible{outline:3px solid var(--pumpkin);outline-offset:2px}
     .page{width:min(1180px,calc(100% - 28px));margin:auto;padding:max(14px,env(safe-area-inset-top)) 0 max(30px,env(safe-area-inset-bottom))}
     .glass{background:var(--glass);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
     .mono{font-family:"IBM Plex Mono",monospace}
 
-    /* ============ SCOREBUG BAR ============ */
-    .scorebug{position:sticky;top:10px;z-index:40;display:grid;grid-template-columns:auto 1fr auto;align-items:stretch;align-items:stretch;overflow:hidden;border:1px solid rgba(233,180,76,.35);border-radius:14px;background:rgba(20,11,5,.94);box-shadow:0 16px 40px rgba(0,0,0,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-    .bug-brand{display:flex;align-items:center;gap:10px;padding:10px 16px;background:linear-gradient(135deg,var(--burnt),var(--pumpkin) 55%,var(--deep-gold));color:#1c0d02}
-    .bug-brand strong{font:400 30px/0.9 "Bebas Neue",sans-serif;letter-spacing:.06em}
-    .bug-brand span{font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;line-height:1.35}
-    .bug-score{display:flex;align-items:center;justify-content:center;gap:clamp(10px,3vw,26px);padding:8px 12px;min-width:0}
-    .bug-side{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
-    .bug-side .bug-name{font:400 clamp(19px,3vw,27px)/1 "Bebas Neue",sans-serif;letter-spacing:.05em}
-    .bug-side .bug-num{font:400 clamp(26px,4vw,38px)/0.9 "Bebas Neue",sans-serif}
-    .bug-side.taylor .bug-num{color:var(--pumpkin)}
-    .bug-side.lazer .bug-num{color:var(--gold)}
-    .bug-mid{text-align:center}
-    .bug-mid span{display:block;color:var(--muted);font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
-    .bug-mid strong{display:block;margin-top:2px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff}
-    .bug-link{display:grid;place-items:center;padding:0 18px;border-left:1px solid var(--line);color:var(--gold);font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;transition:background .18s ease,color .18s ease}
-    .bug-link:hover,.bug-link:focus-visible{background:var(--pumpkin);color:#1c0d02}
+    /* ============ FALLING LEAVES ============ */
+    .leaves{position:fixed;inset:0;z-index:60;overflow:hidden;pointer-events:none}
+    .leaves span{position:absolute;top:-8vh;line-height:1;opacity:0;will-change:transform}
+    .leaves span:nth-child(1){left:3%;font-size:22px;animation:leaf-fall 13s linear -2s infinite}
+    .leaves span:nth-child(2){left:11%;font-size:16px;animation:leaf-fall 17s linear -9s infinite}
+    .leaves span:nth-child(3){left:19%;font-size:27px;animation:leaf-fall 11s linear -5s infinite}
+    .leaves span:nth-child(4){left:28%;font-size:15px;animation:leaf-fall 19s linear -13s infinite}
+    .leaves span:nth-child(5){left:37%;font-size:21px;animation:leaf-fall 14s linear -7s infinite}
+    .leaves span:nth-child(6){left:46%;font-size:17px;animation:leaf-fall 16s linear -3s infinite}
+    .leaves span:nth-child(7){left:54%;font-size:25px;animation:leaf-fall 12s linear -10s infinite}
+    .leaves span:nth-child(8){left:63%;font-size:15px;animation:leaf-fall 18s linear -6s infinite}
+    .leaves span:nth-child(9){left:71%;font-size:20px;animation:leaf-fall 13.5s linear -11s infinite}
+    .leaves span:nth-child(10){left:79%;font-size:26px;animation:leaf-fall 11.5s linear -4s infinite}
+    .leaves span:nth-child(11){left:86%;font-size:16px;animation:leaf-fall 17.5s linear -14s infinite}
+    .leaves span:nth-child(12){left:92%;font-size:22px;animation:leaf-fall 14.5s linear -8s infinite}
+    .leaves span:nth-child(13){left:97%;font-size:18px;animation:leaf-fall 15.5s linear -1s infinite}
+    .leaves span:nth-child(14){left:58%;font-size:14px;animation:leaf-fall 20s linear -16s infinite}
+    @keyframes leaf-fall{
+      0%{transform:translate3d(0,-8vh,0) rotate(0deg);opacity:0}
+      6%{opacity:.85}
+      25%{transform:translate3d(3vw,24vh,0) rotate(100deg)}
+      50%{transform:translate3d(-2vw,52vh,0) rotate(190deg)}
+      75%{transform:translate3d(2.5vw,80vh,0) rotate(275deg)}
+      94%{opacity:.85}
+      100%{transform:translate3d(-1vw,110vh,0) rotate(350deg);opacity:0}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .leaves{display:none}
+    }
 
     main{display:grid;gap:18px;padding-top:18px}
 
     /* ============ MAIN EVENT POSTER ============ */
     .poster{position:relative;overflow:hidden;border:1px solid rgba(230,124,46,.55);border-radius:22px;background:linear-gradient(180deg,rgba(38,20,8,.86),rgba(16,9,4,.95) 78%);box-shadow:0 34px 80px rgba(0,0,0,.62),0 0 0 1px rgba(233,180,76,.12),0 0 44px rgba(199,91,38,.14)}
     .poster::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,235,200,.04) 79px 80px);pointer-events:none}
-    .poster::after{content:"🍂  🎃  🍂";position:absolute;top:10px;right:16px;font-size:13px;letter-spacing:.6em;opacity:.55;pointer-events:none}
+    .poster::after{content:"🦃";position:absolute;top:2px;right:10px;font-size:clamp(84px,15vw,132px);line-height:1;pointer-events:none;filter:drop-shadow(0 10px 22px rgba(0,0,0,.55)) drop-shadow(0 0 26px rgba(230,124,46,.35));transform:rotate(6deg);z-index:2}
     .poster-brand{position:relative;text-align:center;padding:clamp(20px,4vw,34px) 20px 2px}
     .poster-brand span{display:block;font:400 clamp(84px,18vw,168px)/0.78 "Bebas Neue",sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--pumpkin);text-shadow:0 0 44px rgba(230,124,46,.5),0 6px 0 rgba(0,0,0,.35),0 22px 60px rgba(0,0,0,.7)}
     .poster-top{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:16px 22px;border-bottom:1px dashed rgba(253,246,236,.28)}
@@ -92,19 +105,20 @@
     .faceoff{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;margin:clamp(20px,4vw,36px) clamp(14px,3vw,34px) 0;border:1px solid rgba(233,180,76,.28);border-radius:16px;overflow:hidden;background:rgba(14,7,3,.6)}
     .fighter{padding:clamp(16px,3vw,28px);min-width:0}
     .fighter.taylor{background:linear-gradient(150deg,rgba(230,124,46,.18),transparent 70%)}
-    .fighter.lazer{background:linear-gradient(210deg,rgba(233,180,76,.16),transparent 70%);text-align:right}
+    .fighter.lazer{background:linear-gradient(210deg,rgba(233,180,76,.16),transparent 70%)}
+    .faceoff .fighter:last-child{text-align:right}
     .fighter .f-role{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
     .fighter .f-name{display:block;margin-top:6px;font:400 clamp(38px,6.5vw,64px)/0.88 "Bebas Neue",sans-serif;letter-spacing:.02em;text-transform:uppercase}
     .fighter.taylor .f-name{color:#fff}
     .fighter.lazer .f-name{color:#fff}
     .fighter .f-record{display:flex;align-items:baseline;gap:10px;margin-top:10px}
-    .fighter.lazer .f-record{justify-content:flex-end}
+    .faceoff .fighter:last-child .f-record{justify-content:flex-end}
     .fighter .f-num{font:400 clamp(56px,8vw,84px)/0.8 "Bebas Neue",sans-serif}
     .fighter.taylor .f-num{color:var(--pumpkin);text-shadow:0 0 34px rgba(230,124,46,.45)}
     .fighter.lazer .f-num{color:var(--gold);text-shadow:0 0 34px rgba(233,180,76,.45)}
     .fighter .f-wins{color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
     .form{display:flex;align-items:center;gap:5px;margin-top:14px}
-    .fighter.lazer .form{justify-content:flex-end}
+    .faceoff .fighter:last-child .form{justify-content:flex-end}
     .form .form-label{margin-right:4px;color:var(--faint);font-size:8px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
     .form i{display:grid;place-items:center;width:21px;height:21px;border-radius:6px;font-size:9px;font-style:normal;font-weight:900}
     .form i.w{background:var(--pumpkin);color:#1c0d02}
@@ -161,7 +175,7 @@
     .tb-vs{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#fff3e6;color:#2b1606;font:800 12px/1 "IBM Plex Sans",sans-serif;box-shadow:0 0 0 5px rgba(255,243,230,.14),0 10px 24px rgba(0,0,0,.5)}
     .tb-tie{text-align:center;margin:10px 16px 0;color:var(--muted);font-size:11px;font-weight:650}
     .tb-tie strong{color:#fff}
-    .tb-stakes{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;margin:16px clamp(14px,3vw,30px) 0;border:1px solid rgba(233,180,76,.3);border-radius:16px;overflow:hidden;background:rgba(0,0,0,.28)}
+    .tb-stakes{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;margin:16px clamp(14px,3vw,30px) clamp(18px,3vw,26px);border:1px solid rgba(233,180,76,.3);border-radius:16px;overflow:hidden;background:rgba(0,0,0,.28)}
     .tb-stake{padding:17px 19px}
     .tb-stake+.tb-stake{border-left:1px dashed rgba(253,246,236,.26)}
     .tb-stake span{display:block;font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
@@ -169,10 +183,6 @@
     .tb-stake.lose span{color:var(--gold)}
     .tb-stake strong{display:block;margin-top:7px;font:400 30px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
     .tb-stake p{margin:7px 0 0;color:#f3e6d3;font-size:12.5px;font-weight:550;line-height:1.55}
-    .tb-momentum{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;margin:16px clamp(14px,3vw,30px) clamp(18px,3vw,26px);padding:15px 18px;border:1px solid rgba(230,124,46,.4);border-radius:14px;background:linear-gradient(105deg,rgba(230,124,46,.16),rgba(176,48,69,.10) 62%,transparent)}
-    .tb-momentum .tb-mom-badge{flex:0 0 auto;padding:8px 12px;border:1px solid rgba(230,124,46,.65);border-radius:8px;color:var(--pumpkin);font:400 18px/1 "Bebas Neue",sans-serif;letter-spacing:.07em;text-transform:uppercase;background:rgba(0,0,0,.25)}
-    .tb-momentum p{margin:0;flex:1 1 300px;color:#f3e6d3;font-size:12.5px;font-weight:600;line-height:1.55}
-    .tb-momentum p strong{color:#fff}
     @media(max-width:640px){
       .tb-topbar{padding:11px 13px}
       .tb-countdown{gap:7px;padding:0 12px}
@@ -182,7 +192,6 @@
       .tb-stakes{grid-template-columns:1fr;margin-left:10px;margin-right:10px}
       .tb-stake{padding:13px 14px}
       .tb-stake+.tb-stake{border-left:0;border-top:1px dashed rgba(253,246,236,.26)}
-      .tb-momentum{margin-left:10px;margin-right:10px;padding:13px 14px}
       .tb-title{font-size:clamp(52px,16vw,76px)}
     }
     @media(prefers-reduced-motion:no-preference){
@@ -373,12 +382,6 @@
     .breaking-bar p strong{color:var(--gold);text-transform:uppercase}
     .recap10 .fp-lead{background:linear-gradient(150deg,rgba(230,124,46,.18),transparent 70%)}
     .recap10 .fp-lead .fp-kicker{color:var(--pumpkin)}
-    .huge-row{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line-soft)}
-    .huge-cell{padding:15px 19px;border-right:1px solid var(--line-soft)}
-    .huge-cell:last-child{border-right:0}
-    .huge-cell span{display:block;color:var(--pumpkin);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
-    .huge-cell strong{display:block;margin-top:5px;font:400 27px/1 "Bebas Neue",sans-serif;letter-spacing:.04em;text-transform:uppercase}
-    @media(max-width:640px){.huge-row{grid-template-columns:1fr 1fr}.huge-cell{padding:12px 14px}.huge-cell:nth-child(2n){border-right:0}.huge-cell:nth-child(-n+4){border-bottom:1px solid var(--line-soft)}.huge-cell:last-child{grid-column:1/-1;border-right:0}}
 
     /* ============ ARCHIVE ============ */
     .archive{overflow:hidden}
@@ -623,13 +626,6 @@
     @media(max-width:640px){
       .page{width:calc(100% - 14px);padding-top:7px}
       main{gap:10px;padding-top:10px}
-      .scorebug{top:6px;border-radius:11px}
-      .bug-brand{padding:8px 10px}
-      .bug-brand strong{font-size:23px}
-      .bug-brand span{display:none}
-      .bug-side .bug-name{display:none}
-      .bug-mid strong{font-size:8px}
-      .bug-link{padding:0 11px;font-size:8px}
       .poster{border-radius:16px}
       .poster-top{padding:11px 13px}
       .poster-kicker{font-size:9px;padding:6px 9px}
@@ -718,17 +714,8 @@
   </style>
 </head>
 <body>
+  <div class="leaves" aria-hidden="true"><span>🍂</span><span>🍁</span><span>🍂</span><span>🍁</span><span>🍂</span><span>🍁</span><span>🍂</span><span>🍁</span><span>🍂</span><span>🍁</span><span>🍂</span><span>🍁</span><span>🍂</span><span>🍁</span></div>
   <div class="page">
-    <header class="scorebug" aria-label="Season series score">
-      <div class="bug-brand"><strong>CFL</strong><span>Wednesday Night<br>Football · Nutley 🍂</span></div>
-      <div class="bug-score" role="img" aria-label="Season record: Taylor 4 wins, 1 tie, Mr.Lazer 5 wins">
-        <div class="bug-side taylor"><span class="bug-name">Taylor</span><span class="bug-num">4</span></div>
-        <div class="bug-mid"><span>Season</span><strong>1 tie</strong></div>
-        <div class="bug-side lazer"><span class="bug-num">5</span><span class="bug-name">Mr.Lazer</span></div>
-      </div>
-      <a class="bug-link" href="#roster">Roster</a>
-    </header>
-
     <main>
       <!-- ===== MAIN EVENT: WEEK 10 ===== -->
       <section class="poster" aria-labelledby="poster-title">
@@ -745,21 +732,21 @@
           <p class="poster-sub">Taylor takes <strong>The Big Game</strong> in Nutley, <strong>4&ndash;3</strong>, and cuts the series gap to one. Mr.Lazer still leads the season — <strong>5 wins to Taylor&rsquo;s 4, with one tie</strong> — and next Wednesday is the <strong>CFL Turkey Bowl</strong>, where a Taylor win ties the series 5&ndash;5.</p>
         </div>
         <div class="faceoff">
-          <div class="fighter taylor">
-            <span class="f-role">QB Captain</span>
-            <span class="f-name">Taylor</span>
-            <div class="f-record"><span class="f-num">4</span><span class="f-wins">Series wins</span></div>
-            <div class="form" aria-label="Taylor last five: loss, loss, win, loss, win">
-              <span class="form-label">Last 5</span><i class="l">L</i><i class="l">L</i><i class="w">W</i><i class="l">L</i><i class="w">W</i>
-            </div>
-          </div>
-          <div class="faceoff-mid"><span>VS</span></div>
           <div class="fighter lazer">
             <span class="f-role">Captain · &ldquo;Lazz&rdquo; · In command</span>
             <span class="f-name">Mr.Lazer</span>
-            <div class="f-record"><span class="f-wins">Series wins</span><span class="f-num">5</span></div>
+            <div class="f-record"><span class="f-num">5</span><span class="f-wins">Series wins</span></div>
             <div class="form" aria-label="Mr.Lazer last five: win, win, loss, win, loss">
               <span class="form-label">Last 5</span><i class="w">W</i><i class="w">W</i><i class="l">L</i><i class="w">W</i><i class="l">L</i>
+            </div>
+          </div>
+          <div class="faceoff-mid"><span>VS</span></div>
+          <div class="fighter taylor">
+            <span class="f-role">QB Captain</span>
+            <span class="f-name">Taylor</span>
+            <div class="f-record"><span class="f-wins">Series wins</span><span class="f-num">4</span></div>
+            <div class="form" aria-label="Taylor last five: loss, loss, win, loss, win">
+              <span class="form-label">Last 5</span><i class="l">L</i><i class="l">L</i><i class="w">W</i><i class="l">L</i><i class="w">W</i>
             </div>
           </div>
         </div>
@@ -777,8 +764,8 @@
           </div>
           <div class="foot-block">
             <div class="tgiving">
-              <span class="tg-badge">🦃 On deck</span>
-              <p><strong>Week 11 · CFL Turkey Bowl &mdash; Wed, Nov 25 · Thanksgiving Eve.</strong><br>The day before Thanksgiving. The biggest Wednesday of the season.</p>
+              <span class="tg-badge">🦃 CFL Turkey Bowl</span>
+              <p><strong>Week 11 · On deck &mdash; Wed, Nov 25 · Thanksgiving Eve.</strong><br>The day before Thanksgiving. The biggest Wednesday of the season.</p>
             </div>
           </div>
         </div>
@@ -801,26 +788,19 @@
             <article class="fp-item"><span class="fp-num">04</span><h3>Jason &mdash; Mr.Lazer&rsquo;s team</h3><p>2 interceptions &middot; 3 completions &middot; 70 yards in the loss.</p></article>
           </div>
         </div>
-        <div class="huge-row" aria-label="Huge games in Week 10">
-          <div class="huge-cell"><span>Huge game</span><strong>Damian</strong></div>
-          <div class="huge-cell"><span>Huge game</span><strong>Aaron</strong></div>
-          <div class="huge-cell"><span>Huge game</span><strong>Mike</strong></div>
-          <div class="huge-cell"><span>Huge game</span><strong>Taylor</strong></div>
-          <div class="huge-cell"><span>Huge game</span><strong>Tank</strong></div>
-        </div>
         <div class="breaking-bar"><span class="bb-tag">Final</span><p><strong>Week 10 final &mdash;</strong> Taylor 4 &middot; Mr.Lazer 3 in The Big Game. Season: Mr.Lazer 5 &middot; Taylor 4 &middot; 1 tie. Next: the CFL Turkey Bowl, Wed Nov 25.</p></div>
       </section>
 
       <!-- ===== TURKEY BOWL — WEEK 11 HYPE ===== -->
       <section class="turkey-bowl" aria-labelledby="turkey-title">
         <div class="tb-topbar">
-          <span class="tb-live">Next up · Week 11</span>
+          <span class="tb-live">Next up · Week 11 · CFL Turkey Bowl</span>
           <span class="tb-when">Wed · <em>Nov 25</em> · Thanksgiving Eve · Nutley</span>
         </div>
         <div class="tb-head">
-          <div class="tb-deco" aria-hidden="true">🍂 🦃 🎃</div>
-          <p class="tb-eyebrow">Thanksgiving Eve · Under the lights</p>
-          <h2 class="tb-title" id="turkey-title">The CFL <span class="tb-accent">Turkey Bowl</span></h2>
+          <div class="tb-deco" aria-hidden="true">🍂 🦃 🍂 🦃 🍁</div>
+          <p class="tb-eyebrow">🍂 Thanksgiving Eve · Under the lights 🍂</p>
+          <h2 class="tb-title" id="turkey-title">CFL <span class="tb-accent">Turkey Bowl</span></h2>
           <p class="tb-sub">The biggest Wednesday of the season. <strong>Wednesday, November 25 in Nutley</strong> — the night before Thanksgiving — with the whole series on the line. <strong>Mr. Lazer leads 5–4 with one tie.</strong> One game decides whether December starts tied or stretched.</p>
           <div class="tb-countdown" role="timer" aria-label="Countdown to the Turkey Bowl on November 25">
             <div class="tb-count-cell"><strong id="tb-days">—</strong><span>Days</span></div>
@@ -839,10 +819,6 @@
         <div class="tb-stakes">
           <div class="tb-stake win"><span>If Taylor wins</span><strong>Series tied 5–5</strong><p>Taylor ties the series 5–5 heading into December — all even with the season still rolling.</p></div>
           <div class="tb-stake lose"><span>If Lazer wins</span><strong>Series stretches to 6–4</strong><p>Mr. Lazer stretches the lead to 6–4 and takes full control heading into December.</p></div>
-        </div>
-        <div class="tb-momentum">
-          <span class="tb-mom-badge">🍂 Momentum</span>
-          <p><strong>Taylor carries the momentum in.</strong> Taylor just won Week 10, <strong>4–3 in The Big Game</strong>, with <strong>Aaron as Player of the Day</strong> — 2 touchdowns, over 7 receptions, 100 yards. Now it’s Thanksgiving Eve, with a chance to tie the series.</p>
         </div>
       </section>
 
@@ -930,7 +906,7 @@
           <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 8</span><time class="rw-date" datetime="2026-11-04">Nov 4</time></div><div class="rw-result">Taylor 7&ndash;3</div><p class="rw-note">Joshua erupts &mdash; Taylor&rsquo;s biggest win.</p></article>
           <article class="race-week w-lazer"><div class="rw-top"><span class="rw-wk">Week 9</span><time class="rw-date" datetime="2026-11-11">Nov 11</time></div><div class="rw-result">Lazer wins</div><p class="rw-note">Damian: three touchdowns. Lazer up two.</p></article>
           <article class="race-week w-taylor"><div class="rw-top"><span class="rw-wk">Week 10</span><time class="rw-date" datetime="2026-11-18">Nov 18</time></div><div class="rw-result">Taylor 4&ndash;3</div><p class="rw-note">The Big Game &mdash; Aaron: Player of the Day.</p></article>
-          <article class="race-week is-tgiving"><div class="rw-top"><span class="rw-wk">Week 11</span><time class="rw-date" datetime="2026-11-25">Nov 25</time></div><div class="rw-result">CFL Turkey Bowl 🦃</div><p class="rw-note">Thanksgiving Eve — Taylor win ties it 5–5, Lazer win makes it 6–4.</p><span class="race-tag">Turkey Bowl · Thanksgiving Eve</span></article>
+          <article class="race-week is-tgiving"><div class="rw-top"><span class="rw-wk">Week 11</span><time class="rw-date" datetime="2026-11-25">Nov 25</time></div><div class="rw-result">CFL Turkey Bowl 🦃</div><p class="rw-note">Thanksgiving Eve — Taylor win ties it 5–5, Lazer win makes it 6–4.</p><span class="race-tag">CFL Turkey Bowl · Thanksgiving Eve</span></article>
           <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 12</span><time class="rw-date" datetime="2026-12-02">Dec 2</time></div><div class="rw-result">December Football</div><p class="rw-note">Season keeps rolling into December.</p><span class="race-tag">December</span></article>
           <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 13</span><time class="rw-date" datetime="2026-12-09">Dec 9</time></div><div class="rw-result">Late December</div><p class="rw-note">Still going — Wednesday nights continue.</p><span class="race-tag">December</span></article>
           <article class="race-week"><div class="rw-top"><span class="rw-wk">Week 14</span><time class="rw-date" datetime="2026-12-16">Dec 16</time></div><div class="rw-result">Before Christmas</div><p class="rw-note">Expected last game — the week before Christmas.</p><span class="race-tag">Before Christmas</span></article>
@@ -1016,7 +992,7 @@
       </details>
     </main>
 
-    <footer><span>🍂 CFL · Wednesday Night Football · Turkey Bowl Week 🦃</span><span>Nutley · Every Wednesday night</span></footer>
+    <footer><span>🍂 CFL · Wednesday Night Football · CFL Turkey Bowl Week 🦃</span><span>Nutley · Every Wednesday night</span></footer>
   </div>
 
 <div class="week-sheet" id="sheet-week-1" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-1-title">
