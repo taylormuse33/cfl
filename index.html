@@ -94,6 +94,7 @@
     .poster-kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:#fff3e6}
     .poster-when{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#eaf3e4}
     .poster-when em{font-style:normal;color:var(--gold)}
+    .poster-weather{display:inline-flex;align-items:center;padding:7px 11px;border:1px solid rgba(233,180,76,.55);border-radius:999px;background:rgba(0,0,0,.4);color:#fdf6ec;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;box-shadow:inset 0 1px 0 rgba(253,246,236,.09)}
     .poster-lights{flex:1 1 100%;margin-top:2px;text-align:center;font:400 clamp(34px,7.5vw,56px)/1 "Bebas Neue",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-shadow:0 0 6px rgba(255,255,255,.95),0 0 18px rgba(255,255,255,.85),0 0 42px rgba(255,255,255,.6),0 0 90px rgba(255,255,255,.45)}
     .poster-head{position:relative;padding:clamp(26px,5vw,48px) clamp(18px,4vw,40px) 10px;text-align:center}
     .poster-head::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 72% 58% at 50% 36%,rgba(230,124,46,.17),transparent 70%);pointer-events:none}
@@ -655,6 +656,7 @@
       .poster-top{padding:11px 13px}
       .poster-kicker{font-size:9px;padding:6px 9px}
       .poster-when{font-size:10px}
+      .poster-weather{font-size:9px;padding:6px 9px;margin-left:auto}
       .poster-title{font-size:clamp(56px,17.5vw,84px)}
       .poster-eyebrow{font-size:9px;letter-spacing:.22em}
       .poster-sub{font-size:12px}
@@ -748,6 +750,7 @@
         <div class="poster-top">
           <span class="poster-kicker">Week 10 · Final</span>
           <span class="poster-when">Wed · <em>Nov 18</em> · Nutley</span>
+          <span class="poster-weather" aria-label="Turkey Bowl forecast: cloudy, dry, 40 degrees">☁ FORECAST · DRY · 40°</span>
           <span class="poster-lights">Under the lights</span>
         </div>
         <div class="poster-head">
@@ -801,7 +804,7 @@
           <article class="fp-lead">
             <span class="fp-kicker">Player of the Day</span>
             <h3>Aaron</h3>
-            <p><strong>2 touchdowns &middot; 7 receptions &middot; 100 yards.</strong> Aaron owned The Big Game &mdash; the best player on the field in Taylor&rsquo;s 4&ndash;3 win.</p>
+            <p><strong>2 touchdowns &middot; over 7 receptions &middot; 100 yards.</strong> Aaron owned The Big Game &mdash; the best player on the field in Taylor&rsquo;s 4&ndash;3 win.</p>
           </article>
           <div class="fp-side">
             <article class="fp-item"><h3>Damian</h3><p>129 yards &middot; 1 touchdown &middot; 1 interception.</p></article>
@@ -833,7 +836,7 @@
             <div class="tb-count-cell"><strong id="tb-mins">—</strong><span>Minutes</span></div>
             <div class="tb-count-cell"><strong id="tb-secs">—</strong><span>Seconds</span></div>
           </div>
-          <p class="tb-count-note" id="tb-count-note">Until kickoff · Wed Nov 25 · Nutley</p>
+          <p class="tb-count-note" id="tb-count-note">Until kickoff · Wed Nov 25 · 6:45pm ET · Nutley</p>
         </div>
         <div class="tb-series" aria-label="Season series: Mr. Lazer 5 wins, Taylor 4 wins, 1 tie">
           <div class="tb-team taylor"><span class="tb-team-name">Taylor</span><span class="tb-team-num">4</span><span class="tb-team-sub">Series wins</span></div>
@@ -1453,7 +1456,7 @@
       <div class="sheet-body">
       <aside class="broadcast-strip" aria-label="Week 10 breaking news">
         <span class="breaking">Week 10</span>
-        <span class="ticker-copy"><strong>Aaron · Player of the Day · Week 10</strong> · 2 touchdowns, 7 receptions and 100 yards in Taylor&rsquo;s 4&ndash;3 win in The Big Game.</span>
+        <span class="ticker-copy"><strong>Aaron · Player of the Day · Week 10</strong> · 2 touchdowns, over 7 receptions and 100 yards in Taylor&rsquo;s 4&ndash;3 win in The Big Game.</span>
         <span class="ticker-meta">Final · 4&ndash;3</span>
       </aside>
 
@@ -1461,7 +1464,7 @@
         <div class="carlos-copy">
           <span class="eyebrow">PLAYER OF THE DAY · WEEK 10</span>
           <h2 id="aaron-title">AARON TAKES THE BIG GAME</h2>
-          <p>2 touchdowns, 7 receptions and 100 yards — Aaron was the best player on the field as Taylor took The Big Game 4&ndash;3.</p>
+          <p>2 touchdowns, over 7 receptions and 100 yards — Aaron was the best player on the field as Taylor took The Big Game 4&ndash;3.</p>
           <div class="fact-row"><span class="fact">2 TOUCHDOWNS</span><span class="fact">OVER 7 RECEPTIONS</span><span class="fact">100 YARDS</span></div>
         </div>
       </section>
@@ -1476,7 +1479,7 @@
           <article class="team">
             <div class="team-title"><h3>Taylor&rsquo;s team</h3><span>Week 10 · 4 points</span></div>
             <div class="stat-list">
-              <div class="stat"><span class="stat-name">Aaron</span><span class="stat-copy"><strong>Player of the Day</strong> · 2 TD · 7 receptions · 100 yards</span></div>
+              <div class="stat"><span class="stat-name">Aaron</span><span class="stat-copy"><strong>Player of the Day</strong> · 2 TD · over 7 receptions · 100 yards</span></div>
               <div class="stat"><span class="stat-name">Damian</span><span class="stat-copy">129 yards · 1 TD · 1 INT</span></div>
               <div class="stat"><span class="stat-name">Cookie</span><span class="stat-copy"><strong>1 TD &mdash; caught in dramatic fashion</strong> · 4 catches · 100 yards · 50-yard grab, two feet tiptoeing in</span></div>
               <div class="stat"><span class="stat-name">Mike</span><span class="stat-copy"><strong>4 catches</strong> · 70 yards</span></div>
@@ -1871,7 +1874,7 @@
   </script>
   <script>
     (() => {
-      const target = new Date('2026-11-25T19:00:00-05:00').getTime();
+      const target = new Date('2026-11-25T18:45:00-05:00').getTime();
       const dEl = document.getElementById('tb-days');
       const hEl = document.getElementById('tb-hours');
       const mEl = document.getElementById('tb-mins');
@@ -1883,7 +1886,7 @@
         const diff = target - Date.now();
         if (diff <= 0) {
           dEl.textContent = '0'; hEl.textContent = '00'; mEl.textContent = '00'; sEl.textContent = '00';
-          if (noteEl) noteEl.textContent = 'Turkey Bowl night · Wed Nov 25 · Nutley';
+          if (noteEl) noteEl.textContent = 'Turkey Bowl night · Wed Nov 25 · 6:45pm ET · Nutley';
           return;
         }
         const totalSecs = Math.floor(diff / 1000);
