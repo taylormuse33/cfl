@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#1a0e05">
+  <meta name="theme-color" content="#04070d">
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,10 +41,10 @@
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;min-width:320px;min-height:100vh;overflow-x:hidden;background:#140b05;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    body{margin:0;min-width:320px;min-height:100vh;overflow-x:hidden;background:#04070d;color:var(--ink);font-family:"IBM Plex Sans",sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     ::selection{background:var(--pumpkin);color:#1c0d02}
-    body::before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(28,12,4,.52),rgba(22,10,4,.68) 46%,rgba(14,7,3,.94)),url("assets/night-field.jpg") center 58%/cover no-repeat;filter:brightness(1.02) saturate(1.08) sepia(.18)}
-    body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 50% -8%,rgba(255,176,66,.27),transparent 48%),radial-gradient(ellipse at 8% 22%,rgba(176,48,69,.17),transparent 42%),radial-gradient(ellipse at 92% 18%,rgba(230,124,46,.18),transparent 42%),radial-gradient(ellipse at 50% 108%,rgba(199,91,38,.20),transparent 55%),linear-gradient(180deg,transparent 60%,rgba(10,4,2,.55))}
+    body::before{content:"";position:fixed;inset:0;z-index:-3;background:linear-gradient(180deg,rgba(4,10,18,.34),rgba(5,11,20,.46) 46%,rgba(3,7,13,.86)),url("assets/night-field.jpg") center 58%/cover no-repeat;filter:brightness(1.09) saturate(1.07)}
+    body::after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 50% -8%,rgba(196,226,255,.22),transparent 48%),radial-gradient(ellipse at 8% 22%,rgba(96,156,255,.10),transparent 42%),radial-gradient(ellipse at 92% 18%,rgba(170,210,255,.13),transparent 42%),radial-gradient(ellipse at 50% 108%,rgba(28,78,158,.13),transparent 55%),linear-gradient(180deg,transparent 60%,rgba(1,3,7,.5))}
     button{font:inherit}
     :focus-visible{outline:3px solid var(--pumpkin);outline-offset:2px}
     .page{position:relative;z-index:1;width:min(1180px,calc(100% - 28px));margin:auto;padding:max(14px,env(safe-area-inset-top)) 0 max(30px,env(safe-area-inset-bottom))}
@@ -52,7 +52,8 @@
     .mono{font-family:"IBM Plex Mono",monospace}
 
     /* ============ FALLING LEAVES ============ */
-    .leaves{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+    .leaves{position:absolute;top:0;left:0;right:0;height:1420px;z-index:0;overflow:hidden;pointer-events:none}
+    @media(max-width:640px){.leaves{height:1560px}}
     .leaves span{position:absolute;top:-8vh;line-height:1;opacity:0;will-change:transform}
     .leaves span:nth-child(1){left:3%;font-size:22px;animation:leaf-fall 13s linear -2s infinite}
     .leaves span:nth-child(2){left:11%;font-size:16px;animation:leaf-fall 17s linear -9s infinite}
@@ -756,6 +757,124 @@
       .highlight-arrow{width:36px;height:36px;font-size:23px}
       footer{font-size:7px}
     }
+
+    /* ============ ESPN NIGHT-FIELD — from "THE BIG GAME" line down ============
+       The Turkey Bowl hero and the poster top (CFL wordmark · WEEK 10 · FINAL
+       pill · UNDER THE LIGHTS) keep the Thanksgiving treatment above. Everything
+       from the Week 10 eyebrow down rides on the original night-field photo:
+       transparent navy glass, cool broadcast light, signal orange for Taylor,
+       gold for Mr.Lazer, ESPN red for broadcast accents. */
+    .poster,.frontpage,.pill,.week-sheet,footer{
+      --muted:#c3d0e1;
+      --faint:#8d9db4;
+      --line:rgba(238,245,255,.17);
+      --line-soft:rgba(238,245,255,.09);
+      --glass:linear-gradient(165deg,rgba(9,16,27,.66),rgba(4,8,15,.8));
+      --glass-strong:linear-gradient(165deg,rgba(8,14,24,.78),rgba(3,6,11,.86));
+    }
+    .glass{backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+
+    /* Poster frame goes broadcast; the top band keeps its harvest backdrop */
+    .poster{border-color:rgba(238,245,255,.42);background:linear-gradient(180deg,rgba(7,13,23,.5),rgba(3,6,12,.74) 78%);box-shadow:0 34px 80px rgba(0,0,0,.62),0 0 0 1px rgba(255,255,255,.05),0 0 44px rgba(90,150,255,.08)}
+    .poster::before{background:repeating-linear-gradient(90deg,transparent 0 79px,rgba(255,255,255,.045) 79px 80px)}
+    .poster-brand{background:linear-gradient(180deg,rgba(38,20,8,.94),rgba(26,14,6,.96))}
+    .poster-top{background:linear-gradient(180deg,rgba(26,14,6,.96),rgba(16,9,4,.97))}
+
+    /* Poster head — TAYLOR WINS zone */
+    .poster-head::before{background:radial-gradient(ellipse 72% 58% at 50% 36%,rgba(150,200,255,.13),transparent 70%)}
+    .poster-title .must{color:#ff7a1a;text-shadow:0 0 44px rgba(255,122,26,.5),0 6px 0 rgba(0,0,0,.35)}
+    .poster-score{border-color:rgba(255,255,255,.4);background:linear-gradient(180deg,rgba(3,8,15,.55),rgba(3,8,15,.36));box-shadow:0 0 36px rgba(150,200,255,.12),inset 0 1px 0 rgba(255,255,255,.1)}
+    .ps-final em{color:#ff7a1a}
+    .ps-num.ps-winner-num{color:#ff7a1a;text-shadow:0 0 34px rgba(255,122,26,.55)}
+    .faceoff{border-color:rgba(255,255,255,.18);background:rgba(4,9,17,.55)}
+    .fighter.taylor{background:linear-gradient(150deg,rgba(255,122,26,.17),transparent 70%)}
+    .fighter.taylor .f-num{color:#ff7a1a;text-shadow:0 0 34px rgba(255,122,26,.45)}
+    .form i.w{background:#ff7a1a;color:#180a02}
+    .form i.l{background:#c8102e;color:#fff}
+    .stakes{border-color:rgba(255,255,255,.18);background:rgba(4,9,17,.45)}
+    .stake.win span{color:#ff7a1a}
+    .stake.lose span{color:#ff4d5e}
+    .poster-foot{background:rgba(4,9,17,.55)}
+
+    /* Section heads — broadcast red marker */
+    .section-head h2::before{background:#e8262f;box-shadow:0 0 12px rgba(232,38,47,.7)}
+    .season-subhead h3::before{background:#e8262f;box-shadow:0 0 10px rgba(232,38,47,.65)}
+    .pill-tag{background:#c8102e}
+    .pill>summary.pill-summary:hover{background:rgba(255,255,255,.05)}
+    .roster summary:hover{background:rgba(255,255,255,.05)}
+
+    /* Week 10 recap */
+    .recap10 .fp-lead{background:linear-gradient(150deg,rgba(255,122,26,.15),transparent 70%)}
+    .breaking-bar{background:rgba(200,16,46,.13)}
+    .breaking-bar .bb-tag{background:#e8262f;color:#fff}
+
+    /* Top players — damage report */
+    .damage-rank .d-num{color:#ff7a1a}
+    .damage-tag{border-color:rgba(255,122,26,.6);color:#ff7a1a}
+    .damage-card.c1{background:linear-gradient(155deg,rgba(255,122,26,.17),transparent 72%)}
+    .damage-card.c9{background:linear-gradient(155deg,rgba(255,122,26,.13),transparent 72%)}
+    .season-line{background:linear-gradient(105deg,rgba(255,122,26,.12),transparent 72%)}
+    .season-line p{color:#e9eff6}
+    .season-line .sl-tag{background:#ff7a1a;color:#180a02}
+    .verdict.taylor span{color:#ff7a1a}
+
+    /* Season race */
+    .race-week.w-taylor{background:linear-gradient(155deg,rgba(255,122,26,.16),transparent 72%)}
+    .race-week.w-taylor .rw-result{color:#ff7a1a}
+    .race-week.is-next{outline-color:#ff7a1a;background:linear-gradient(155deg,rgba(255,122,26,.18),transparent 75%)}
+    .race-week.is-next .rw-result{color:#ff7a1a}
+    .race-week.is-next .race-tag{background:#ff7a1a;color:#180a02}
+    .race-week.is-tgiving{outline:2px solid rgba(238,245,255,.5);background:linear-gradient(155deg,rgba(255,255,255,.08),transparent 78%)}
+    .race-week.is-tgiving .rw-result{color:#fff}
+    .race-week.is-tgiving .race-tag{background:#c8102e;border-color:rgba(200,16,46,.7);color:#fff}
+    .race-legend{background:rgba(2,6,12,.35)}
+    .race-legend .lg-t{background:#ff7a1a}
+    .race-legend .lg-next{background:#c8102e}
+
+    /* Archive */
+    .archive-card:hover,.archive-card:focus-visible{background:rgba(255,255,255,.05)}
+    .archive-card .ac-result.t{color:#ff7a1a}
+
+    /* Roster table — out of the browns, into the booth */
+    .roster-table th{background:rgba(255,255,255,.07)}
+    .roster-table th:first-child{background:#101d31}
+    .roster-table td:first-child{background:#0a1424}
+    .roster-table td{color:#edf2f8}
+    .roster-table tbody tr:hover{background:rgba(255,255,255,.05)}
+
+    /* Game film */
+    .film-item .film-tag{color:#ff7a1a}
+    .highlight-count{background:rgba(4,9,17,.82)}
+
+    /* Week sheets — stat books, news desks, spotlights, tickers */
+    .week-sheet{background:rgba(1,4,9,.93)}
+    .sheet-bar{background:rgba(5,10,18,.97);border-top-color:#e8262f}
+    .sheet-close,.sheet-done{background:#ff7a1a;color:#180a02;box-shadow:0 8px 20px rgba(255,122,26,.3)}
+    .sheet-close:hover,.sheet-close:focus-visible,.sheet-done:hover,.sheet-done:focus-visible{background:#ffa25e}
+    .broadcast-strip{background:rgba(5,10,18,.92);border-top-color:#c8102e}
+    .breaking{background:linear-gradient(160deg,#e8262f,#8f0f1d);color:#fff}
+    .week-talk{border-color:rgba(255,255,255,.22)}
+    .talk-title{background:linear-gradient(160deg,#ffb03a,#ff7a1a);color:#180a02}
+    .comment-name{color:#ff7a1a}
+    .comment-card blockquote{border-left-color:rgba(255,122,26,.55)}
+    .carlos-spotlight{border-color:rgba(255,255,255,.22);background:linear-gradient(105deg,rgba(5,10,18,.9),rgba(255,122,26,.1))}
+    .week3-spotlight,.week4-spotlight,.week5-spotlight{background:linear-gradient(105deg,rgba(255,122,26,.14),rgba(5,10,18,.92) 68%)}
+    .carlos-photo{background:#04090f}
+    .fact{border-color:rgba(255,122,26,.5);background:rgba(255,122,26,.08)}
+    .story--green{background:linear-gradient(145deg,rgba(255,122,26,.1),transparent 65%)}
+    .story--green .story-number{background:rgba(255,122,26,.16);color:#ff7a1a}
+    .score-summary{background:rgba(2,6,12,.3)}
+    .score-summary div:last-child strong{color:#ff7a1a}
+    .team-title{background:linear-gradient(90deg,rgba(255,122,26,.12),transparent 75%)}
+    .stat{background:rgba(4,9,17,.55)}
+    .stat:hover{background:rgba(255,255,255,.05)}
+    .final-score strong{color:#ff7a1a;text-shadow:0 0 22px rgba(255,122,26,.4)}
+    .highlight-arrow,.sound-toggle{background:rgba(4,10,18,.75)}
+    .highlight-arrow:hover,.highlight-arrow:focus-visible,.sound-toggle:hover,.sound-toggle:focus-visible{border-color:#ff7a1a;background:rgba(10,20,34,.94);outline-color:#ff7a1a}
+    .highlight-video:focus-visible{outline-color:#ff7a1a}
+    .w9-wrap .w9-video:focus-visible{outline-color:#ff7a1a}
+    .w9-sound:hover,.w9-sound:focus-visible,.w9-full:hover,.w9-full:focus-visible{border-color:#ff7a1a;background:rgba(10,20,34,.94);outline-color:#ff7a1a}
+    .highlight-dot[aria-current="true"]::before{border-color:#ff7a1a;background:#ff7a1a;box-shadow:0 0 11px rgba(255,122,26,.7)}
   </style>
 </head>
 <body>
@@ -1042,7 +1161,7 @@
       </details>
     </main>
 
-    <footer><span>🍂 CFL · Wednesday Night Football · CFL Turkey Bowl Week 🦃</span><span>Nutley · Every Wednesday night</span></footer>
+    <footer><span>CFL · Wednesday Night Football · CFL Turkey Bowl Week</span><span>Nutley · Every Wednesday night</span></footer>
   </div>
 
 <div class="week-sheet" id="sheet-week-1" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-week-1-title">
