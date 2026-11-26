@@ -197,6 +197,28 @@
     .bf-next-tag{flex:0 0 auto;padding:6px 10px;border-radius:6px;background:#ff7a1a;color:#180a02;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
     .bf-next p{margin:0;flex:1 1 300px;color:#e6eef8;font-size:12.5px;font-weight:550;line-height:1.55}
     .bf-next p strong{color:#fff}
+    /* ============ SCORING BREAKDOWN ============ */
+    .scoring-tag{display:inline-block;margin-bottom:10px;padding:5px 10px;border-radius:6px;background:rgba(150,200,255,.16);border:1px solid rgba(150,200,255,.42);color:#cfe6ff;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+    .scoring{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(255,255,255,.22);border-radius:16px;overflow:hidden;background:rgba(0,0,0,.3);text-align:left}
+    .scoring-col{padding:16px 18px;min-width:0}
+    .scoring-col+.scoring-col{border-left:1px dashed rgba(238,245,255,.24)}
+    .scoring-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+    .scoring-team{font:400 clamp(20px,3.4vw,26px)/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#fff}
+    .scoring-total{font:400 clamp(30px,5vw,40px)/0.9 "Bebas Neue",sans-serif;color:var(--gold)}
+    .scoring-col.taylor .scoring-total{color:#ff7a1a}
+    .scoring-list{list-style:none;margin:10px 0 0;padding:0}
+    .scoring-list li{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:7px 0;border-top:1px solid rgba(238,245,255,.1);color:#e6eef8;font-size:12.5px;font-weight:550;line-height:1.4}
+    .scoring-list .sc-pts{flex:0 0 auto;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;color:var(--gold);white-space:nowrap}
+    .scoring-col.taylor .sc-pts{color:#ffa04d}
+    .bf-scoring{position:relative;margin:22px clamp(14px,3vw,30px) 0}
+    .sheet-scoring{margin:16px 18px 4px}
+    @media(max-width:640px){
+      .scoring{grid-template-columns:1fr}
+      .scoring-col{padding:13px 14px}
+      .scoring-col+.scoring-col{border-left:0;border-top:1px dashed rgba(238,245,255,.24)}
+      .bf-scoring{margin-left:10px;margin-right:10px}
+      .sheet-scoring{margin-left:10px;margin-right:10px}
+    }
     @media(max-width:640px){
       .bf-topbar{padding:11px 13px}
       .bf-series{margin-left:10px;margin-right:10px;padding:13px 10px;gap:8px}
@@ -861,12 +883,33 @@
             </div>
           </div>
           <p class="bf-sub">Half a point decided the Bowl. <strong>Mr. Lazer 5, Taylor 4.5</strong> — and Taylor&rsquo;s half point came on a <strong>safety</strong>. <strong>Joshua</strong> owned the night for Mr. Lazer&rsquo;s team: <strong>4 interceptions and 4 touchdowns</strong>.</p>
-          <p class="bf-note">More from the night is on the way — the full recap is still to come.</p>
+          <p class="bf-note">The full scoring breakdown is below — every point adds up to the 5–4.5 final.</p>
         </div>
         <div class="bf-play">
           <span class="bf-play-tag">Defensive Play of the Game</span>
           <h2 class="bf-play-title">Mookie saved the day</h2>
           <p>Last drive, <strong>3rd and 60</strong> — Taylor threw a <strong>perfect pass to the 4-yard line</strong>. <strong>Mookie</strong>, playing for Mr. Lazer&rsquo;s team, got <strong>one hand on it and swatted it away</strong>. Catch it, and it&rsquo;s <strong>4th and 4 from the 4</strong> with the Bowl on the line. One hand ended it.</p>
+        </div>
+        <div class="bf-scoring">
+          <span class="scoring-tag">Scoring breakdown</span>
+          <div class="scoring">
+            <div class="scoring-col lazer">
+              <div class="scoring-head"><span class="scoring-team">Mr. Lazer&rsquo;s team</span><span class="scoring-total">5 pts</span></div>
+              <ul class="scoring-list">
+                <li><span>Joshua &mdash; 4 touchdowns</span><span class="sc-pts">4</span></li>
+                <li><span>Mikey &mdash; 1 touchdown</span><span class="sc-pts">1</span></li>
+              </ul>
+            </div>
+            <div class="scoring-col taylor">
+              <div class="scoring-head"><span class="scoring-team">Taylor&rsquo;s team</span><span class="scoring-total">4.5 pts</span></div>
+              <ul class="scoring-list">
+                <li><span>Aaron &mdash; 2 touchdowns</span><span class="sc-pts">2</span></li>
+                <li><span>Chris &mdash; 1 touchdown</span><span class="sc-pts">1</span></li>
+                <li><span>Jariel &mdash; 1 touchdown</span><span class="sc-pts">1</span></li>
+                <li><span>Taylor &mdash; safety</span><span class="sc-pts">0.5</span></li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="bf-series" aria-label="Season series: Mr. Lazer 6 wins, Taylor 4 wins, 1 tie">
           <div class="bf-team-block taylor"><span class="bf-team-name">Taylor</span><span class="bf-team-num">4</span><span class="bf-team-sub">Series wins</span></div>
@@ -1626,10 +1669,31 @@
           <div><span>Week 11 final</span><strong>Mr.Lazer 5 · Taylor 4.5</strong></div>
           <div><span>Season record</span><strong>Taylor 4 · Mr.Lazer 6 · 1 tie</strong></div>
         </div>
+        <div class="sheet-scoring">
+          <span class="scoring-tag">Scoring breakdown</span>
+          <div class="scoring">
+            <div class="scoring-col lazer">
+              <div class="scoring-head"><span class="scoring-team">Mr. Lazer&rsquo;s team</span><span class="scoring-total">5 pts</span></div>
+              <ul class="scoring-list">
+                <li><span>Joshua &mdash; 4 touchdowns</span><span class="sc-pts">4</span></li>
+                <li><span>Mikey &mdash; 1 touchdown</span><span class="sc-pts">1</span></li>
+              </ul>
+            </div>
+            <div class="scoring-col taylor">
+              <div class="scoring-head"><span class="scoring-team">Taylor&rsquo;s team</span><span class="scoring-total">4.5 pts</span></div>
+              <ul class="scoring-list">
+                <li><span>Aaron &mdash; 2 touchdowns</span><span class="sc-pts">2</span></li>
+                <li><span>Chris &mdash; 1 touchdown</span><span class="sc-pts">1</span></li>
+                <li><span>Jariel &mdash; 1 touchdown</span><span class="sc-pts">1</span></li>
+                <li><span>Taylor &mdash; safety</span><span class="sc-pts">0.5</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
         <div class="stat-list">
           <div class="stat"><span class="stat-name">Joshua</span><span class="stat-copy"><strong>4 interceptions · 4 touchdowns</strong> · Mr.Lazer&rsquo;s team</span></div>
-          <div class="stat"><span class="stat-name">Mookie</span><span class="stat-copy"><strong>Defensive Play of the Game</strong> · one-handed swat at the 4-yard line on the last drive · Mr.Lazer&rsquo;s team</span></div>
-          <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>4.5 points</strong> · the half point came on a safety</span></div>
+          <div class="stat"><span class="stat-name">Mookie</span><span class="stat-copy"><strong>Defensive Play of the Game</strong> · one-handed swat at the 4-yard line on the last drive · also grabbed a fumble · Mr.Lazer&rsquo;s team</span></div>
+          <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>Threw 5 interceptions</strong> · Joshua had 4 of them · caused the safety that scored the half point</span></div>
           <div class="stat"><span class="stat-name">Mr.Lazer</span><span class="stat-copy"><strong>Captain (QB)</strong> · Turkey Bowl winner</span></div>
         </div>
       </section>
