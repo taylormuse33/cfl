@@ -228,14 +228,17 @@
     .bf-play-title{margin:10px 0 0;font:400 clamp(30px,5.4vw,44px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#fff}
     .bf-play p{margin:8px 0 0;color:#e6eef8;font-size:13px;font-weight:550;line-height:1.6;max-width:660px}
     .bf-play p strong{color:#fff}
-    .bf-series{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:18px clamp(14px,3vw,30px) 0;padding:16px 18px;border:1px solid rgba(255,255,255,.2);border-radius:16px;background:rgba(0,0,0,.32)}
+    .bf-record-head{position:relative;margin:26px clamp(14px,3vw,30px) 0;text-align:center;font:400 clamp(26px,4.5vw,38px)/1 "Bebas Neue",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff;text-shadow:0 0 22px rgba(150,200,255,.35)}
+    .bf-series{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;margin:12px clamp(14px,3vw,30px) 0;padding:16px 18px;border:1px solid rgba(255,255,255,.2);border-radius:16px;background:rgba(0,0,0,.32)}
     .bf-team-block{text-align:center;min-width:0}
     .bf-team-name{display:block;font:400 clamp(24px,4.5vw,36px)/1 "Bebas Neue",sans-serif;letter-spacing:.05em;text-transform:uppercase}
     .bf-team-num{display:block;margin-top:4px;font:400 clamp(52px,9vw,76px)/0.85 "Bebas Neue",sans-serif}
-    .bf-team-block.taylor .bf-team-num{color:#ff7a1a;text-shadow:0 0 30px rgba(255,122,26,.45)}
-    .bf-team-block.lazer .bf-team-num{color:var(--gold);text-shadow:0 0 30px rgba(233,180,76,.45)}
+    .bf-team-block.taylor .bf-team-num{color:#ff4655;text-shadow:0 0 30px rgba(255,70,85,.5)}
+    .bf-team-block.lazer .bf-team-num{color:#39ff14;text-shadow:0 0 30px rgba(57,255,20,.55)}
     .bf-team-sub{display:block;margin-top:4px;color:#b9c9dc;font-size:9px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
-    .bf-vs{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#eef4fb;color:#0a1424;font:800 12px/1 "IBM Plex Sans",sans-serif;box-shadow:0 0 0 5px rgba(238,244,251,.14),0 10px 24px rgba(0,0,0,.5)}
+    .bf-tie-mid{text-align:center;min-width:0}
+    .bf-tie-mid .bf-tie-num{display:block;font:400 clamp(34px,6vw,52px)/0.85 "Bebas Neue",sans-serif;color:#fff;text-shadow:0 0 22px rgba(255,255,255,.35)}
+    .bf-tie-mid .bf-tie-label{display:block;margin-top:4px;color:#fff;font-size:9px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
     .bf-tie{position:relative;text-align:center;margin:10px 16px 0;color:#b9c9dc;font-size:11px;font-weight:650}
     .bf-tie strong{color:#fff}
     .bf-next{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:16px clamp(14px,3vw,30px) clamp(18px,3vw,26px);padding:15px 18px;border:1px solid rgba(150,200,255,.35);border-radius:16px;background:rgba(0,0,0,.28)}
@@ -284,7 +287,7 @@
     @media(max-width:640px){
       .bf-topbar{padding:11px 13px}
       .bf-series{margin-left:10px;margin-right:10px;padding:13px 10px;gap:8px}
-      .bf-vs{width:38px;height:38px;font-size:10px}
+      .bf-record-head{margin-left:10px;margin-right:10px}
       .bf-play{margin-left:10px;margin-right:10px;padding:14px}
       .bf-next{margin-left:10px;margin-right:10px}
       .bf-title{font-size:clamp(52px,16vw,76px)}
@@ -1028,10 +1031,11 @@
           </div>
           </div>
         </div>
-        <div class="bf-series" aria-label="Season series: Mr. Lazer 6 wins, Taylor 4 wins, 1 tie">
-          <div class="bf-team-block taylor"><span class="bf-team-name">Taylor</span><span class="bf-team-num">4</span><span class="bf-team-sub">Series wins</span></div>
-          <div class="bf-vs" aria-hidden="true">VS</div>
+        <h3 class="bf-record-head">Season Record</h3>
+        <div class="bf-series" aria-label="Season record: Mr. Lazer 6 wins, 1 tie, Taylor 4 wins">
           <div class="bf-team-block lazer"><span class="bf-team-name">Mr. Lazer</span><span class="bf-team-num">6</span><span class="bf-team-sub">Series wins · Leads</span></div>
+          <div class="bf-tie-mid"><span class="bf-tie-num">1</span><span class="bf-tie-label">Tie</span></div>
+          <div class="bf-team-block taylor"><span class="bf-team-name">Taylor</span><span class="bf-team-num">4</span><span class="bf-team-sub">Series wins</span></div>
         </div>
         <p class="bf-tie">Plus <strong>1 tie</strong> this season — Mr. Lazer leads the series <strong>6–4</strong> heading into December.</p>
         <div class="bf-next">
