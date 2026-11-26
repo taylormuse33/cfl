@@ -192,6 +192,14 @@
       .bf-fans-head .bf-fans-dot,.bf-fans-toggle .bf-fans-dot{animation:bf-alert-blink 1.4s ease-in-out infinite}
       @keyframes bf-alert-blink{0%,100%{opacity:1}50%{opacity:.25}}
     }
+    .bf-fans-btnwrap{position:relative;display:inline-block}
+    .bf-mustread-arrow{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);width:32px;height:32px;pointer-events:none}
+    .bf-mustread-arrow svg{display:block;width:100%;height:100%;fill:#ffd76a;filter:drop-shadow(0 0 7px rgba(255,215,106,.85))}
+    @media(max-width:400px){.bf-mustread-arrow{left:calc(100% + 6px);width:26px;height:26px}}
+    @media(prefers-reduced-motion:no-preference){
+      .bf-mustread-arrow{animation:bf-arrow-nudge 1.3s ease-in-out infinite}
+      @keyframes bf-arrow-nudge{0%,100%{transform:translate(0,-50%) scale(1)}50%{transform:translate(-8px,-50%) scale(1.12)}}
+    }
     .bf-fans-body{padding:10px 14px 12px}
     .bf-fans-title{display:block;font:400 clamp(25px,5vw,36px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#fff;text-shadow:0 0 20px rgba(233,180,76,.35),0 3px 0 rgba(0,0,0,.35)}
     .bf-fans-title em{font-style:normal;color:var(--gold)}
@@ -917,11 +925,14 @@
         </div>
         <div class="bf-head">
           <div class="bf-fans">
+            <span class="bf-fans-btnwrap">
             <button class="bf-fans-toggle" type="button" id="bf-fans-toggle" aria-expanded="false" aria-controls="bf-fans-panel">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm0 6.2 5.9 10.3H6.1L12 8.2zM11 11v4.2h2V11h-2zm0 5.4v2h2v-2h-2z"/></svg>
               <span>Must Read</span>
               <span class="bf-fans-dot" aria-hidden="true"></span>
             </button>
+            <span class="bf-mustread-arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11H7.8l5.6-5.6L12 4l-8 8 8 8 1.4-1.4L7.8 13H20v-2z"/></svg></span>
+            </span>
             <div class="bf-fans-panel" id="bf-fans-panel" role="note" aria-label="Fan alert: fans and players say the calls kept going Mr. Lazer's way in the Turkey Bowl, but he still won 5 to 4.5 and the win stands" hidden>
             <div class="bf-fans-head">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm0 6.2 5.9 10.3H6.1L12 8.2zM11 11v4.2h2V11h-2zm0 5.4v2h2v-2h-2z"/></svg>
@@ -948,14 +959,6 @@
             </div>
           </div>
           <div class="bf-deco" aria-hidden="true">❄ ❄ ❄</div>
-          <p class="bf-eyebrow">CFL Turkey Bowl · Week 11 · Under the lights</p>
-          <h1 class="bf-title" id="bowl-title">Joshua <span class="bf-accent">Player of the Game</span></h1>
-          <div class="bf-potg" aria-label="Joshua, Player of the Game: 4 touchdowns, 4 interceptions, over 100 yards total">
-            <span><b>4</b> Touchdowns</span>
-            <span><b>4</b> Interceptions</span>
-            <span><b>100+</b> Yards total</span>
-          </div>
-          <p class="bf-honor"><span class="bf-honor-label">Honorable Mention of the Game</span><strong>Aaron</strong> — Taylor&rsquo;s team &middot; <strong>6 receptions &middot; 80 yards &middot; 2 touchdowns</strong> &middot; a great game, even in the loss</p>
           <div class="bf-score" role="img" aria-label="Turkey Bowl final: Mr. Lazer 5, Taylor 4.5">
             <span class="bf-final-label">Week 11 · <em>Final</em></span>
             <div class="bf-score-row" aria-hidden="true">
@@ -966,6 +969,14 @@
               <span class="bf-team">Taylor</span>
             </div>
           </div>
+          <p class="bf-eyebrow">CFL Turkey Bowl · Week 11 · Under the lights</p>
+          <h1 class="bf-title" id="bowl-title">Joshua <span class="bf-accent">Player of the Game</span></h1>
+          <div class="bf-potg" aria-label="Joshua, Player of the Game: 4 touchdowns, 4 interceptions, over 100 yards total">
+            <span><b>4</b> Touchdowns</span>
+            <span><b>4</b> Interceptions</span>
+            <span><b>100+</b> Yards total</span>
+          </div>
+          <p class="bf-honor"><span class="bf-honor-label">Honorable Mention of the Game</span><strong>Aaron</strong> — Taylor&rsquo;s team &middot; <strong>6 receptions &middot; 80 yards &middot; 2 touchdowns</strong> &middot; a great game, even in the loss</p>
           <p class="bf-note">The full scoring breakdown is below — every point adds up to the 5–4.5 final.</p>
         </div>
         <div class="bf-scoring">
