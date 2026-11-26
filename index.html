@@ -173,7 +173,7 @@
     .bf-team{font:400 clamp(19px,5.4vw,32px)/1 "Bebas Neue",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#b9c9dc}
     .bf-team.bf-winner{color:#fff}
     .bf-num{font:400 clamp(52px,13vw,84px)/0.85 "Bebas Neue",sans-serif;color:#dfe9f5;text-shadow:0 0 30px rgba(160,205,255,.3)}
-    .bf-num.bf-winner-num{color:var(--gold);text-shadow:0 0 34px rgba(233,180,76,.55)}
+    .bf-num.bf-winner-num{color:#39ff14;text-shadow:0 0 34px rgba(57,255,20,.55)}
     .bf-dash{color:#7e93ad;font:400 clamp(30px,7vw,48px)/1 "Bebas Neue",sans-serif}
     .bf-sub{max-width:620px;margin:16px auto 0;color:#e6eef8;font-size:clamp(13px,1.8vw,15.5px);font-weight:550;line-height:1.6;text-wrap:balance}
     .bf-sub strong{color:#fff}
@@ -266,6 +266,13 @@
     }
     .bf-scoring-panel{margin-top:12px}
     .bf-scoring-panel[hidden]{display:none}
+    .bf-scoring-more-toggle{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:7px 15px;border:1px solid rgba(57,255,20,.7);border-radius:999px;background:rgba(57,255,20,.1);color:#7dff5e;font-family:inherit;font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+    .bf-scoring-more-toggle:hover,.bf-scoring-more-toggle:focus-visible{outline:2px solid #39ff14;outline-offset:2px}
+    .bf-scoring-more-toggle .bf-scoring-more-arrow{font-size:13px;line-height:1;transition:transform .18s ease}
+    .bf-scoring-more-toggle[aria-expanded="true"] .bf-scoring-more-arrow{transform:rotate(180deg)}
+    .bf-scoring-more[hidden]{display:none}
+    .bf-scoring-more .bf-play{margin-left:0;margin-right:0}
+    .bf-scoring-more .bf-play:first-child{margin-top:14px}
     .sheet-scoring{margin:16px 18px 4px}
     @media(max-width:640px){
       .scoring{grid-template-columns:1fr}
@@ -1003,17 +1010,23 @@
               </ul>
             </div>
           </div>
+          <button class="bf-scoring-more-toggle" type="button" id="bf-scoring-more-toggle" aria-expanded="false" aria-controls="bf-scoring-more">
+            <span>Read more</span>
+            <span class="bf-scoring-more-arrow" aria-hidden="true">&#9662;</span>
+          </button>
+          <div class="bf-scoring-more" id="bf-scoring-more" hidden>
+            <div class="bf-play">
+              <span class="bf-play-tag">Defensive Play of the Game</span>
+              <h2 class="bf-play-title">Mookie saved the day</h2>
+              <p>Last drive, <strong>3rd and 60</strong> — Taylor threw a <strong>perfect pass to the 4-yard line</strong>. <strong>Mookie</strong>, playing for Mr. Lazer&rsquo;s team, got <strong>one hand on it and swatted it away</strong>. Catch it, and it&rsquo;s <strong>4th and 4 from the 4</strong> with the Bowl on the line. One hand ended it.</p>
+            </div>
+            <div class="bf-play">
+              <span class="bf-play-tag">Key Defensive Moment &middot; Early</span>
+              <h2 class="bf-play-title">Josh tipped it away early</h2>
+              <p>Early in the game, <strong>Josh</strong>, playing for Mr. Lazer&rsquo;s team, made a <strong>great defensive play</strong> — he <strong>tipped the ball</strong> to stop an <strong>80-yard touchdown</strong>. Before Mookie&rsquo;s game-saver, Josh&rsquo;s tip was the stop that kept Taylor&rsquo;s team off the board.</p>
+            </div>
           </div>
-        </div>
-        <div class="bf-play">
-          <span class="bf-play-tag">Defensive Play of the Game</span>
-          <h2 class="bf-play-title">Mookie saved the day</h2>
-          <p>Last drive, <strong>3rd and 60</strong> — Taylor threw a <strong>perfect pass to the 4-yard line</strong>. <strong>Mookie</strong>, playing for Mr. Lazer&rsquo;s team, got <strong>one hand on it and swatted it away</strong>. Catch it, and it&rsquo;s <strong>4th and 4 from the 4</strong> with the Bowl on the line. One hand ended it.</p>
-        </div>
-        <div class="bf-play">
-          <span class="bf-play-tag">Key Defensive Moment &middot; Early</span>
-          <h2 class="bf-play-title">Josh tipped it away early</h2>
-          <p>Early in the game, <strong>Josh</strong>, playing for Mr. Lazer&rsquo;s team, made a <strong>great defensive play</strong> — he <strong>tipped the ball</strong> to stop an <strong>80-yard touchdown</strong>. Before Mookie&rsquo;s game-saver, Josh&rsquo;s tip was the stop that kept Taylor&rsquo;s team off the board.</p>
+          </div>
         </div>
         <div class="bf-series" aria-label="Season series: Mr. Lazer 6 wins, Taylor 4 wins, 1 tie">
           <div class="bf-team-block taylor"><span class="bf-team-name">Taylor</span><span class="bf-team-num">4</span><span class="bf-team-sub">Series wins</span></div>
@@ -2213,6 +2226,15 @@
           const open = scoringPanel.hidden;
           scoringPanel.hidden = !open;
           scoringToggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+      const scoringMoreToggle = document.getElementById('bf-scoring-more-toggle');
+      const scoringMore = document.getElementById('bf-scoring-more');
+      if (scoringMoreToggle && scoringMore) {
+        scoringMoreToggle.addEventListener('click', () => {
+          const open = scoringMore.hidden;
+          scoringMore.hidden = !open;
+          scoringMoreToggle.setAttribute('aria-expanded', String(open));
         });
       }
     })();
