@@ -178,12 +178,23 @@
     .bf-sub{max-width:620px;margin:16px auto 0;color:#e6eef8;font-size:clamp(13px,1.8vw,15.5px);font-weight:550;line-height:1.6;text-wrap:balance}
     .bf-sub strong{color:#fff}
     .bf-note{margin:10px 0 0;color:#8d9db4;font-size:11px;font-weight:650;letter-spacing:.04em}
-    .bf-fans{position:relative;max-width:640px;margin:18px auto 4px;padding:16px 18px 15px;border:2px solid rgba(233,180,76,.75);border-radius:16px;background:linear-gradient(135deg,rgba(200,16,46,.28),rgba(233,180,76,.14) 55%,rgba(0,0,0,.38));box-shadow:0 0 34px rgba(233,180,76,.22),0 14px 34px rgba(0,0,0,.4);text-align:center}
-    .bf-fans-tag{display:inline-block;padding:5px 11px;border-radius:6px;background:var(--gold);color:#241a00;font-size:9px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 6px 16px rgba(233,180,76,.35)}
-    .bf-fans-title{display:block;margin:10px 0 0;font:400 clamp(34px,6.4vw,52px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#fff;text-shadow:0 0 26px rgba(233,180,76,.4),0 4px 0 rgba(0,0,0,.35)}
+    .bf-fans{position:relative;max-width:620px;margin:16px auto 2px;padding:0;border:2px solid rgba(233,180,76,.8);border-radius:12px;background:linear-gradient(135deg,rgba(200,16,46,.26),rgba(0,0,0,.42) 60%);box-shadow:0 0 28px rgba(233,180,76,.2),0 12px 28px rgba(0,0,0,.4);text-align:left;overflow:hidden}
+    .bf-fans-head{display:flex;align-items:center;gap:8px;padding:7px 13px;background:linear-gradient(90deg,#c8102e,#8f0f1d);color:#fff;font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+    .bf-fans-head svg{flex:0 0 auto;width:15px;height:15px;fill:var(--gold);filter:drop-shadow(0 0 5px rgba(233,180,76,.7))}
+    .bf-fans-head .bf-fans-dot{margin-left:auto;width:8px;height:8px;border-radius:50%;background:#ffd76a;box-shadow:0 0 8px rgba(255,215,106,.9)}
+    @media(prefers-reduced-motion:no-preference){
+      .bf-fans-head .bf-fans-dot{animation:bf-alert-blink 1.4s ease-in-out infinite}
+      @keyframes bf-alert-blink{0%,100%{opacity:1}50%{opacity:.25}}
+    }
+    .bf-fans-body{padding:10px 14px 12px}
+    .bf-fans-title{display:block;font:400 clamp(25px,5vw,36px)/0.95 "Bebas Neue",sans-serif;letter-spacing:.03em;text-transform:uppercase;color:#fff;text-shadow:0 0 20px rgba(233,180,76,.35),0 3px 0 rgba(0,0,0,.35)}
     .bf-fans-title em{font-style:normal;color:var(--gold)}
-    .bf-fans p{margin:8px auto 0;max-width:540px;color:#f2e8d5;font-size:13px;font-weight:600;line-height:1.55;text-wrap:balance}
-    .bf-fans p strong{color:#fff}
+    .bf-fans-list{list-style:none;margin:8px 0 0;padding:0}
+    .bf-fans-list li{position:relative;padding:2.5px 0 2.5px 15px;color:#f2e8d5;font-size:12.5px;font-weight:600;line-height:1.4}
+    .bf-fans-list li::before{content:"";position:absolute;left:1px;top:.52em;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);box-shadow:0 0 6px rgba(233,180,76,.6)}
+    .bf-fans-list li strong{color:#fff}
+    .bf-fans-close{margin:9px 0 0;padding-top:8px;border-top:1px dashed rgba(233,180,76,.45);color:#f2e8d5;font-size:12.5px;font-weight:700;line-height:1.4}
+    .bf-fans-close strong{color:var(--gold)}
     .bf-potg{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:640px;margin:18px auto 0}
     .bf-potg span{display:inline-flex;align-items:baseline;gap:7px;padding:9px 14px;border:1px solid rgba(150,200,255,.5);border-radius:999px;background:rgba(0,0,0,.34);color:#e6eef8;font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
     .bf-potg b{font:400 24px/0.85 "Bebas Neue",sans-serif;letter-spacing:.04em;color:#9fd0ff;text-shadow:0 0 16px rgba(120,190,255,.5)}
@@ -878,10 +889,22 @@
           <span class="bf-when">Wed · <em>Nov 25</em> · Nutley</span>
         </div>
         <div class="bf-head">
-          <div class="bf-fans" role="note" aria-label="Fan talk: fans are saying Mr. Lazer may have cheated his way to this win, but he still won">
-            <span class="bf-fans-tag">Fan Talk &middot; The Word in Nutley</span>
-            <span class="bf-fans-title">Fans are saying Lazer <em>cheated</em> his way to this one</span>
-            <p>That&rsquo;s the talk after the Turkey Bowl — the fans are saying <strong>Mr. Lazer may have cheated his way to this win</strong>. Talk is talk, though: the scoreboard is the scoreboard, and <strong>he still won, 5&ndash;4.5</strong>. The W stands.</p>
+          <div class="bf-fans" role="note" aria-label="Fan alert: fans and players say the calls kept going Mr. Lazer's way in the Turkey Bowl, but he still won 5 to 4.5 and the win stands">
+            <div class="bf-fans-head">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm0 6.2 5.9 10.3H6.1L12 8.2zM11 11v4.2h2V11h-2zm0 5.4v2h2v-2h-2z"/></svg>
+              <span>Fan Alert &middot; The Word in Nutley</span>
+              <span class="bf-fans-dot" aria-hidden="true"></span>
+            </div>
+            <div class="bf-fans-body">
+              <span class="bf-fans-title">Fans are saying Lazer <em>cheated</em> his way to this one</span>
+              <ul class="bf-fans-list">
+                <li>Fans and players are still baffled — they say <strong>about 95% of the calls</strong> somehow landed in Lazer's favor.</li>
+                <li>Aaron's screen had <strong>80-yard touchdown</strong> written all over it — Lazer called holding, and the play came back.</li>
+                <li>The <strong>&ldquo;2-Hand Controversy&rdquo;</strong>: Mookie caught it, Mike ripped it away and took it to the crib for six — Lazer threw a fit and called it a <strong>&ldquo;redo.&rdquo;</strong></li>
+                <li>Lazer even <strong>walked off</strong>, saying he was done playing — then got the call his way anyway.</li>
+              </ul>
+              <p class="bf-fans-close">Talk is talk, though — <strong>he still won, 5&ndash;4.5. The W stands.</strong></p>
+            </div>
           </div>
           <p class="bf-sub">Half a point decided the Bowl. <strong>Mr. Lazer 5, Taylor 4.5</strong> — and Taylor&rsquo;s half point came on a <strong>safety</strong>. <strong>Joshua</strong> owned the night for Mr. Lazer&rsquo;s team — <strong>Player of the Game</strong> with <strong>4 touchdowns, 4 interceptions and over 100 yards</strong> total.</p>
           <div class="bf-deco" aria-hidden="true">❄ ❄ ❄</div>
