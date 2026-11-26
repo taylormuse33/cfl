@@ -178,12 +178,18 @@
     .bf-sub{max-width:620px;margin:16px auto 0;color:#e6eef8;font-size:clamp(13px,1.8vw,15.5px);font-weight:550;line-height:1.6;text-wrap:balance}
     .bf-sub strong{color:#fff}
     .bf-note{margin:10px 0 0;color:#8d9db4;font-size:11px;font-weight:650;letter-spacing:.04em}
-    .bf-fans{position:relative;max-width:620px;margin:16px auto 2px;padding:0;border:2px solid rgba(233,180,76,.8);border-radius:12px;background:linear-gradient(135deg,rgba(200,16,46,.26),rgba(0,0,0,.42) 60%);box-shadow:0 0 28px rgba(233,180,76,.2),0 12px 28px rgba(0,0,0,.4);text-align:left;overflow:hidden}
+    .bf-fans{position:relative;max-width:620px;margin:16px auto 2px;text-align:center}
+    .bf-fans-toggle{display:inline-flex;align-items:center;gap:9px;padding:10px 20px;border:2px solid rgba(233,180,76,.85);border-radius:999px;background:linear-gradient(90deg,#c8102e,#8f0f1d);color:#fff;font-family:inherit;font-size:13px;font-weight:900;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;box-shadow:0 0 24px rgba(200,16,46,.45),0 10px 22px rgba(0,0,0,.4)}
+    .bf-fans-toggle svg{flex:0 0 auto;width:16px;height:16px;fill:var(--gold);filter:drop-shadow(0 0 5px rgba(233,180,76,.7))}
+    .bf-fans-toggle .bf-fans-dot{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#ffd76a;box-shadow:0 0 8px rgba(255,215,106,.9)}
+    .bf-fans-toggle:hover,.bf-fans-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+    .bf-fans-panel{margin-top:12px;border:2px solid rgba(233,180,76,.8);border-radius:12px;background:linear-gradient(135deg,rgba(200,16,46,.26),rgba(0,0,0,.42) 60%);box-shadow:0 0 28px rgba(233,180,76,.2),0 12px 28px rgba(0,0,0,.4);text-align:left;overflow:hidden}
+    .bf-fans-panel[hidden]{display:none}
     .bf-fans-head{display:flex;align-items:center;gap:8px;padding:7px 13px;background:linear-gradient(90deg,#c8102e,#8f0f1d);color:#fff;font-size:10px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
     .bf-fans-head svg{flex:0 0 auto;width:15px;height:15px;fill:var(--gold);filter:drop-shadow(0 0 5px rgba(233,180,76,.7))}
     .bf-fans-head .bf-fans-dot{margin-left:auto;width:8px;height:8px;border-radius:50%;background:#ffd76a;box-shadow:0 0 8px rgba(255,215,106,.9)}
     @media(prefers-reduced-motion:no-preference){
-      .bf-fans-head .bf-fans-dot{animation:bf-alert-blink 1.4s ease-in-out infinite}
+      .bf-fans-head .bf-fans-dot,.bf-fans-toggle .bf-fans-dot{animation:bf-alert-blink 1.4s ease-in-out infinite}
       @keyframes bf-alert-blink{0%,100%{opacity:1}50%{opacity:.25}}
     }
     .bf-fans-body{padding:10px 14px 12px}
@@ -195,6 +201,14 @@
     .bf-fans-list li strong{color:#fff}
     .bf-fans-close{margin:9px 0 0;padding-top:8px;border-top:1px dashed rgba(233,180,76,.45);color:#f2e8d5;font-size:12.5px;font-weight:700;line-height:1.4}
     .bf-fans-close strong{color:var(--gold)}
+    .bf-fans-more-toggle{display:inline-flex;align-items:center;gap:7px;margin-top:11px;padding:7px 15px;border:1px solid rgba(233,180,76,.7);border-radius:999px;background:rgba(233,180,76,.12);color:var(--gold);font-family:inherit;font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;cursor:pointer}
+    .bf-fans-more-toggle:hover,.bf-fans-more-toggle:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+    .bf-fans-more-toggle .bf-fans-more-arrow{font-size:13px;line-height:1;transition:transform .18s ease}
+    .bf-fans-more-toggle[aria-expanded="true"] .bf-fans-more-arrow{transform:rotate(180deg)}
+    .bf-fans-more{margin-top:10px;padding-top:10px;border-top:1px dashed rgba(233,180,76,.45)}
+    .bf-fans-more[hidden]{display:none}
+    .bf-fans-recap{margin:0;color:#f2e8d5;font-size:12.5px;font-weight:550;line-height:1.55}
+    .bf-fans-recap strong{color:#fff}
     .bf-potg{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:640px;margin:18px auto 0}
     .bf-potg span{display:inline-flex;align-items:baseline;gap:7px;padding:9px 14px;border:1px solid rgba(150,200,255,.5);border-radius:999px;background:rgba(0,0,0,.34);color:#e6eef8;font-size:10px;font-weight:900;letter-spacing:.13em;text-transform:uppercase;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
     .bf-potg b{font:400 24px/0.85 "Bebas Neue",sans-serif;letter-spacing:.04em;color:#9fd0ff;text-shadow:0 0 16px rgba(120,190,255,.5)}
@@ -234,6 +248,16 @@
     .scoring-list .sc-pts{flex:0 0 auto;font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;color:var(--gold);white-space:nowrap}
     .scoring-col.taylor .sc-pts{color:#ffa04d}
     .bf-scoring{position:relative;margin:22px clamp(14px,3vw,30px) 0}
+    .bf-scoring-toggle{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:11px 22px;border:2px solid #39ff14;border-radius:999px;background:linear-gradient(180deg,rgba(10,26,6,.92),rgba(4,12,3,.96));color:#e4ffd9;font-family:inherit;font-size:13px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;text-shadow:0 0 8px rgba(57,255,20,.85),0 0 22px rgba(57,255,20,.55);box-shadow:0 0 0 1px rgba(57,255,20,.35),0 0 18px rgba(57,255,20,.55),0 0 44px rgba(57,255,20,.3),inset 0 0 18px rgba(57,255,20,.14),0 14px 30px rgba(0,0,0,.45);-webkit-tap-highlight-color:transparent}
+    .bf-scoring-toggle:hover,.bf-scoring-toggle:focus-visible{outline:2px solid #39ff14;outline-offset:3px}
+    .bf-scoring-toggle .bf-scoring-arrow{color:#39ff14;font-size:15px;line-height:1;text-shadow:0 0 10px rgba(57,255,20,.65);transition:transform .18s ease}
+    .bf-scoring-toggle[aria-expanded="true"] .bf-scoring-arrow{transform:rotate(180deg)}
+    @media(prefers-reduced-motion:no-preference){
+      .bf-scoring-toggle{animation:bf-scoring-pulse 2.2s ease-in-out infinite}
+      @keyframes bf-scoring-pulse{0%,100%{box-shadow:0 0 0 1px rgba(57,255,20,.35),0 0 18px rgba(57,255,20,.55),0 0 44px rgba(57,255,20,.3),inset 0 0 18px rgba(57,255,20,.14),0 14px 30px rgba(0,0,0,.45)}50%{box-shadow:0 0 0 1px rgba(57,255,20,.65),0 0 30px rgba(57,255,20,.9),0 0 68px rgba(57,255,20,.48),inset 0 0 26px rgba(57,255,20,.24),0 14px 30px rgba(0,0,0,.45)}}
+    }
+    .bf-scoring-panel{margin-top:12px}
+    .bf-scoring-panel[hidden]{display:none}
     .sheet-scoring{margin:16px 18px 4px}
     @media(max-width:640px){
       .scoring{grid-template-columns:1fr}
@@ -892,7 +916,13 @@
           <span class="bf-when">Wed · <em>Nov 25</em> · Nutley</span>
         </div>
         <div class="bf-head">
-          <div class="bf-fans" role="note" aria-label="Fan alert: fans and players say the calls kept going Mr. Lazer's way in the Turkey Bowl, but he still won 5 to 4.5 and the win stands">
+          <div class="bf-fans">
+            <button class="bf-fans-toggle" type="button" id="bf-fans-toggle" aria-expanded="false" aria-controls="bf-fans-panel">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm0 6.2 5.9 10.3H6.1L12 8.2zM11 11v4.2h2V11h-2zm0 5.4v2h2v-2h-2z"/></svg>
+              <span>Must Read</span>
+              <span class="bf-fans-dot" aria-hidden="true"></span>
+            </button>
+            <div class="bf-fans-panel" id="bf-fans-panel" role="note" aria-label="Fan alert: fans and players say the calls kept going Mr. Lazer's way in the Turkey Bowl, but he still won 5 to 4.5 and the win stands" hidden>
             <div class="bf-fans-head">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm0 6.2 5.9 10.3H6.1L12 8.2zM11 11v4.2h2V11h-2zm0 5.4v2h2v-2h-2z"/></svg>
               <span>Fan Alert &middot; The Word in Nutley</span>
@@ -907,9 +937,16 @@
                 <li>Lazer even <strong>walked off</strong>, saying he was done playing — then got the call his way anyway.</li>
               </ul>
               <p class="bf-fans-close">Talk is talk, though — <strong>he still won, 5&ndash;4.5. The W stands.</strong></p>
+              <button class="bf-fans-more-toggle" type="button" id="bf-fans-more-toggle" aria-expanded="false" aria-controls="bf-fans-more">
+                <span>Read more</span>
+                <span class="bf-fans-more-arrow" aria-hidden="true">&#9662;</span>
+              </button>
+              <div class="bf-fans-more" id="bf-fans-more" hidden>
+                <p class="bf-fans-recap">Half a point decided the Bowl. <strong>Mr. Lazer 5, Taylor 4.5</strong> — and Taylor&rsquo;s half point came on a <strong>safety</strong>. <strong>Joshua</strong> owned the night for Mr. Lazer&rsquo;s team — <strong>Player of the Game</strong> with <strong>4 touchdowns, 4 interceptions and over 100 yards</strong> total. For Taylor&rsquo;s team, <strong>Aaron</strong> had a great game — <strong>6 receptions for 80 yards and 2 touchdowns</strong> — <strong>Mike</strong> added <strong>7 receptions for over 100 yards</strong>, and <strong>Tank</strong> came up with <strong>2 interceptions</strong> for Taylor&rsquo;s team. At quarterback, <strong>Taylor</strong> threw <strong>4 touchdown passes and 5 interceptions</strong>, with <strong>over 15 completions and over 100 yards passing</strong>. It was a very, very high-intensity game — a lot of arguing, a lot of wasted time — but in the end <strong>Mr. Lazer got his way</strong>, and he also made some <strong>great passes in the end zone</strong> to get his <strong>five points</strong>.</p>
+              </div>
+            </div>
             </div>
           </div>
-          <p class="bf-sub">Half a point decided the Bowl. <strong>Mr. Lazer 5, Taylor 4.5</strong> — and Taylor&rsquo;s half point came on a <strong>safety</strong>. <strong>Joshua</strong> owned the night for Mr. Lazer&rsquo;s team — <strong>Player of the Game</strong> with <strong>4 touchdowns, 4 interceptions and over 100 yards</strong> total. For Taylor&rsquo;s team, <strong>Aaron</strong> had a great game — <strong>6 receptions for 80 yards and 2 touchdowns</strong> — <strong>Mike</strong> added <strong>7 receptions for over 100 yards</strong>, and <strong>Tank</strong> came up with <strong>the interception</strong> for Taylor&rsquo;s team. It was a very, very high-intensity game — a lot of arguing, a lot of wasted time — but in the end <strong>Mr. Lazer got his way</strong>, and he also made some <strong>great passes in the end zone</strong> to get his <strong>five points</strong>.</p>
           <div class="bf-deco" aria-hidden="true">❄ ❄ ❄</div>
           <p class="bf-eyebrow">CFL Turkey Bowl · Week 11 · Under the lights</p>
           <h1 class="bf-title" id="bowl-title">Joshua <span class="bf-accent">Player of the Game</span></h1>
@@ -932,7 +969,11 @@
           <p class="bf-note">The full scoring breakdown is below — every point adds up to the 5–4.5 final.</p>
         </div>
         <div class="bf-scoring">
-          <span class="scoring-tag">Scoring breakdown</span>
+          <button class="bf-scoring-toggle" type="button" id="bf-scoring-toggle" aria-expanded="false" aria-controls="bf-scoring-panel">
+            <span>Scoring Breakdown</span>
+            <span class="bf-scoring-arrow" aria-hidden="true">&#9662;</span>
+          </button>
+          <div class="bf-scoring-panel" id="bf-scoring-panel" hidden>
           <div class="scoring">
             <div class="scoring-col lazer">
               <div class="scoring-head"><span class="scoring-team">Mr. Lazer&rsquo;s team</span><span class="scoring-total">5 pts</span></div>
@@ -950,6 +991,7 @@
                 <li><span>Taylor &mdash; safety</span><span class="sc-pts">0.5</span></li>
               </ul>
             </div>
+          </div>
           </div>
         </div>
         <div class="bf-play">
@@ -1754,10 +1796,10 @@
           <div class="stat"><span class="stat-name">Joshua</span><span class="stat-copy"><strong>Player of the Game</strong> · 4 touchdowns · 4 interceptions · over 100 yards · Mr.Lazer&rsquo;s team</span></div>
           <div class="stat"><span class="stat-name">Aaron</span><span class="stat-copy"><strong>Honorable Mention of the Game</strong> · 6 receptions · 80 yards · 2 touchdowns · Taylor&rsquo;s team</span></div>
           <div class="stat"><span class="stat-name">Mike</span><span class="stat-copy"><strong>7 receptions</strong> · over 100 yards · Taylor&rsquo;s team</span></div>
-          <div class="stat"><span class="stat-name">Tank</span><span class="stat-copy"><strong>1 interception</strong> · Taylor&rsquo;s team</span></div>
+          <div class="stat"><span class="stat-name">Tank</span><span class="stat-copy"><strong>2 interceptions</strong> · Taylor&rsquo;s team</span></div>
           <div class="stat"><span class="stat-name">Mookie</span><span class="stat-copy"><strong>Defensive Play of the Game</strong> · one-handed swat at the 4-yard line on the last drive · also grabbed a fumble · Mr.Lazer&rsquo;s team</span></div>
           <div class="stat"><span class="stat-name">Josh</span><span class="stat-copy"><strong>Key defensive play early</strong> · tipped the ball to stop an 80-yard touchdown · Mr.Lazer&rsquo;s team</span></div>
-          <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>Threw 5 interceptions</strong> · Joshua had 4 of them · caused the safety that scored the half point</span></div>
+          <div class="stat"><span class="stat-name">Taylor</span><span class="stat-copy"><strong>QB</strong> · 4 touchdown passes · 5 interceptions thrown · over 15 completions · over 100 yards passing · Joshua had 4 of them · caused the safety that scored the half point</span></div>
           <div class="stat"><span class="stat-name">Mr.Lazer</span><span class="stat-copy"><strong>Captain (QB)</strong> · Turkey Bowl winner</span></div>
         </div>
       </section>
@@ -2130,6 +2172,36 @@
       if (targetY > 0) {
         requestAnimationFrame(() => {
           requestAnimationFrame(() => window.scrollTo(0, targetY));
+        });
+      }
+    })();
+  </script>
+  <script>
+    (() => {
+      const toggle = document.getElementById('bf-fans-toggle');
+      const panel = document.getElementById('bf-fans-panel');
+      if (!toggle || !panel) return;
+      toggle.addEventListener('click', () => {
+        const open = panel.hidden;
+        panel.hidden = !open;
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      const moreToggle = document.getElementById('bf-fans-more-toggle');
+      const more = document.getElementById('bf-fans-more');
+      if (moreToggle && more) {
+        moreToggle.addEventListener('click', () => {
+          const open = more.hidden;
+          more.hidden = !open;
+          moreToggle.setAttribute('aria-expanded', String(open));
+        });
+      }
+      const scoringToggle = document.getElementById('bf-scoring-toggle');
+      const scoringPanel = document.getElementById('bf-scoring-panel');
+      if (scoringToggle && scoringPanel) {
+        scoringToggle.addEventListener('click', () => {
+          const open = scoringPanel.hidden;
+          scoringPanel.hidden = !open;
+          scoringToggle.setAttribute('aria-expanded', String(open));
         });
       }
     })();
